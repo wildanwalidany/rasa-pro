@@ -3,22 +3,22 @@ version: "3.1"
 stories:
 - story: greeting and nutrition info
   steps:
-  - intent: greet
-  - action: utter_greet
+  - intent: greeting
+  - action: utter_greeting
   - intent: tanya_info_gizi_produk
-  - action: utter_default
+  - action: utter_tanya_info_gizi_produk
 
 - story: greeting and daily calories
   steps:
-  - intent: greet
-  - action: utter_greet
+  - intent: greeting
+  - action: utter_greeting
   - intent: tanya_kalori_harian
-  - action: utter_default
+  - action: utter_tanya_kalori_harian
 
 - story: food recommendation
   steps:
   - intent: tanya_rekomendasi_makanan
-  - action: utter_default
+  - action: utter_tanya_rekomendasi_makanan
 
 - story: simple goodbye
   steps:

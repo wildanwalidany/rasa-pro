@@ -1,0 +1,818 @@
+version: "3.1"
+
+nlu:
+# ===================================================================
+# GREETING INTENT (50+ examples)
+# ===================================================================
+- intent: greeting
+  examples: |
+    - Hai
+    - Halo
+    - Selamat pagi
+    - Selamat siang
+    - Selamat sore
+    - Selamat malam
+    - Assalamualaikum
+    - Apa kabar
+    - Pagi
+    - Siang
+    - Sore
+    - Malam
+    - Halo bot
+    - Hai asisten
+    - Hai gizi bot
+    - Halo gizi
+    - Hai teman
+    - Selamat datang
+    - Halo, apa kabar
+    - Hai, selamat pagi
+    - Halo, sehat?
+    - Halo, gimana kabarnya
+    - Halo, apa bisa bantu saya
+    - Hai, boleh tanya
+    - Hai, saya mau info
+    - Halo, salam kenal
+    - Pagi asisten
+    - Selamat siang bot
+    - Hai teman sehat
+    - Halo, bisa cek gizi
+    - Hai, selamat siang
+    - Halo sahabat
+    - Selamat sore asisten
+    - Halo, ada info gizi
+    - Hai, kabar baik?
+    - Halo, saya ingin tahu
+    - Hai, boleh nanya?
+    - Halo, gimana caranya cek gizi
+    - Halo, saya butuh bantuan
+    - Hai, ada info makanan sehat?
+    - Halo, bisa hitung kalori?
+    - Halo, saya lapar
+    - Hai, ada rekomendasi makanan?
+    - Hai, gimana cara cek kalori
+    - Halo, saya ingin coba bot ini
+    - Hai, tolong cek gizi produk
+    - Halo, ada informasi kesehatan?
+    - Hai, bantu cek makanan ini
+    - Halo, bisa bantu saya?
+    - Hai gizi asisten
+    - Halo nutritionist
+
+# ===================================================================
+# LEGACY GREET (compatibility)
+# ===================================================================
+- intent: greet
+  examples: |
+    - halo
+    - hai
+    - hi
+    - good morning
+    - selamat pagi
+    - pagi
+
+# ===================================================================
+# GOODBYE INTENT (50+ examples)
+# ===================================================================
+- intent: goodbye
+  examples: |
+    - Dadah
+    - Bye
+    - Sampai jumpa
+    - Terima kasih, sudah cukup
+    - Oke, saya pamit
+    - Sudah dulu ya
+    - Saya keluar
+    - See you
+    - Makasih ya
+    - Udahan dulu
+    - Dah
+    - Bye bye
+    - Ok, terima kasih
+    - Cukup dulu
+    - Selesai
+    - Pamit dulu
+    - Aku keluar
+    - Nanti lagi
+    - Sampai ketemu
+    - Terima kasih banyak
+    - Thanks
+    - Udah cukup
+    - Nanti sambung lagi
+    - Ok selesai
+    - Stop dulu
+    - Sampai jumpa lagi
+    - Oke, bye
+    - Udah, makasih
+    - Tutup dulu
+    - Saya udahan
+    - Sampai ketemu lagi
+    - Sampai besok
+    - Dah ya
+    - Baik, saya pergi
+    - Aku udahan
+    - Oke cukup
+    - Saya sudahi
+    - Terima kasih, sampai ketemu
+    - Bye bot
+    - Makasih asisten
+    - Ok, sampai jumpa
+    - Saya pamit ya
+    - Udah dulu
+    - Ok saya keluar
+    - Terima kasih banyak bot
+    - Dah, sehat selalu
+    - Ok, udah cukup
+    - Stop disini
+    - Terima kasih, bye
+    - Bye bye, makasih
+
+# ===================================================================
+# TANYA GIZI INTENT (50+ examples)
+# ===================================================================
+- intent: tanya_gizi
+  examples: |
+    - Apa itu gizi seimbang?
+    - Mengapa saya perlu makan sayur?
+    - Bagaimana cara mencukupi kebutuhan protein?
+    - Apa manfaat buah untuk kesehatan?
+    - Makanan apa yang tinggi kalsium?
+    - Berapa kalori yang saya butuhkan per hari?
+    - Apa saja zat gizi yang diperlukan tubuh?
+    - Bagaimana cara menghitung kebutuhan kalori?
+    - Apa fungsi vitamin C?
+    - Makanan apa yang mengandung protein tinggi?
+    - Kenapa harus makan beragam?
+    - Apa itu makanan 4 sehat 5 sempurna?
+    - Pentingnya sarapan pagi
+    - Manfaat minum air putih
+    - Apa itu antioksidan?
+    - Fungsi karbohidrat dalam tubuh
+    - Pentingnya serat untuk pencernaan
+    - Apa itu lemak baik dan lemak jahat?
+    - Manfaat omega 3
+    - Pentingnya vitamin D
+    - Apa itu probiotik?
+    - Fungsi mineral dalam tubuh
+    - Bahaya kekurangan zat besi
+    - Manfaat vitamin A untuk mata
+    - Apa itu indeks glikemik?
+    - Pentingnya asam folat
+    - Fungsi protein dalam tubuh
+    - Apa itu kolesterol jahat?
+    - Manfaat magnesium
+    - Pentingnya zinc untuk imun
+    - Apa itu trans fat?
+    - Fungsi vitamin B kompleks
+    - Bahaya kelebihan natrium
+    - Manfaat kalsium untuk tulang
+    - Apa itu metabolisme?
+    - Pentingnya enzim pencernaan
+    - Fungsi lemak dalam tubuh
+    - Apa itu gluten?
+    - Manfaat potasium
+    - Pentingnya hidrasi
+    - Apa itu nutrisi makro?
+    - Fungsi vitamin E
+    - Bahaya radikal bebas
+    - Manfaat selenium
+    - Apa itu asam amino esensial?
+    - Pentingnya chromium
+    - Fungsi fosfor dalam tubuh
+    - Apa itu fitokimia?
+    - Manfaat beta karoten
+    - Pentingnya gizi seimbang
+
+# ===================================================================
+# KONSULTASI MAKANAN INTENT (50+ examples)
+# ===================================================================
+- intent: konsultasi_makanan
+  examples: |
+    - Saya ingin konsultasi makanan sehat
+    - Makanan apa yang cocok untuk diet?
+    - Tolong rekomendasikan sarapan sehat
+    - Menu makan siang bergizi apa?
+    - Apa rekomendasi cemilan sehat?
+    - Bagaimana cara membuat menu diet?
+    - Makanan apa yang baik untuk penderita diabetes?
+    - Rekomendasi menu untuk anak?
+    - Makanan apa yang baik untuk ibu hamil?
+    - Bagaimana cara menambah berat badan sehat?
+    - Menu sehat untuk menurunkan kolesterol
+    - Makanan untuk penderita maag
+    - Diet sehat untuk penderita hipertensi
+    - Makanan sehat untuk lansia
+    - Konsultasi gizi untuk anak
+    - Menu sehat untuk vegetarian
+    - Konsultasi diet untuk atlet
+    - Makanan sehat untuk ibu menyusui
+    - Konsultasi gizi balita
+    - Menu diet rendah garam
+    - Saya butuh saran menu sehat
+    - Tolong bantu susun menu diet
+    - Konsultasi pola makan sehat
+    - Bagaimana diet yang benar?
+    - Saran makanan untuk kesehatan jantung
+    - Menu sehat untuk pekerja malam
+    - Konsultasi gizi untuk diabetes
+    - Saran diet untuk kolesterol tinggi
+    - Menu sehat untuk remaja
+    - Konsultasi makanan untuk hipertensi
+    - Saran diet sehat harian
+    - Menu sehat untuk keluarga
+    - Konsultasi gizi untuk lansia
+    - Saran makanan bergizi
+    - Menu diet untuk menurunkan berat badan
+    - Konsultasi pola makan anak
+    - Saran menu sehat murah
+    - Menu diet untuk menambah massa otot
+    - Konsultasi gizi ibu hamil
+    - Saran makanan untuk stamina
+    - Menu sehat untuk penderita asam urat
+    - Konsultasi diet vegetarian
+    - Saran makanan anti inflamasi
+    - Menu sehat untuk pencernaan
+    - Konsultasi gizi untuk atlet
+    - Saran diet mediterania
+    - Menu sehat untuk detox
+    - Konsultasi makanan organik
+    - Saran diet rendah karbohidrat
+    - Menu sehat untuk imunitas
+
+# ===================================================================
+# CEK PRODUK INTENT (50+ examples)
+# ===================================================================
+- intent: cek_produk
+  examples: |
+    - Cek gizi produk ini
+    - Tolong cek kalori makanan ini
+    - Berapa kalori dalam produk ini?
+    - Apa kandungan gizi produk ini?
+    - Cek nutrisi makanan ini
+    - Tolong analisis gizi produk ini
+    - Berapa protein dalam makanan ini?
+    - Cek kandungan lemak produk ini
+    - Apa saja nutrisi dalam makanan ini?
+    - Tolong hitung kalori produk ini
+    - Analisis gizi makanan
+    - Cek nilai gizi
+    - Periksa kandungan nutrisi
+    - Evaluasi gizi produk
+    - Bandingkan gizi produk
+    - Analisis produk makanan ini
+    - Cek info nutrisi
+    - Periksa kandungan kalori
+    - Evaluasi nilai gizi
+    - Analisis kandungan gizi
+    - Cek komposisi nutrisi
+    - Periksa label gizi
+    - Evaluasi produk sehat
+    - Analisis makanan kemasan
+    - Cek kandungan gula
+    - Periksa kadar lemak
+    - Evaluasi protein produk
+    - Analisis vitamin produk
+    - Cek mineral makanan
+    - Periksa serat produk
+    - Evaluasi kalori harian
+    - Analisis dampak kesehatan
+    - Cek kualitas gizi
+    - Periksa standar nutrisi
+    - Evaluasi keamanan produk
+    - Analisis bahan makanan
+    - Cek aditif makanan
+    - Periksa pengawet produk
+    - Evaluasi pewarna makanan
+    - Analisis MSG produk
+    - Cek sodium makanan
+    - Periksa kolesterol produk
+    - Evaluasi trans fat
+    - Analisis indeks glikemik
+    - Cek allergen produk
+    - Periksa gluten makanan
+    - Evaluasi lactose produk
+    - Analisis kemasan makanan
+    - Cek tanggal kedaluwarsa
+    - Periksa sertifikasi halal
+
+# ===================================================================
+# TANYA INFO GIZI PRODUK INTENT (80+ examples)
+# ===================================================================
+- intent: tanya_info_gizi_produk
+  examples: |
+    - Berapa kalori dalam [Teh Botol Sosro](produk_makanan)?
+    - Info gizi [Ultra Milk Strawberry](produk_makanan) 200 ml
+    - Apa kandungan gizi [Aqua](produk_makanan) 600 ml?
+    - Berapa kalori [Pop Mie Rasa Ayam](produk_makanan)?
+    - Tolong cek info gizi [Indomie Goreng](produk_makanan)
+    - Informasi gizi [Coca Cola](produk_makanan) 250 ml
+    - Kandungan gizi [Silverqueen](produk_makanan) 25g
+    - Apakah [Oreo](produk_makanan) mengandung banyak kalori?
+    - Gizi [Nutrisari Jeruk](produk_makanan) 1 sachet
+    - Apa isi gizi [Yakult](produk_makanan)?
+    - Kalori [Chitato](produk_makanan) 68 gram
+    - Gizi [Good Day Cappuccino](produk_makanan)
+    - Info [Fruit Tea Apel](produk_makanan) 350 ml
+    - Kandungan [Aqua Reflections](produk_makanan)
+    - Info [Frestea Green Tea](produk_makanan) 500 ml
+    - Kalori [KFC Chicken](produk_makanan) 1 potong
+    - Nutrisi [Burger McD](produk_makanan)
+    - Kalori [Pizza Hut](produk_makanan) ukuran kecil
+    - Info [Popcorn](produk_makanan) 50g
+    - Kalori [Sari Roti Coklat](produk_makanan)
+    - Nutrisi [Dancow Fortigro](produk_makanan) 200 ml
+    - Kalori [Es Teh Pucuk](produk_makanan) 350 ml
+    - Gizi [Fanta](produk_makanan) 250 ml
+    - Info [Sprite](produk_makanan) botol kecil
+    - Kalori [Yakult Light](produk_makanan)
+    - Gizi [Beng Beng](produk_makanan) 20g
+    - Kalori [Energen](produk_makanan) 1 sachet
+    - Info [Biskuat](produk_makanan) mini
+    - Nutrisi [Pringles](produk_makanan) 42 gram
+    - Kalori [Pocari Sweat](produk_makanan) 350 ml
+    - Info [Teh Gelas](produk_makanan) 350 ml
+    - Nutrisi [Teh Kotak Jasmine](produk_makanan)
+    - Kalori [Bear Brand](produk_makanan) 189 ml
+    - Info [Milo UHT](produk_makanan) 200 ml
+    - Nutrisi [Nutriboost Coklat](produk_makanan)
+    - Kalori [Cimory Yogurt Drink](produk_makanan)
+    - Info [Fruit Tea Lemon](produk_makanan) 350 ml
+    - Nutrisi [Mizone](produk_makanan) 500 ml
+    - Info [Floridina](produk_makanan) 350 ml
+    - Nutrisi [Indomilk Kids](produk_makanan) 115 ml
+    - berapa kalori [nasi putih](produk_makanan)
+    - info gizi [telur ayam](produk_makanan)
+    - kandungan [daging sapi](produk_makanan)
+    - kalori [ikan salmon](produk_makanan)
+    - gizi [tempe](produk_makanan) 100g
+    - info [tahu](produk_makanan) per potong
+    - nutrisi [bayam](produk_makanan) segar
+    - kalori [brokoli](produk_makanan) rebus
+    - kandungan [wortel](produk_makanan) mentah
+    - info gizi [pisang](produk_makanan) 1 buah
+    - kalori [apel](produk_makanan) sedang
+    - nutrisi [jeruk](produk_makanan) manis
+    - gizi [alpukat](produk_makanan) setengah buah
+    - info [susu](produk_makanan) sapi segar
+    - kalori [roti tawar](produk_makanan) 2 lembar
+    - kandungan [pasta](produk_makanan) gandum
+    - nutrisi [kentang](produk_makanan) panggang
+    - gizi [ubi jalar](produk_makanan) rebus
+    - info kalori [oatmeal](produk_makanan)
+    - kandungan gizi [quinoa](produk_makanan)
+    - nutrisi [kacang almond](produk_makanan)
+    - kalori [yogurt](produk_makanan) greek
+    - gizi [keju](produk_makanan) cheddar
+    - info [madu](produk_makanan) murni
+    - kandungan [olive oil](produk_makanan)
+    - nutrisi [dark chocolate](produk_makanan) 70%
+    - kalori [green tea](produk_makanan) tanpa gula
+    - gizi [kopi](produk_makanan) hitam
+    - info nutrisi [air kelapa](produk_makanan)
+    - kandungan [jus jeruk](produk_makanan) segar
+    - kalori [smoothie](produk_makanan) buah
+    - gizi [salad](produk_makanan) sayuran
+    - nutrisi [sandwich](produk_makanan) tuna
+    - info kalori [sushi](produk_makanan) salmon
+    - kandungan [kimchi](produk_makanan) korea
+    - gizi [hummus](produk_makanan) tahini
+    - nutrisi [granola](produk_makanan) homemade
+    - kalori [protein bar](produk_makanan)
+    - info gizi [kombucha](produk_makanan)
+    - kandungan [spirulina](produk_makanan) powder
+    - nutrisi [chia seeds](produk_makanan)
+    - gizi [flax seeds](produk_makanan)
+    - kalori [coconut oil](produk_makanan)
+
+# ===================================================================
+# TANYA KALORI HARIAN INTENT (60+ examples)
+# ===================================================================
+- intent: tanya_kalori_harian
+  examples: |
+    - Berapa kebutuhan kalori saya per hari?
+    - Hitung kebutuhan kalori harian
+    - Wanita butuh berapa kalori?
+    - Pria dewasa perlu berapa energi?
+    - Kalori untuk [anak](kategori_orang) usia 10 tahun
+    - Kalori [remaja](kategori_orang) berapa?
+    - Berapa kalori orang obesitas?
+    - Kalori [ibu hamil](kategori_orang)
+    - Kalori untuk orang diet
+    - Kalori [bayi](kategori_orang) 1 tahun
+    - Kalori orang tua
+    - Kalori untuk [atlet](kategori_orang)
+    - Kalori saat puasa
+    - Kalori [ibu menyusui](kategori_orang)
+    - Kalori [mahasiswa](kategori_orang)
+    - Kalori karyawan kantor
+    - Kalori pekerja lapangan
+    - Kalori [anak sekolah](kategori_orang)
+    - Kalori [lansia](kategori_orang)
+    - Kalori [remaja putri](kategori_orang)
+    - Kalori [remaja pria](kategori_orang)
+    - Kalori pria aktif
+    - Kalori wanita aktif
+    - Kalori pekerja ringan
+    - Kalori pekerja berat
+    - Kalori ibu rumah tangga
+    - Kalori [balita](kategori_orang)
+    - Kalori anak smp
+    - Kalori anak sma
+    - Kalori pasien diabetes
+    - Kalori pasien hipertensi
+    - Kalori pasien jantung
+    - Kalori orang kurus
+    - Kalori orang gemuk
+    - Kalori diet rendah karbo
+    - Kalori diet tinggi protein
+    - Kalori pelari
+    - Kalori pesepeda
+    - Kalori perenang
+    - Kalori pegawai bank
+    - Kalori programmer
+    - Kalori dosen
+    - Kalori guru
+    - Kalori dokter
+    - Kalori perawat
+    - Kalori sopir
+    - Kalori petani
+    - Kalori nelayan
+    - Kalori pekerja bangunan
+    - Kalori tentara
+    - Kebutuhan energi harian wanita 25 tahun
+    - Kalori yang dibutuhkan pria 30 tahun
+    - Berapa kalori untuk menurunkan berat badan?
+    - Kebutuhan kalori untuk menambah berat badan
+    - Kalori harian untuk maintenance weight
+    - Berapa kalori saat cutting?
+    - Kebutuhan energi saat bulking
+    - Kalori untuk diet defisit
+    - Berapa kalori surplus untuk masa otot?
+    - Kebutuhan kalori saat sakit
+
+# ===================================================================
+# TANYA REKOMENDASI MAKANAN INTENT (70+ examples)
+# ===================================================================
+- intent: tanya_rekomendasi_makanan
+  examples: |
+    - Apa rekomendasi makanan sehat hari ini?
+    - Menu makan siang sehat
+    - Sarapan sehat apa ya?
+    - Camilan sehat sore
+    - Makanan sehat malam hari
+    - Rekomendasi makanan untuk diet
+    - Makanan sehat untuk [anak sekolah](kategori_orang)
+    - Menu sehat untuk [ibu hamil](kategori_orang)
+    - Apa makanan sehat untuk [remaja](kategori_orang)?
+    - Rekomendasi makanan [vegetarian](jenis_diet)
+    - Makanan sehat untuk [vegan](jenis_diet)
+    - Menu sehat untuk [lansia](kategori_orang)
+    - Rekomendasi makanan rendah gula
+    - Makanan rendah garam
+    - Makanan rendah lemak
+    - Makanan tinggi protein sehat
+    - Rekomendasi makanan tinggi serat
+    - Makanan sehat untuk penderita diabetes
+    - Makanan sehat untuk hipertensi
+    - Makanan sehat untuk jantung
+    - Menu sehat untuk sarapan anak
+    - Makanan sehat saat sahur
+    - Makanan sehat saat berbuka puasa
+    - Rekomendasi makanan untuk [pekerja kantoran](kategori_orang)
+    - Menu sehat untuk [mahasiswa](kategori_orang)
+    - Makanan sehat untuk anak kos
+    - Rekomendasi makanan untuk [atlet](kategori_orang)
+    - Makanan sehat untuk diet [keto](jenis_diet)
+    - Makanan sehat untuk diet rendah karbo
+    - Makanan sehat untuk diet tinggi protein
+    - Rekomendasi makanan [vegetarian](jenis_diet) sehat
+    - Menu sehat rendah kalori
+    - Makanan sehat tinggi vitamin C
+    - Makanan sehat tinggi kalsium
+    - Makanan sehat tinggi zat besi
+    - Makanan sehat untuk diet [mediterania](jenis_diet)
+    - Rekomendasi makanan tradisional sehat
+    - Makanan sehat untuk camilan malam
+    - Rekomendasi makanan lokal bergizi
+    - Makanan sehat untuk meningkatkan imun
+    - Rekomendasi makanan untuk diet [DASH](jenis_diet)
+    - Makanan sehat untuk menurunkan berat badan
+    - Makanan sehat untuk menambah berat badan
+    - Rekomendasi makanan untuk stamina
+    - Makanan sehat untuk otot
+    - Menu sehat untuk vegetarian pemula
+    - Makanan sehat untuk vegan pemula
+    - Camilan sehat untuk anak
+    - Camilan sehat untuk remaja
+    - Camilan sehat untuk orang dewasa
+    - Makanan sehat anti inflamasi
+    - Rekomendasi superfood Indonesia
+    - Menu sehat untuk detoksifikasi
+    - Makanan sehat untuk pencernaan
+    - Rekomendasi makanan fermentasi
+    - Menu sehat untuk kolesterol tinggi
+    - Makanan sehat untuk asam urat
+    - Rekomendasi makanan untuk anemia
+    - Menu sehat untuk osteoporosis
+    - Makanan sehat untuk kulit glowing
+    - Rekomendasi makanan untuk memori
+    - Menu sehat untuk mood booster
+    - Makanan sehat untuk energy
+    - Rekomendasi makanan untuk recovery
+    - Menu sehat untuk anti aging
+    - Makanan sehat untuk hormon balance
+    - Rekomendasi makanan untuk tidur nyenyak
+    - Menu sehat untuk mengatasi stress
+    - Makanan sehat untuk fokus kerja
+    - Rekomendasi makanan untuk exam
+    - Menu sehat untuk traveling
+
+# ===================================================================
+# TANYA KANDUNGAN ZAT INTENT (50+ examples)
+# ===================================================================
+- intent: tanya_kandungan_zat
+  examples: |
+    - Berapa kandungan [gula](kandungan_gizi) dalam Coca Cola?
+    - [Garam](kandungan_gizi) pada Indomie Goreng berapa?
+    - [Lemak](kandungan_gizi) dalam Silverqueen?
+    - [Protein](kandungan_gizi) dalam Ultra Milk?
+    - [Karbohidrat](kandungan_gizi) Pop Mie berapa?
+    - Kandungan [vitamin C](kandungan_gizi) di Nutrisari?
+    - Berapa [natrium](kandungan_gizi) di Chitato?
+    - [Gula](kandungan_gizi) dalam Teh Botol Sosro
+    - [Lemak trans](kandungan_gizi) dalam margarin ada berapa?
+    - [Protein](kandungan_gizi) dalam telur ayam
+    - [Serat](kandungan_gizi) dalam pisang
+    - [Gula](kandungan_gizi) di Yakult
+    - [Kalsium](kandungan_gizi) dalam susu sapi
+    - [Vitamin A](kandungan_gizi) dalam wortel
+    - [Zat besi](kandungan_gizi) pada bayam
+    - [Karbohidrat](kandungan_gizi) nasi putih
+    - [Lemak](kandungan_gizi) pada ayam goreng
+    - [Protein](kandungan_gizi) tahu
+    - [Protein](kandungan_gizi) tempe
+    - [Gula](kandungan_gizi) dalam donat
+    - [Gula](kandungan_gizi) Good Day Cappuccino
+    - [Garam](kandungan_gizi) dalam kerupuk
+    - [Protein](kandungan_gizi) ikan salmon
+    - [Omega-3](kandungan_gizi) pada ikan tuna
+    - [Serat](kandungan_gizi) apel
+    - [Gula](kandungan_gizi) dalam Fanta
+    - [Gula](kandungan_gizi) Sprite 250 ml
+    - [Garam](kandungan_gizi) Indomie Kari Ayam
+    - [Karbohidrat](kandungan_gizi) kentang rebus
+    - [Gula](kandungan_gizi) dalam boba milk tea
+    - [Kalium](kandungan_gizi) dalam pisang
+    - [Vitamin C](kandungan_gizi) jeruk
+    - [Vitamin D](kandungan_gizi) dalam susu UHT
+    - [Protein](kandungan_gizi) dalam daging sapi
+    - [Gula](kandungan_gizi) dalam teh manis
+    - [Serat](kandungan_gizi) dalam brokoli
+    - [Zat besi](kandungan_gizi) hati ayam
+    - [Protein](kandungan_gizi) susu kedelai
+    - [Gula](kandungan_gizi) dalam Nutella
+    - [Lemak](kandungan_gizi) dalam pizza
+    - [Garam](kandungan_gizi) dalam mie instan kuah
+    - [Protein](kandungan_gizi) dalam kacang almond
+    - [Lemak sehat](kandungan_gizi) alpukat
+    - [Gula](kandungan_gizi) dalam coklat batang
+    - [Karbohidrat](kandungan_gizi) roti tawar
+    - [Serat](kandungan_gizi) oatmeal
+    - [Vitamin B12](kandungan_gizi) daging sapi
+    - [Protein](kandungan_gizi) ikan lele
+    - [Gula](kandungan_gizi) Floridina 350 ml
+    - [Garam](kandungan_gizi) pada keripik singkong
+
+# ===================================================================
+# OTHER INTENTS (remaining intents with examples)
+# ===================================================================
+
+- intent: tanya_porsi_makan
+  examples: |
+    - Porsi nasi sehat untuk makan siang
+    - Porsi ayam goreng sekali makan
+    - Porsi sayur harian
+    - Porsi buah sehari
+    - Porsi susu untuk anak
+    - Porsi nasi merah per makan
+    - Porsi tempe sehat
+    - Porsi tahu yang baik
+    - Porsi ikan sehari
+    - Porsi daging sapi sekali makan
+    - Porsi telur sehat
+    - Porsi roti tawar sarapan
+    - Porsi kentang rebus
+    - Porsi mie instan sekali makan
+    - Porsi camilan sehat
+    - Porsi keju sehat
+    - Porsi yoghurt sehat
+    - Porsi jus buah sehat
+    - Porsi sayur di piring makan
+    - Porsi nasi di piring makan
+
+- intent: tanya_label_gizi
+  examples: |
+    - Bagaimana cara membaca label gizi?
+    - Apa arti %AKG di label gizi?
+    - Apa itu takaran saji?
+    - Dimana lihat kalori di label?
+    - Apa arti lemak trans di label?
+    - Cara tahu kandungan gula dari label
+    - Apa itu kalori kosong di label?
+    - Apa maksud energi total?
+    - Bagaimana tahu kandungan protein?
+    - Apa itu natrium di label gizi?
+    - Arti lemak jenuh di label
+    - Cara tahu vitamin dari label
+    - Apa arti klaim rendah gula?
+    - Apa arti klaim bebas kolesterol?
+    - Apa maksud tinggi serat?
+
+- intent: tanya_makanan_diet
+  examples: |
+    - Makanan untuk diet rendah garam
+    - Diet rendah gula cocok makan apa?
+    - Diet rendah lemak makan apa?
+    - Diet tinggi protein makan apa?
+    - Diet [keto](jenis_diet) makan apa?
+    - Diet [vegetarian](jenis_diet) makan apa?
+    - Diet [vegan](jenis_diet) makan apa?
+    - Diet [mediterania](jenis_diet) makan apa?
+    - Diet [DASH](jenis_diet) makan apa?
+    - Diet untuk penderita diabetes
+    - Diet untuk penderita hipertensi
+    - Diet untuk penderita kolesterol
+    - Diet untuk menurunkan berat badan
+    - Diet untuk menambah berat badan
+    - Diet untuk otot
+
+- intent: tanya_efek_kesehatan
+  examples: |
+    - Apa efek minum kopi berlebihan?
+    - Bahaya konsumsi gula berlebih
+    - Efek terlalu banyak garam
+    - Efek kekurangan protein
+    - Efek kurang vitamin C
+    - Efek kebanyakan mie instan
+    - Bahaya minum boba tiap hari
+    - Efek kurang minum air
+    - Efek kebanyakan gorengan
+    - Efek terlalu banyak fast food
+    - Efek makan junk food sering
+    - Efek terlalu banyak kafein
+    - Efek merokok
+    - Efek minum alkohol
+    - Efek makan terlalu asin
+
+- intent: tanya_alternatif_makanan
+  examples: |
+    - Apa pengganti nasi putih?
+    - Alternatif gula pasir apa ya?
+    - Apa pengganti susu sapi?
+    - Pengganti mie instan yang sehat
+    - Alternatif camilan manis
+    - Ganti nasi jadi apa untuk diet?
+    - Alternatif minuman bersoda
+    - Apa pengganti gorengan sehat?
+    - Camilan rendah kalori apa?
+    - Alternatif susu untuk vegan
+    - Ganti es krim pakai apa?
+    - Alternatif mie goreng
+    - Ganti keripik apa ya?
+    - Pengganti snack manis
+    - Alternatif minuman energi
+
+- intent: tanya_waktu_makan
+  examples: |
+    - Kapan waktu terbaik sarapan?
+    - Jam berapa makan siang sehat?
+    - Jam berapa sebaiknya makan malam?
+    - Kapan waktu minum susu?
+    - Kapan waktu minum kopi yang baik?
+    - Kapan minum teh yang sehat?
+    - Waktu ngemil sehat
+    - Jam makan sehat untuk diet
+    - Kapan sebaiknya sahur?
+    - Kapan sebaiknya berbuka puasa?
+    - Kapan waktu minum air putih?
+    - Waktu olahraga sebelum makan
+    - Waktu olahraga setelah makan
+    - Kapan waktu minum vitamin?
+    - Waktu makan sehat untuk anak
+
+- intent: tanya_tips_hidup_sehat
+  examples: |
+    - Tips hidup sehat apa saja?
+    - Bagaimana cara menjaga kesehatan?
+    - Tips diet sehat
+    - Bagaimana cara menjaga berat badan ideal?
+    - Tips menjaga imun tubuh
+    - Tips makan sehat sehari-hari
+    - Tips olahraga untuk pemula
+    - Tips tidur yang sehat
+    - Tips mengurangi stres
+    - Tips pola makan sehat di kantor
+    - Tips menjaga kesehatan jantung
+    - Tips menjaga kesehatan otak
+    - Tips menjaga kesehatan mata
+    - Tips menjaga kesehatan tulang
+    - Tips menjaga kesehatan kulit
+
+# ===================================================================
+# LEGACY INTENTS (for compatibility)
+# ===================================================================
+
+- intent: provide_name
+  examples: |
+    - nama saya [John](name)
+    - saya [Alice](name)
+    - [Mike](name)
+    - panggil saya [Sarah](name)
+
+- intent: provide_email
+  examples: |
+    - email saya [test@email.com](email)
+    - alamat email [user@domain.com](email)
+
+- intent: mood_great
+  examples: |
+    - bagus
+    - hebat
+    - fantastis
+    - luar biasa
+    - sempurna
+
+- intent: mood_unhappy
+  examples: |
+    - sedih
+    - buruk
+    - tidak baik
+    - kecewa
+    - lelah
+
+- intent: bot_challenge
+  examples: |
+    - apakah kamu bot?
+    - kamu robot?
+    - are you a bot?
+    - are you human?
+
+- intent: user_regist
+  examples: |
+    - daftar
+    - registrasi
+    - sign up
+    - buat akun
+
+- intent: show_info
+  examples: |
+    - tampilkan info
+    - lihat data
+    - show my info
+    - info saya
+
+# ===================================================================
+# BASIC INTENTS
+# ===================================================================
+
+- intent: affirm
+  examples: |
+    - ya
+    - iya
+    - benar
+    - betul
+    - oke
+    - ok
+    - setuju
+    - baik
+    - lanjut
+    - silakan
+    - tentu
+
+- intent: deny
+  examples: |
+    - tidak
+    - bukan
+    - salah
+    - tidak setuju
+    - jangan
+    - stop
+    - batal
+    - skip
+
+- intent: out_of_scope
+  examples: |
+    - cuaca hari ini
+    - harga saham
+    - berita politik
+    - cara main game
+    - resep masakan non-gizi
+    - film terbaru
+    - musik populer
+    - jadwal kereta api
+    - ramalan cuaca
+    - cara belajar bahasa
+    - tempat wisata
+    - harga motor
+    - tutorial makeup
+    - tips investasi
+    - cara membuat blog

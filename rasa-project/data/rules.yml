@@ -6,7 +6,7 @@ rules:
       - intent: goodbye
       - action: utter_goodbye
 
-  - rule: Say hello anytime the user says greet
+  - rule: Say hello anytime the user says greeting
     steps:
-      - intent: greet
-      - action: utter_greet
+      - intent: greeting
+      - action: utter_greeting
