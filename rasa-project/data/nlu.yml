@@ -1,283 +1,1638 @@
-version: "3.1"
+version: "3.1"version: "3.1"
 
-nlu:
-# ===================================================================
-# GREET INTENT - Sapaan umum
-# ===================================================================
-- intent: greet
-  examples: |
-    - Hai
-    - Halo
-    - Selamat pagi
-    - Selamat siang
-    - Selamat sore
-    - Selamat malam
-    - Assalamualaikum
-    - Apa kabar
-    - Pagi
-    - Siang
-    - Sore
-    - Malam
-    - Halo bot
-    - Hai asisten gizi
-    - Halo gizi bot
-    - Selamat datang
-    - Halo, apa kabar
-    - Hai, sehat?
-    - Halo sahabat sehat
 
-# ===================================================================
-# GOODBYE INTENT - Perpisahan
-# ===================================================================
-- intent: goodbye
-  examples: |
-    - Sampai jumpa
-    - Terima kasih
-    - Bye
-    - Dadah
-    - Selamat tinggal
-    - Sudah cukup
-    - Cukup sekian
-    - Oke terima kasih
-    - Thanks
-    - Makasih banyak
-    - Permisi
-    - Saya pergi dulu
-    - Sampai nanti
-    - See you
 
-# ===================================================================
-# TANYA INFO GIZI PRODUK - Informasi nutrisi produk makanan/minuman
-# ===================================================================
-- intent: tanya_info_gizi_produk
-  examples: |
-    - Berapa kalori Teh Botol Sosro
-    - Info gizi produk Teh Pucuk Harum
-    - Kandungan nutrisi Coca Cola
-    - Teh Botol Sosro kandungan gula berapa
-    - Apa saja kandungan gizi di Aqua
-    - Berapa kalori dalam Le Minerale
-    - Kalori Sprite berapa
-    - Info nutrisi Fanta
-    - Kandungan gizi Pocari Sweat
-    - Nutrisi apa saja di Mizone
-    - Berapa kalori Teh Kotak
-    - Gizi Indomie Goreng
-    - Nutrisi di SilverQueen
-    - Kalori biskuit Roma
-    - Info gizi wafer Tango
-    - Berapa kalori Oreo
-    - Kandungan Good Time
-    - Info nutrisi Beng Beng
-    - Kalori ChitChat
-    - Gizi Nabati
+nlu:nlu:
 
-# ===================================================================
-# TANYA KALORI HARIAN - Kebutuhan kalori harian
-# ===================================================================
-- intent: tanya_kalori_harian
-  examples: |
-    - Berapa kalori yang saya butuhkan per hari
-    - Kebutuhan kalori harian saya
-    - Kalori harian untuk orang dewasa
-    - Berapa kalori dibutuhkan untuk diet
-    - Kalori yang diperlukan anak-anak
-    - Kebutuhan energi harian
-    - Berapa asupan kalori yang ideal
-    - Kalori untuk menjaga berat badan
-    - Kebutuhan kalori wanita
-    - Kalori harian pria
-    - Berapa kalori untuk menurunkan berat badan
-    - Kalori untuk menambah berat badan
-    - Kalori untuk remaja
-    - Kebutuhan kalori lansia
-    - Berapa kalori normal per hari
+# ===================================================================# ===================================================================
 
-# ===================================================================
-# TANYA REKOMENDASI MAKANAN - Saran makanan sehat
-# ===================================================================
-- intent: tanya_rekomendasi_makanan
-  examples: |
-    - Rekomendasikan makanan sehat untuk saya
-    - Makanan apa yang bagus untuk kesehatan
-    - Saran menu sehat
-    - Makanan sehat untuk sarapan
-    - Rekomendasi makan siang sehat
-    - Menu sehat untuk malam
-    - Makanan bergizi untuk anak
-    - Saran makanan untuk ibu hamil
-    - Rekomendasi camilan sehat
-    - Makanan apa yang baik untuk tubuh
-    - Menu diet sehat
-    - Saran makanan untuk vegetarian
-    - Rekomendasi makanan berprotein tinggi
-    - Makanan kaya serat
-    - Saran menu rendah kalori
+# GREETING INTENT (50 examples)# GREETING INTENT (50 examples)
 
-# ===================================================================
-# TANYA KANDUNGAN ZAT - Kandungan zat gizi tertentu
-# ===================================================================
-- intent: tanya_kandungan_zat
-  examples: |
-    - Makanan apa yang kaya protein
-    - Sumber vitamin C
-    - Kandungan zat besi tinggi
-    - Makanan tinggi kalsium
-    - Sumber omega 3
-    - Makanan mengandung vitamin D
-    - Sumber magnesium
-    - Makanan kaya zinc
-    - Kandungan vitamin A tinggi
-    - Sumber folat
-    - Makanan dengan protein nabati
-    - Sumber vitamin B12
-    - Kandungan kalium tinggi
-    - Makanan kaya antioksidan
-    - Sumber karbohidrat kompleks
+# ===================================================================# ===================================================================
 
-# ===================================================================
-# TANYA PORSI MAKAN - Ukuran/takaran porsi makan
-# ===================================================================
-- intent: tanya_porsi_makan
-  examples: |
-    - Berapa porsi nasi yang ideal
-    - Takaran sayur per hari
-    - Porsi protein yang cukup
-    - Berapa banyak buah harus dimakan
-    - Ukuran porsi makan sehat
-    - Takaran makan untuk diet
-    - Porsi makan anak balita
-    - Berapa gram protein per hari
-    - Takaran karbohidrat ideal
-    - Porsi sayuran yang dianjurkan
-    - Berapa porsi buah per hari
-    - Ukuran porsi nasi untuk dewasa
-    - Takaran lauk per makan
-    - Porsi cemilan yang aman
-    - Berapa banyak air minum per hari
+- intent: greeting- intent: greeting
 
-# ===================================================================
-# TANYA LABEL GIZI - Cara membaca label nutrisi
-# ===================================================================
-- intent: tanya_label_gizi
-  examples: |
-    - Bagaimana cara membaca label gizi
-    - Apa itu nutrition facts
-    - Cara memahami informasi nilai gizi
-    - Arti label AKG
-    - Bagaimana membaca kalori di kemasan
-    - Cara cek kandungan gula di produk
-    - Apa itu serving size
-    - Bagaimana cara lihat sodium
-    - Cara membaca lemak jenuh
-    - Apa arti % AKG
-    - Bagaimana cek kandungan protein
-    - Cara membaca label komposisi
-    - Apa itu RDA
-    - Bagaimana tahu produk tinggi gula
-    - Cara membaca nilai gizi kemasan
+  examples: |  examples: |
 
-# ===================================================================
-# TANYA MAKANAN DIET - Makanan untuk program diet
-# ===================================================================
-- intent: tanya_makanan_diet
-  examples: |
-    - Makanan apa untuk diet
-    - Menu diet sehat
-    - Makanan rendah kalori
-    - Diet untuk menurunkan berat badan
-    - Makanan diet tinggi protein
-    - Menu diet keto
-    - Makanan untuk diet mayo
-    - Diet rendah karbohidrat
-    - Makanan diet diabetes
-    - Menu diet jantung
-    - Makanan untuk diet vegetarian
-    - Diet DEBM makan apa
-    - Makanan diet rendah garam
-    - Menu diet ibu menyusui
-    - Makanan diet untuk kolesterol
+    - Hai    - Hai
 
-# ===================================================================
-# TANYA EFEK KESEHATAN - Dampak makanan terhadap kesehatan
-# ===================================================================
-- intent: tanya_efek_kesehatan
-  examples: |
-    - Efek minum soda tiap hari
-    - Bahaya makan gorengan
-    - Dampak konsumsi gula berlebihan
-    - Efek makan mie instan
-    - Bahaya minuman manis
-    - Dampak kekurangan protein
-    - Efek kebanyakan makan garam
-    - Bahaya makanan tinggi lemak jenuh
-    - Dampak kurang serat
-    - Efek kekurangan vitamin D
-    - Bahaya konsumsi MSG
-    - Dampak makan cepat saji
-    - Efek kurang minum air
-    - Bahaya makanan ultra processed
-    - Dampak kebanyakan kafein
+    - Halo    - Halo
 
-# ===================================================================
-# TANYA ALTERNATIF MAKANAN - Pengganti makanan lebih sehat
-# ===================================================================
-- intent: tanya_alternatif_makanan
-  examples: |
-    - Pengganti nasi putih yang lebih sehat
-    - Alternatif gula pasir
-    - Pengganti mie instan
-    - Alternatif minuman manis
-    - Pengganti gorengan
-    - Alternatif cemilan sehat
-    - Pengganti santan
-    - Alternatif mentega
-    - Pengganti garam
-    - Alternatif susu sapi
-    - Pengganti daging merah
-    - Alternatif tepung terigu
-    - Pengganti keju
-    - Alternatif cokelat
-    - Pengganti es krim
+    - Selamat pagi    - Selamat pagi
 
-# ===================================================================
-# TANYA WAKTU MAKAN - Jadwal dan waktu makan yang tepat
-# ===================================================================
-- intent: tanya_waktu_makan
-  examples: |
-    - Kapan waktu terbaik untuk sarapan
-    - Jam berapa sebaiknya makan siang
-    - Waktu makan malam yang ideal
-    - Bolehkah makan sebelum tidur
-    - Jarak waktu antar makan
-    - Frekuensi makan per hari
-    - Waktu terbaik makan buah
-    - Kapan sebaiknya minum susu
-    - Waktu makan untuk diet
-    - Jam berapa harus sarapan
-    - Boleh makan malam jam 9
-    - Waktu terbaik olahraga sebelum atau sesudah makan
-    - Kapan waktu makan cemilan
-    - Jarak sarapan dan makan siang
-    - Waktu puasa intermittent
+    - Selamat siang    - Selamat siang
 
-# ===================================================================
-# TANYA TIPS HIDUP SEHAT - Tips gaya hidup sehat
-# ===================================================================
-- intent: tanya_tips_hidup_sehat
-  examples: |
-    - Tips hidup sehat
-    - Cara menjaga kesehatan
-    - Pola hidup sehat seperti apa
+    - Selamat sore    - Selamat sore
+
+    - Selamat malam    - Selamat malam
+
+    - Assalamualaikum    - Assalamualaikum
+
+    - Waalaikumsalam    - Waalaikumsalam
+
+    - Apa kabar    - Apa kabar
+
+    - Pagi    - Pagi
+
+    - Siang    - Siang
+
+    - Sore    - Sore
+
+    - Malam    - Malam
+
+    - Halo bot    - Halo bot
+
+    - Hai asisten    - Hai asisten
+
+    - Hai gizi bot    - Hai gizi bot
+
+    - Halo gizi    - Halo gizi
+
+    - Hai teman    - Hai teman
+
+    - Selamat datang    - Selamat datang
+
+    - Halo, apa kabar    - Halo, apa kabar
+
+    - Hai, selamat pagi    - Hai, selamat pagi
+
+    - Halo, sehat?    - Halo, sehat?
+
+    - Halo, gimana kabarnya    - Halo, gimana kabarnya
+
+    - Halo, apa bisa bantu saya    - Halo, apa bisa bantu saya
+
+    - Hai, boleh tanya    - Hai, boleh tanya
+
+    - Hai, saya mau info    - Hai, saya mau info
+
+    - Halo, salam kenal    - Halo, salam kenal
+
+    - Pagi asisten    - Pagi asisten
+
+    - Selamat siang bot    - Selamat siang bot
+
+    - Hai teman sehat    - Hai teman sehat
+
+    - Halo, bisa cek gizi    - Halo, bisa cek gizi
+
+    - Hai, selamat siang    - Hai, selamat siang
+
+    - Halo sahabat    - Halo sahabat
+
+    - Selamat sore asisten    - Selamat sore asisten
+
+    - Halo, ada info gizi    - Halo, ada info gizi
+
+    - Hai, kabar baik?    - Hai, kabar baik?
+
+    - Halo, saya ingin tahu    - Halo, saya ingin tahu
+
+    - Hai, boleh nanya?    - Hai, boleh nanya?
+
+    - Halo, gimana caranya cek gizi    - Halo, gimana caranya cek gizi
+
+    - Halo, saya butuh bantuan    - Halo, saya butuh bantuan
+
+    - Hai, ada info makanan sehat?    - Hai, ada info makanan sehat?
+
+    - Halo, bisa hitung kalori?    - Halo, bisa hitung kalori?
+
+    - Halo, saya lapar    - Halo, saya lapar
+
+    - Hai, ada rekomendasi makanan?    - Hai, ada rekomendasi makanan?
+
+    - Hai, gimana cara cek kalori    - Hai, gimana cara cek kalori
+
+    - Halo, saya ingin coba bot ini    - Halo, saya ingin coba bot ini
+
+    - Hai, tolong cek gizi produk    - Hai, tolong cek gizi produk
+
+    - Halo, ada informasi kesehatan?    - Halo, ada informasi kesehatan?
+
+    - Hai, bantu cek makanan ini    - Hai, bantu cek makanan ini
+
+    - Halo, bisa bantu saya?    - Halo, bisa bantu saya?
+
+
+
+# ===================================================================# ===================================================================
+
+# GOODBYE INTENT (50 examples)# GOODBYE INTENT (50 examples)
+
+# ===================================================================# ===================================================================
+
+- intent: goodbye- intent: goodbye
+
+  examples: |  examples: |
+
+    - Dadah    - Dadah
+
+    - Bye    - Bye
+
+    - Sampai jumpa    - Sampai jumpa
+
+    - Terima kasih, sudah cukup    - Terima kasih, sudah cukup
+
+    - Oke, saya pamit    - Oke, saya pamit
+
+    - Sudah dulu ya    - Sudah dulu ya
+
+    - Saya keluar    - Saya keluar
+
+    - See you    - See you
+
+    - Makasih ya    - Makasih ya
+
+    - Udahan dulu    - Udahan dulu
+
+    - Dah    - Dah
+
+    - Bye bye    - Bye bye
+
+    - Ok, terima kasih    - Ok, terima kasih
+
+    - Cukup dulu    - Cukup dulu
+
+    - Selesai    - Selesai
+
+    - Pamit dulu    - Pamit dulu
+
+    - Aku keluar    - Aku keluar
+
+    - Nanti lagi    - Nanti lagi
+
+    - Sampai ketemu    - Sampai ketemu
+
+    - Terima kasih banyak    - Terima kasih banyak
+
+    - Thanks    - Thanks
+
+    - Udah cukup    - Udah cukup
+
+    - Nanti sambung lagi    - Nanti sambung lagi
+
+    - Ok selesai    - Ok selesai
+
+    - Stop dulu    - Stop dulu
+
+    - Sampai jumpa lagi    - Sampai jumpa lagi
+
+    - Oke, bye    - Oke, bye
+
+    - Udah, makasih    - Udah, makasih
+
+    - Tutup dulu    - Tutup dulu
+
+    - Saya udahan    - Saya udahan
+
+    - Sampai ketemu lagi    - Sampai ketemu lagi
+
+    - Sampai besok    - Sampai besok
+
+    - Dah ya    - Dah ya
+
+    - Baik, saya pergi    - Baik, saya pergi
+
+    - Aku udahan    - Aku udahan
+
+    - Oke cukup    - Oke cukup
+
+    - Saya sudahi    - Saya sudahi
+
+    - Terima kasih, sampai ketemu    - Terima kasih, sampai ketemu
+
+    - Bye bot    - Bye bot
+
+    - Makasih asisten    - Makasih asisten
+
+    - Ok, sampai jumpa    - Ok, sampai jumpa
+
+    - Saya pamit ya    - Saya pamit ya
+
+    - Udah dulu    - Udah dulu
+
+    - Ok saya keluar    - Ok saya keluar
+
+    - Terima kasih banyak bot    - Terima kasih banyak bot
+
+    - Dah, sehat selalu    - Dah, sehat selalu
+
+    - Ok, udah cukup    - Ok, udah cukup
+
+    - Stop disini    - Stop disini
+
+    - Terima kasih, bye    - Terima kasih, bye
+
+    - Bye bye, makasih    - Bye bye, makasih
+
+
+
+# ===================================================================# ===================================================================
+
+# TANYA INFO GIZI PRODUK INTENT (50 examples)# TANYA INFO GIZI PRODUK INTENT (50 examples)
+
+# ===================================================================# ===================================================================
+
+- intent: tanya_info_gizi_produk- intent: tanya_info_gizi_produk
+
+  examples: |  examples: |
+
+    - Berapa kalori dalam Teh Botol Sosro?    - Berapa kalori dalam Teh Botol Sosro?
+
+    - Info gizi Ultra Milk Strawberry 200 ml    - Info gizi Ultra Milk Strawberry 200 ml
+
+    - Apa kandungan gizi Aqua 600 ml?    - Apa kandungan gizi Aqua 600 ml?
+
+    - Berapa kalori Pop Mie Rasa Ayam?    - Berapa kalori Pop Mie Rasa Ayam?
+
+    - Tolong cek info gizi Indomie Goreng    - Tolong cek info gizi Indomie Goreng
+
+    - Informasi gizi Coca Cola 250 ml    - Informasi gizi Coca Cola 250 ml
+
+    - Kandungan gizi Silverqueen 25g    - Kandungan gizi Silverqueen 25g
+
+    - Apakah Oreo mengandung banyak kalori?    - Apakah Oreo mengandung banyak kalori?
+
+    - Gizi Nutrisari Jeruk 1 sachet    - Gizi Nutrisari Jeruk 1 sachet
+
+    - Apa isi gizi Yakult?    - Apa isi gizi Yakult?
+
+    - Kalori Chitato 68 gram    - Kalori Chitato 68 gram
+
+    - Gizi Good Day Cappuccino    - Gizi Good Day Cappuccino
+
+    - Info Fruit Tea Apel 350 ml    - Info Fruit Tea Apel 350 ml
+
+    - Kandungan Aqua Reflections    - Kandungan Aqua Reflections
+
+    - Info Frestea Green Tea 500 ml    - Info Frestea Green Tea 500 ml
+
+    - Kalori KFC Chicken 1 potong    - Kalori KFC Chicken 1 potong
+
+    - Nutrisi Burger McD    - Nutrisi Burger McD
+
+    - Kalori Pizza Hut ukuran kecil    - Kalori Pizza Hut ukuran kecil
+
+    - Info Popcorn 50g    - Info Popcorn 50g
+
+    - Kalori Sari Roti Coklat    - Kalori Sari Roti Coklat
+
+    - Nutrisi Dancow Fortigro 200 ml    - Nutrisi Dancow Fortigro 200 ml
+
+    - Kalori Es Teh Pucuk 350 ml    - Kalori Es Teh Pucuk 350 ml
+
+    - Gizi Fanta 250 ml    - Gizi Fanta 250 ml
+
+    - Info Sprite botol kecil    - Info Sprite botol kecil
+
+    - Kalori Yakult Light    - Kalori Yakult Light
+
+    - Gizi Beng Beng 20g    - Gizi Beng Beng 20g
+
+    - Kalori Energen 1 sachet    - Kalori Energen 1 sachet
+
+    - Info Biskuat mini    - Info Biskuat mini
+
+    - Nutrisi Pringles 42 gram    - Nutrisi Pringles 42 gram
+
+    - Kalori Pocari Sweat 350 ml    - Kalori Pocari Sweat 350 ml
+
+    - Info Teh Gelas 350 ml    - Info Teh Gelas 350 ml
+
+    - Nutrisi Teh Kotak Jasmine    - Nutrisi Teh Kotak Jasmine
+
+    - Kalori Bear Brand 189 ml    - Kalori Bear Brand 189 ml
+
+    - Info Milo UHT 200 ml    - Info Milo UHT 200 ml
+
+    - Nutrisi Nutriboost Coklat    - Nutrisi Nutriboost Coklat
+
+    - Kalori Cimory Yogurt Drink    - Kalori Cimory Yogurt Drink
+
+    - Info Fruit Tea Lemon 350 ml    - Info Fruit Tea Lemon 350 ml
+
+    - Nutrisi Mizone 500 ml    - Nutrisi Mizone 500 ml
+
+    - Info Floridina 350 ml    - Info Floridina 350 ml
+
+    - Nutrisi Indomilk Kids 115 ml    - Nutrisi Indomilk Kids 115 ml
+
+    - Info Cheetos 50g    - Info Cheetos 50g
+
+    - Nutrisi Tango Wafer 20g    - Nutrisi Tango Wafer 20g
+
+    - Kalori Sari Gandum 20g    - Kalori Sari Gandum 20g
+
+    - Info Koko Krunch 30g    - Info Koko Krunch 30g
+
+    - Nutrisi Milo Sachet 30g    - Nutrisi Milo Sachet 30g
+
+    - Kalori Ultra Milk Full Cream 200 ml    - Kalori Ultra Milk Full Cream 200 ml
+
+    - Info Good Time Cookies 30g    - Info Good Time Cookies 30g
+
+    - Nutrisi Taro Net 30g    - Nutrisi Taro Net 30g
+
+    - Kalori Twister 20g    - Kalori Twister 20g
+
+    - Kalori Prenagen Velvety Choco 185ml    - Kalori Prenagen Velvety Choco 185ml
+
+
+
+# ===================================================================# ===================================================================
+
+# TANYA KALORI HARIAN INTENT (50 examples)# TANYA KALORI HARIAN INTENT (50 examples)
+
+# ===================================================================# ===================================================================
+
+- intent: tanya_kalori_harian- intent: tanya_kalori_harian
+
+  examples: |  examples: |
+
+    - Berapa kebutuhan kalori saya per hari?    - Apa itu gizi seimbang?
+
+    - Hitung kebutuhan kalori harian    - Mengapa saya perlu makan sayur?
+
+    - Wanita butuh berapa kalori?    - Bagaimana cara mencukupi kebutuhan protein?
+
+    - Pria dewasa perlu berapa energi?    - Apa manfaat buah untuk kesehatan?
+
+    - Kalori untuk anak usia 10 tahun    - Makanan apa yang tinggi kalsium?
+
+    - Kalori remaja berapa?    - Berapa kalori yang saya butuhkan per hari?
+
+    - Berapa kalori orang obesitas?    - Apa saja zat gizi yang diperlukan tubuh?
+
+    - Kalori ibu hamil    - Bagaimana cara menghitung kebutuhan kalori?
+
+    - Kalori untuk orang diet    - Apa fungsi vitamin C?
+
+    - Kalori bayi 1 tahun    - Makanan apa yang mengandung protein tinggi?
+
+    - Kalori orang tua    - Kenapa harus makan beragam?
+
+    - Kalori untuk atlet    - Apa itu makanan 4 sehat 5 sempurna?
+
+    - Kalori saat puasa    - Pentingnya sarapan pagi
+
+    - Kalori ibu menyusui    - Manfaat minum air putih
+
+    - Kalori mahasiswa    - Apa itu antioksidan?
+
+    - Kalori karyawan kantor    - Fungsi karbohidrat dalam tubuh
+
+    - Kalori pekerja lapangan    - Pentingnya serat untuk pencernaan
+
+    - Kalori anak sekolah    - Apa itu lemak baik dan lemak jahat?
+
+    - Kalori lansia    - Manfaat omega 3
+
+    - Kalori remaja putri    - Pentingnya vitamin D
+
+    - Kalori remaja pria    - Apa itu probiotik?
+
+    - Kalori pria aktif    - Fungsi mineral dalam tubuh
+
+    - Kalori wanita aktif    - Bahaya kekurangan zat besi
+
+    - Kalori pekerja ringan    - Manfaat vitamin A untuk mata
+
+    - Kalori pekerja berat    - Apa itu indeks glikemik?
+
+    - Kalori ibu rumah tangga    - Pentingnya asam folat
+
+    - Kalori balita    - Fungsi protein dalam tubuh
+
+    - Kalori anak SMP    - Apa itu kolesterol jahat?
+
+    - Kalori anak SMA    - Manfaat magnesium
+
+    - Kalori pasien diabetes    - Pentingnya zinc untuk imun
+
+    - Kalori pasien hipertensi    - Apa itu trans fat?
+
+    - Kalori pasien jantung    - Fungsi vitamin B kompleks
+
+    - Kalori orang kurus    - Bahaya kelebihan natrium
+
+    - Kalori orang gemuk    - Manfaat kalsium untuk tulang
+
+    - Kalori diet rendah karbo    - Apa itu metabolisme?
+
+    - Kalori diet tinggi protein    - Pentingnya enzim pencernaan
+
+    - Kalori pelari    - Fungsi lemak dalam tubuh
+
+    - Kalori pesepeda    - Apa itu gluten?
+
+    - Kalori perenang    - Manfaat potasium
+
+    - Kalori pegawai bank    - Pentingnya hidrasi
+
+    - Kalori programmer    - Apa itu nutrisi makro?
+
+    - Kalori dosen    - Fungsi vitamin E
+
+    - Kalori guru    - Bahaya radikal bebas
+
+    - Kalori dokter    - Manfaat selenium
+
+    - Kalori perawat    - Apa itu asam amino esensial?
+
+    - Kalori sopir    - Pentingnya chromium
+
+    - Kalori petani    - Fungsi fosfor dalam tubuh
+
+    - Kalori nelayan    - Apa itu fitokimia?
+
+    - Kalori pekerja bangunan    - Manfaat beta karoten
+
+    - Kalori tentara    - Pentingnya gizi seimbang
+
+
+
+# ===================================================================# ===================================================================
+
+# TANYA REKOMENDASI MAKANAN INTENT (50 examples)# KONSULTASI MAKANAN INTENT (50+ examples)
+
+# ===================================================================# ===================================================================
+
+- intent: tanya_rekomendasi_makanan- intent: konsultasi_makanan
+
+  examples: |  examples: |
+
+    - Apa rekomendasi makanan sehat hari ini?    - Saya ingin konsultasi makanan sehat
+
+    - Menu makan siang sehat    - Makanan apa yang cocok untuk diet?
+
+    - Sarapan sehat apa ya?    - Tolong rekomendasikan sarapan sehat
+
+    - Camilan sehat sore    - Menu makan siang bergizi apa?
+
+    - Makanan sehat malam hari    - Apa rekomendasi cemilan sehat?
+
+    - Rekomendasi makanan untuk diet    - Bagaimana cara membuat menu diet?
+
+    - Makanan sehat untuk anak sekolah    - Makanan apa yang baik untuk penderita diabetes?
+
+    - Menu sehat untuk ibu hamil    - Rekomendasi menu untuk anak?
+
+    - Apa makanan sehat untuk remaja?    - Makanan apa yang baik untuk ibu hamil?
+
+    - Rekomendasi makanan vegetarian    - Bagaimana cara menambah berat badan sehat?
+
+    - Makanan sehat untuk vegan    - Menu sehat untuk menurunkan kolesterol
+
+    - Menu sehat untuk lansia    - Makanan untuk penderita maag
+
+    - Rekomendasi makanan rendah gula    - Diet sehat untuk penderita hipertensi
+
+    - Makanan rendah garam    - Makanan sehat untuk lansia
+
+    - Makanan rendah lemak    - Konsultasi gizi untuk anak
+
+    - Makanan tinggi protein sehat    - Menu sehat untuk vegetarian
+
+    - Rekomendasi makanan tinggi serat    - Konsultasi diet untuk atlet
+
+    - Makanan sehat untuk penderita diabetes    - Makanan sehat untuk ibu menyusui
+
+    - Makanan sehat untuk hipertensi    - Konsultasi gizi balita
+
+    - Makanan sehat untuk jantung    - Menu diet rendah garam
+
+    - Menu sehat untuk sarapan anak    - Saya butuh saran menu sehat
+
+    - Makanan sehat saat sahur    - Tolong bantu susun menu diet
+
+    - Makanan sehat saat berbuka puasa    - Konsultasi pola makan sehat
+
+    - Rekomendasi makanan untuk pekerja kantoran    - Bagaimana diet yang benar?
+
+    - Menu sehat untuk mahasiswa    - Saran makanan untuk kesehatan jantung
+
+    - Makanan sehat untuk anak kos    - Menu sehat untuk pekerja malam
+
+    - Rekomendasi makanan untuk atlet    - Konsultasi gizi untuk diabetes
+
+    - Makanan sehat untuk diet keto    - Saran diet untuk kolesterol tinggi
+
+    - Makanan sehat untuk diet rendah karbo    - Menu sehat untuk remaja
+
+    - Makanan sehat untuk diet tinggi protein    - Konsultasi makanan untuk hipertensi
+
+    - Rekomendasi makanan vegetarian sehat    - Saran diet sehat harian
+
+    - Menu sehat rendah kalori    - Menu sehat untuk keluarga
+
+    - Makanan sehat tinggi vitamin C    - Konsultasi gizi untuk lansia
+
+    - Makanan sehat tinggi kalsium    - Saran makanan bergizi
+
+    - Makanan sehat tinggi zat besi    - Menu diet untuk menurunkan berat badan
+
+    - Makanan sehat untuk diet mediterania    - Konsultasi pola makan anak
+
+    - Rekomendasi makanan tradisional sehat    - Saran menu sehat murah
+
+    - Makanan sehat untuk camilan malam    - Menu diet untuk menambah massa otot
+
+    - Rekomendasi makanan lokal bergizi    - Konsultasi gizi ibu hamil
+
+    - Makanan sehat untuk meningkatkan imun    - Saran makanan untuk stamina
+
+    - Rekomendasi makanan untuk diet DASH    - Menu sehat untuk penderita asam urat
+
+    - Makanan sehat untuk menurunkan berat badan    - Konsultasi diet vegetarian
+
+    - Makanan sehat untuk menambah berat badan    - Saran makanan anti inflamasi
+
+    - Rekomendasi makanan untuk stamina    - Menu sehat untuk pencernaan
+
+    - Makanan sehat untuk otot    - Konsultasi gizi untuk atlet
+
+    - Menu sehat untuk vegetarian pemula    - Saran diet mediterania
+
+    - Makanan sehat untuk vegan pemula    - Menu sehat untuk detox
+
+    - Camilan sehat untuk anak    - Konsultasi makanan organik
+
+    - Camilan sehat untuk remaja    - Saran diet rendah karbohidrat
+
+    - Camilan sehat untuk orang dewasa    - Menu sehat untuk imunitas
+
+
+
+# ===================================================================# ===================================================================
+
+# TANYA KANDUNGAN ZAT INTENT (50 examples)# CEK PRODUK INTENT (50+ examples)
+
+# ===================================================================# ===================================================================
+
+- intent: tanya_kandungan_zat- intent: cek_produk
+
+  examples: |  examples: |
+
+    - Berapa kandungan gula dalam Coca Cola?    - Cek gizi produk ini
+
+    - Garam pada Indomie Goreng berapa?    - Tolong cek kalori makanan ini
+
+    - Lemak dalam Silverqueen?    - Berapa kalori dalam produk ini?
+
+    - Protein dalam Ultra Milk?    - Apa kandungan gizi produk ini?
+
+    - Karbohidrat Pop Mie berapa?    - Cek nutrisi makanan ini
+
+    - Kandungan vitamin C di Nutrisari?    - Tolong analisis gizi produk ini
+
+    - Berapa natrium di Chitato?    - Berapa protein dalam makanan ini?
+
+    - Gula dalam Teh Botol Sosro    - Cek kandungan lemak produk ini
+
+    - Lemak trans dalam margarin ada berapa?    - Apa saja nutrisi dalam makanan ini?
+
+    - Protein dalam telur ayam    - Tolong hitung kalori produk ini
+
+    - Serat dalam pisang    - Analisis gizi makanan
+
+    - Gula di Yakult    - Cek nilai gizi
+
+    - Kalsium dalam susu sapi    - Periksa kandungan nutrisi
+
+    - Vitamin A dalam wortel    - Evaluasi gizi produk
+
+    - Zat besi pada bayam    - Bandingkan gizi produk
+
+    - Karbohidrat nasi putih    - Analisis produk makanan ini
+
+    - Lemak pada ayam goreng    - Cek info nutrisi
+
+    - Protein tahu    - Periksa kandungan kalori
+
+    - Protein tempe    - Evaluasi nilai gizi
+
+    - Gula dalam donat    - Analisis kandungan gizi
+
+    - Gula Good Day Cappuccino    - Cek komposisi nutrisi
+
+    - Garam dalam kerupuk    - Periksa label gizi
+
+    - Protein ikan salmon    - Evaluasi produk sehat
+
+    - Omega-3 pada ikan tuna    - Analisis makanan kemasan
+
+    - Serat apel    - Cek kandungan gula
+
+    - Gula dalam Fanta    - Periksa kadar lemak
+
+    - Gula Sprite 250 ml    - Evaluasi protein produk
+
+    - Garam Indomie Kari Ayam    - Analisis vitamin produk
+
+    - Karbohidrat kentang rebus    - Cek mineral makanan
+
+    - Gula dalam boba milk tea    - Periksa serat produk
+
+    - Kalium dalam pisang    - Evaluasi kalori harian
+
+    - Vitamin C jeruk    - Analisis dampak kesehatan
+
+    - Vitamin D dalam susu UHT    - Cek kualitas gizi
+
+    - Protein dalam daging sapi    - Periksa standar nutrisi
+
+    - Gula dalam teh manis    - Evaluasi keamanan produk
+
+    - Serat dalam brokoli    - Analisis bahan makanan
+
+    - Zat besi hati ayam    - Cek aditif makanan
+
+    - Protein susu kedelai    - Periksa pengawet produk
+
+    - Gula dalam Nutella    - Evaluasi pewarna makanan
+
+    - Lemak dalam pizza    - Analisis MSG produk
+
+    - Garam dalam mie instan kuah    - Cek sodium makanan
+
+    - Protein dalam kacang almond    - Periksa kolesterol produk
+
+    - Lemak sehat alpukat    - Evaluasi trans fat
+
+    - Gula dalam coklat batang    - Analisis indeks glikemik
+
+    - Karbohidrat roti tawar    - Cek allergen produk
+
+    - Serat oatmeal    - Periksa gluten makanan
+
+    - Vitamin B12 daging sapi    - Evaluasi lactose produk
+
+    - Protein ikan lele    - Analisis kemasan makanan
+
+    - Gula Floridina 350 ml    - Cek tanggal kedaluwarsa
+
+    - Garam pada keripik singkong    - Periksa sertifikasi halal
+
+
+
+# ===================================================================# ===================================================================
+
+# TANYA PORSI MAKAN INTENT (50 examples)# TANYA INFO GIZI PRODUK INTENT (80+ examples)
+
+# ===================================================================# ===================================================================
+
+- intent: tanya_porsi_makan- intent: tanya_info_gizi_produk
+
+  examples: |  examples: |
+
+    - Porsi nasi sehat untuk makan siang    - Berapa kalori dalam [Teh Botol Sosro](produk_makanan)?
+
+    - Porsi ayam goreng sekali makan    - Info gizi [Ultra Milk Strawberry](produk_makanan) 200 ml
+
+    - Porsi sayur harian    - Apa kandungan gizi [Aqua](produk_makanan) 600 ml?
+
+    - Porsi buah sehari    - Berapa kalori [Pop Mie Rasa Ayam](produk_makanan)?
+
+    - Porsi susu untuk anak    - Tolong cek info gizi [Indomie Goreng](produk_makanan)
+
+    - Porsi nasi merah per makan    - Informasi gizi [Coca Cola](produk_makanan) 250 ml
+
+    - Porsi tempe sehat    - Kandungan gizi [Silverqueen](produk_makanan) 25g
+
+    - Porsi tahu yang baik    - Apakah [Oreo](produk_makanan) mengandung banyak kalori?
+
+    - Porsi ikan sehari    - Gizi [Nutrisari Jeruk](produk_makanan) 1 sachet
+
+    - Porsi daging sapi sekali makan    - Apa isi gizi [Yakult](produk_makanan)?
+
+    - Porsi telur sehat    - Kalori [Chitato](produk_makanan) 68 gram
+
+    - Porsi roti tawar sarapan    - Gizi [Good Day Cappuccino](produk_makanan)
+
+    - Porsi kentang rebus    - Info [Fruit Tea Apel](produk_makanan) 350 ml
+
+    - Porsi mie instan sekali makan    - Kandungan [Aqua Reflections](produk_makanan)
+
+    - Porsi camilan sehat    - Info [Frestea Green Tea](produk_makanan) 500 ml
+
+    - Porsi keju sehat    - Kalori [KFC Chicken](produk_makanan) 1 potong
+
+    - Porsi yoghurt sehat    - Nutrisi [Burger McD](produk_makanan)
+
+    - Porsi jus buah sehat    - Kalori [Pizza Hut](produk_makanan) ukuran kecil
+
+    - Porsi sayur di piring makan    - Info [Popcorn](produk_makanan) 50g
+
+    - Porsi nasi di piring makan    - Kalori [Sari Roti Coklat](produk_makanan)
+
+    - Porsi lauk protein di piring    - Nutrisi [Dancow Fortigro](produk_makanan) 200 ml
+
+    - Porsi camilan buah sore    - Kalori [Es Teh Pucuk](produk_makanan) 350 ml
+
+    - Porsi kacang sehat    - Gizi [Fanta](produk_makanan) 250 ml
+
+    - Porsi minum air putih harian    - Info [Sprite](produk_makanan) botol kecil
+
+    - Porsi kopi sehat    - Kalori [Yakult Light](produk_makanan)
+
+    - Porsi teh sehat    - Gizi [Beng Beng](produk_makanan) 20g
+
+    - Porsi camilan keripik sehat?    - Kalori [Energen](produk_makanan) 1 sachet
+
+    - Porsi buah untuk diet    - Info [Biskuat](produk_makanan) mini
+
+    - Porsi nasi untuk diet    - Nutrisi [Pringles](produk_makanan) 42 gram
+
+    - Porsi sayur untuk diet    - Kalori [Pocari Sweat](produk_makanan) 350 ml
+
+    - Porsi daging ayam untuk diet    - Info [Teh Gelas](produk_makanan) 350 ml
+
+    - Porsi ikan untuk diet    - Nutrisi [Teh Kotak Jasmine](produk_makanan)
+
+    - Porsi buah untuk anak    - Kalori [Bear Brand](produk_makanan) 189 ml
+
+    - Porsi susu untuk lansia    - Info [Milo UHT](produk_makanan) 200 ml
+
+    - Porsi bubur bayi    - Nutrisi [Nutriboost Coklat](produk_makanan)
+
+    - Porsi camilan biskuit    - Kalori [Cimory Yogurt Drink](produk_makanan)
+
+    - Porsi mie sehat    - Info [Fruit Tea Lemon](produk_makanan) 350 ml
+
+    - Porsi nasi uduk sehat    - Nutrisi [Mizone](produk_makanan) 500 ml
+
+    - Porsi sate ayam sehat    - Info [Floridina](produk_makanan) 350 ml
+
+    - Porsi gorengan yang aman    - Nutrisi [Indomilk Kids](produk_makanan) 115 ml
+
+    - Porsi buah semangka    - berapa kalori [nasi putih](produk_makanan)
+
+    - Porsi buah melon    - info gizi [telur ayam](produk_makanan)
+
+    - Porsi alpukat sehat    - kandungan [daging sapi](produk_makanan)
+
+    - Porsi susu coklat    - kalori [ikan salmon](produk_makanan)
+
+    - Porsi air kelapa    - gizi [tempe](produk_makanan) 100g
+
+    - Porsi es krim    - info [tahu](produk_makanan) per potong
+
+    - Porsi kue manis    - nutrisi [bayam](produk_makanan) segar
+
+    - Porsi buah anggur    - kalori [brokoli](produk_makanan) rebus
+
+    - Porsi buah stroberi    - kandungan [wortel](produk_makanan) mentah
+
+    - Porsi buah pepaya    - info gizi [pisang](produk_makanan) 1 buah
+
+    - kalori [apel](produk_makanan) sedang
+
+# ===================================================================    - nutrisi [jeruk](produk_makanan) manis
+
+# TANYA LABEL GIZI INTENT (50 examples)    - gizi [alpukat](produk_makanan) setengah buah
+
+# ===================================================================    - info [susu](produk_makanan) sapi segar
+
+- intent: tanya_label_gizi    - kalori [roti tawar](produk_makanan) 2 lembar
+
+  examples: |    - kandungan [pasta](produk_makanan) gandum
+
+    - Bagaimana cara membaca label gizi?    - nutrisi [kentang](produk_makanan) panggang
+
+    - Apa arti %AKG di label gizi?    - gizi [ubi jalar](produk_makanan) rebus
+
+    - Apa itu takaran saji?    - info kalori [oatmeal](produk_makanan)
+
+    - Dimana lihat kalori di label?    - kandungan gizi [quinoa](produk_makanan)
+
+    - Apa arti lemak trans di label?    - nutrisi [kacang almond](produk_makanan)
+
+    - Cara tahu kandungan gula dari label    - kalori [yogurt](produk_makanan) greek
+
+    - Apa itu kalori kosong di label?    - gizi [keju](produk_makanan) cheddar
+
+    - Apa maksud energi total?    - info [madu](produk_makanan) murni
+
+    - Bagaimana tahu kandungan protein?    - kandungan [olive oil](produk_makanan)
+
+    - Apa itu natrium di label gizi?    - nutrisi [dark chocolate](produk_makanan) 70%
+
+    - Arti lemak jenuh di label    - kalori [green tea](produk_makanan) tanpa gula
+
+    - Cara tahu vitamin dari label    - gizi [kopi](produk_makanan) hitam
+
+    - Apa arti klaim rendah gula?    - info nutrisi [air kelapa](produk_makanan)
+
+    - Apa arti klaim bebas kolesterol?    - kandungan [jus jeruk](produk_makanan) segar
+
+    - Apa maksud tinggi serat?    - kalori [smoothie](produk_makanan) buah
+
+    - Cara cek zat besi di label    - gizi [salad](produk_makanan) sayuran
+
+    - Bagaimana baca % lemak di label?    - nutrisi [sandwich](produk_makanan) tuna
+
+    - Apa maksud light di kemasan?    - info kalori [sushi](produk_makanan) salmon
+
+    - Apa arti sugar free?    - kandungan [kimchi](produk_makanan) korea
+
+    - Apa arti low fat?    - gizi [hummus](produk_makanan) tahini
+
+    - Apa itu high protein di label?    - nutrisi [granola](produk_makanan) homemade
+
+    - Cara cek serat di label    - kalori [protein bar](produk_makanan)
+
+    - Arti klaim fortified    - info gizi [kombucha](produk_makanan)
+
+    - Apa maksud enriched?    - kandungan [spirulina](produk_makanan) powder
+
+    - Apa itu label gizi harian?    - nutrisi [chia seeds](produk_makanan)
+
+    - Arti kalori per sajian    - gizi [flax seeds](produk_makanan)
+
+    - Apa maksud takaran saji 200 ml?    - kalori [coconut oil](produk_makanan)
+
+    - Apa arti per 100 gram?
+
+    - Apa maksud per serving?# ===================================================================
+
+    - Cara tahu kalori per bungkus# TANYA KALORI HARIAN INTENT (60+ examples)
+
+    - Apa arti klaim 0 kalori?# ===================================================================
+
+    - Apa arti no added sugar?- intent: tanya_kalori_harian
+
+    - Apa maksud gluten free?  examples: |
+
+    - Apa arti lactose free?    - Berapa kebutuhan kalori saya per hari?
+
+    - Bagaimana cek kalsium di label    - Hitung kebutuhan kalori harian
+
+    - Apa maksud trans fat free?    - Wanita butuh berapa kalori?
+
+    - Cara tahu protein per bungkus    - Pria dewasa perlu berapa energi?
+
+    - Arti label halal    - Kalori untuk [anak](kategori_orang) usia 10 tahun
+
+    - Arti label organik    - Kalori [remaja](kategori_orang) berapa?
+
+    - Apa arti cholesterol free?    - Berapa kalori orang obesitas?
+
+    - Apa maksud plant based?    - Kalori [ibu hamil](kategori_orang)
+
+    - Cara tahu vitamin D di label    - Kalori untuk orang diet
+
+    - Arti label gizi kecil di depan kemasan    - Kalori [bayi](kategori_orang) 1 tahun
+
+    - Bagaimana cara cek gula harian?    - Kalori orang tua
+
+    - Cara cek garam harian    - Kalori untuk [atlet](kategori_orang)
+
+    - Cara tahu batas lemak harian    - Kalori saat puasa
+
+    - Apa arti low sodium?    - Kalori [ibu menyusui](kategori_orang)
+
+    - Apa arti high calcium?    - Kalori [mahasiswa](kategori_orang)
+
+    - Apa arti dietary fiber?    - Kalori karyawan kantor
+
+    - Bagaimana cara bandingkan produk lewat label?    - Kalori pekerja lapangan
+
+    - Kalori [anak sekolah](kategori_orang)
+
+# ===================================================================    - Kalori [lansia](kategori_orang)
+
+# TANYA MAKANAN DIET INTENT (50 examples)    - Kalori [remaja putri](kategori_orang)
+
+# ===================================================================    - Kalori [remaja pria](kategori_orang)
+
+- intent: tanya_makanan_diet    - Kalori pria aktif
+
+  examples: |    - Kalori wanita aktif
+
+    - Makanan untuk diet rendah garam    - Kalori pekerja ringan
+
+    - Diet rendah gula cocok makan apa?    - Kalori pekerja berat
+
+    - Diet rendah lemak makan apa?    - Kalori ibu rumah tangga
+
+    - Diet tinggi protein makan apa?    - Kalori [balita](kategori_orang)
+
+    - Diet keto makan apa?    - Kalori anak smp
+
+    - Diet vegetarian makan apa?    - Kalori anak sma
+
+    - Diet vegan makan apa?    - Kalori pasien diabetes
+
+    - Diet Mediterania makan apa?    - Kalori pasien hipertensi
+
+    - Diet DASH makan apa?    - Kalori pasien jantung
+
+    - Diet untuk penderita diabetes    - Kalori orang kurus
+
+    - Diet untuk penderita hipertensi    - Kalori orang gemuk
+
+    - Diet untuk penderita kolesterol    - Kalori diet rendah karbo
+
+    - Diet untuk menurunkan berat badan    - Kalori diet tinggi protein
+
+    - Diet untuk menambah berat badan    - Kalori pelari
+
+    - Diet untuk otot    - Kalori pesepeda
+
+    - Diet sehat untuk remaja    - Kalori perenang
+
+    - Diet sehat untuk ibu hamil    - Kalori pegawai bank
+
+    - Diet sehat untuk ibu menyusui    - Kalori programmer
+
+    - Diet sehat untuk lansia    - Kalori dosen
+
+    - Diet rendah kalori    - Kalori guru
+
+    - Diet tinggi serat    - Kalori dokter
+
+    - Diet rendah karbohidrat    - Kalori perawat
+
+    - Diet tinggi kalsium    - Kalori sopir
+
+    - Diet tinggi zat besi    - Kalori petani
+
+    - Diet tinggi vitamin C    - Kalori nelayan
+
+    - Diet gluten free    - Kalori pekerja bangunan
+
+    - Diet lactose free    - Kalori tentara
+
+    - Diet paleo makan apa?    - Kebutuhan energi harian wanita 25 tahun
+
+    - Diet flexitarian    - Kalori yang dibutuhkan pria 30 tahun
+
+    - Diet raw food    - Berapa kalori untuk menurunkan berat badan?
+
+    - Diet rendah kolesterol    - Kebutuhan kalori untuk menambah berat badan
+
+    - Diet sehat ala Indonesia    - Kalori harian untuk maintenance weight
+
+    - Diet ala Jepang    - Berapa kalori saat cutting?
+
+    - Diet ala Korea    - Kebutuhan energi saat bulking
+
+    - Diet ala Barat sehat    - Kalori untuk diet defisit
+
+    - Diet rendah sodium    - Berapa kalori surplus untuk masa otot?
+
+    - Diet tinggi energi    - Kebutuhan kalori saat sakit
+
+    - Diet untuk anemia
+
+    - Diet untuk maag# ===================================================================
+
+    - Diet untuk asam urat# TANYA REKOMENDASI MAKANAN INTENT (70+ examples)
+
+    - Diet untuk ginjal# ===================================================================
+
+    - Diet untuk jantung- intent: tanya_rekomendasi_makanan
+
+    - Diet untuk hipertensi ringan  examples: |
+
+    - Diet sehat ala Mediterania    - Apa rekomendasi makanan sehat hari ini?
+
+    - Diet sehat tinggi protein    - Menu makan siang sehat
+
+    - Diet sehat rendah karbohidrat    - Sarapan sehat apa ya?
+
+    - Diet sehat rendah gula    - Camilan sehat sore
+
+    - Diet sehat tradisional    - Makanan sehat malam hari
+
+    - Diet sehat modern    - Rekomendasi makanan untuk diet
+
+    - Diet intermittent fasting    - Makanan sehat untuk [anak sekolah](kategori_orang)
+
+    - Menu sehat untuk [ibu hamil](kategori_orang)
+
+# ===================================================================    - Apa makanan sehat untuk [remaja](kategori_orang)?
+
+# TANYA EFEK KESEHATAN INTENT (50 examples)    - Rekomendasi makanan [vegetarian](jenis_diet)
+
+# ===================================================================    - Makanan sehat untuk [vegan](jenis_diet)
+
+- intent: tanya_efek_kesehatan    - Menu sehat untuk [lansia](kategori_orang)
+
+  examples: |    - Rekomendasi makanan rendah gula
+
+    - Apa efek minum kopi berlebihan?    - Makanan rendah garam
+
+    - Bahaya konsumsi gula berlebih    - Makanan rendah lemak
+
+    - Efek terlalu banyak garam    - Makanan tinggi protein sehat
+
+    - Efek kekurangan protein    - Rekomendasi makanan tinggi serat
+
+    - Efek kurang vitamin C    - Makanan sehat untuk penderita diabetes
+
+    - Efek kebanyakan mie instan    - Makanan sehat untuk hipertensi
+
+    - Bahaya minum boba tiap hari    - Makanan sehat untuk jantung
+
+    - Efek kurang minum air    - Menu sehat untuk sarapan anak
+
+    - Efek kebanyakan gorengan    - Makanan sehat saat sahur
+
+    - Efek terlalu banyak fast food    - Makanan sehat saat berbuka puasa
+
+    - Efek makan junk food sering    - Rekomendasi makanan untuk [pekerja kantoran](kategori_orang)
+
+    - Efek terlalu banyak kafein    - Menu sehat untuk [mahasiswa](kategori_orang)
+
+    - Efek kurang tidur    - Makanan sehat untuk anak kos
+
+    - Efek stres berlebihan    - Rekomendasi makanan untuk [atlet](kategori_orang)
+
+    - Efek merokok    - Makanan sehat untuk diet [keto](jenis_diet)
+
+    - Efek minum alkohol    - Makanan sehat untuk diet rendah karbo
+
+    - Efek makan terlalu asin    - Makanan sehat untuk diet tinggi protein
+
+    - Efek makan terlalu manis    - Rekomendasi makanan [vegetarian](jenis_diet) sehat
+
+    - Efek makan terlalu pedas    - Menu sehat rendah kalori
+
+    - Efek makan terlalu banyak daging merah    - Makanan sehat tinggi vitamin C
+
+    - Efek kebanyakan makanan olahan    - Makanan sehat tinggi kalsium
+
+    - Efek terlalu banyak softdrink    - Makanan sehat tinggi zat besi
+
+    - Efek sering makan coklat manis    - Makanan sehat untuk diet [mediterania](jenis_diet)
+
+    - Efek kurang olahraga    - Rekomendasi makanan tradisional sehat
+
+    - Efek terlalu sering begadang    - Makanan sehat untuk camilan malam
+
+    - Efek kebanyakan nasi putih    - Rekomendasi makanan lokal bergizi
+
+    - Efek makan gorengan setiap hari    - Makanan sehat untuk meningkatkan imun
+
+    - Efek makan mie instan tiap hari    - Rekomendasi makanan untuk diet [DASH](jenis_diet)
+
+    - Efek tidak sarapan    - Makanan sehat untuk menurunkan berat badan
+
+    - Efek diet terlalu ketat    - Makanan sehat untuk menambah berat badan
+
+    - Efek diet tanpa karbohidrat    - Rekomendasi makanan untuk stamina
+
+    - Efek minum susu berlebihan    - Makanan sehat untuk otot
+
+    - Efek minum suplemen berlebihan    - Menu sehat untuk vegetarian pemula
+
+    - Efek kurang makan sayur    - Makanan sehat untuk vegan pemula
+
+    - Efek kurang makan buah    - Camilan sehat untuk anak
+
+    - Efek kebanyakan ngemil    - Camilan sehat untuk remaja
+
+    - Efek kebanyakan es krim    - Camilan sehat untuk orang dewasa
+
+    - Efek kebanyakan kopi susu    - Makanan sehat anti inflamasi
+
+    - Efek sering makan gorengan pedas    - Rekomendasi superfood Indonesia
+
+    - Efek kurang minum susu    - Menu sehat untuk detoksifikasi
+
+    - Efek terlalu sering makan sate    - Makanan sehat untuk pencernaan
+
+    - Efek terlalu banyak jeroan    - Rekomendasi makanan fermentasi
+
+    - Efek terlalu sering makan bakso    - Menu sehat untuk kolesterol tinggi
+
+    - Efek sering makan keripik    - Makanan sehat untuk asam urat
+
+    - Efek sering makan coklat    - Rekomendasi makanan untuk anemia
+
+    - Efek kurang minum teh    - Menu sehat untuk osteoporosis
+
+    - Efek minum teh berlebihan    - Makanan sehat untuk kulit glowing
+
+    - Efek terlalu banyak makanan manis    - Rekomendasi makanan untuk memori
+
+    - Efek terlalu banyak makanan asin    - Menu sehat untuk mood booster
+
+    - Efek sering makan makanan instan    - Makanan sehat untuk energy
+
+    - Rekomendasi makanan untuk recovery
+
+# ===================================================================    - Menu sehat untuk anti aging
+
+# TANYA ALTERNATIF MAKANAN INTENT (50 examples)    - Makanan sehat untuk hormon balance
+
+# ===================================================================    - Rekomendasi makanan untuk tidur nyenyak
+
+- intent: tanya_alternatif_makanan    - Menu sehat untuk mengatasi stress
+
+  examples: |    - Makanan sehat untuk fokus kerja
+
+    - Apa pengganti nasi putih?    - Rekomendasi makanan untuk exam
+
+    - Alternatif gula pasir apa ya?    - Menu sehat untuk traveling
+
+    - Apa pengganti susu sapi?
+
+    - Pengganti mie instan yang sehat# ===================================================================
+
+    - Alternatif camilan manis# TANYA KANDUNGAN ZAT INTENT (50+ examples)
+
+    - Ganti nasi jadi apa untuk diet?# ===================================================================
+
+    - Alternatif minuman bersoda- intent: tanya_kandungan_zat
+
+    - Apa pengganti gorengan sehat?  examples: |
+
+    - Camilan rendah kalori apa?    - Berapa kandungan [gula](kandungan_gizi) dalam Coca Cola?
+
+    - Alternatif susu untuk vegan    - [Garam](kandungan_gizi) pada Indomie Goreng berapa?
+
+    - Ganti es krim pakai apa?    - [Lemak](kandungan_gizi) dalam Silverqueen?
+
+    - Alternatif mie goreng    - [Protein](kandungan_gizi) dalam Ultra Milk?
+
+    - Ganti keripik apa ya?    - [Karbohidrat](kandungan_gizi) Pop Mie berapa?
+
+    - Pengganti snack manis    - Kandungan [vitamin C](kandungan_gizi) di Nutrisari?
+
+    - Alternatif minuman energi    - Berapa [natrium](kandungan_gizi) di Chitato?
+
+    - Ganti roti tawar putih    - [Gula](kandungan_gizi) dalam Teh Botol Sosro
+
+    - Alternatif makanan cepat saji    - [Lemak trans](kandungan_gizi) dalam margarin ada berapa?
+
+    - Ganti cemilan malam    - [Protein](kandungan_gizi) dalam telur ayam
+
+    - Alternatif nasi goreng    - [Serat](kandungan_gizi) dalam pisang
+
+    - Ganti mie instan malam hari    - [Gula](kandungan_gizi) di Yakult
+
+    - Alternatif minuman manis    - [Kalsium](kandungan_gizi) dalam susu sapi
+
+    - Ganti minuman beralkohol    - [Vitamin A](kandungan_gizi) dalam wortel
+
+    - Alternatif cemilan anak    - [Zat besi](kandungan_gizi) pada bayam
+
+    - Ganti snack asin    - [Karbohidrat](kandungan_gizi) nasi putih
+
+    - Alternatif gula untuk kopi    - [Lemak](kandungan_gizi) pada ayam goreng
+
+    - Ganti teh manis    - [Protein](kandungan_gizi) tahu
+
+    - Alternatif minuman kaleng    - [Protein](kandungan_gizi) tempe
+
+    - Ganti coklat manis    - [Gula](kandungan_gizi) dalam donat
+
+    - Alternatif kerupuk    - [Gula](kandungan_gizi) Good Day Cappuccino
+
+    - Ganti snack goreng    - [Garam](kandungan_gizi) dalam kerupuk
+
+    - Alternatif susu tinggi lemak    - [Protein](kandungan_gizi) ikan salmon
+
+    - Ganti saus botolan    - [Omega-3](kandungan_gizi) pada ikan tuna
+
+    - Alternatif margarin    - [Serat](kandungan_gizi) apel
+
+    - Ganti gula teh    - [Gula](kandungan_gizi) dalam Fanta
+
+    - Alternatif minuman kemasan    - [Gula](kandungan_gizi) Sprite 250 ml
+
+    - Ganti snack coklat    - [Garam](kandungan_gizi) Indomie Kari Ayam
+
+    - Alternatif donat    - [Karbohidrat](kandungan_gizi) kentang rebus
+
+    - Ganti boba    - [Gula](kandungan_gizi) dalam boba milk tea
+
+    - Alternatif keripik singkong    - [Kalium](kandungan_gizi) dalam pisang
+
+    - Ganti susu kental manis    - [Vitamin C](kandungan_gizi) jeruk
+
+    - Alternatif camilan tengah malam    - [Vitamin D](kandungan_gizi) dalam susu UHT
+
+    - Ganti minuman berkarbonasi    - [Protein](kandungan_gizi) dalam daging sapi
+
+    - Alternatif biskuit manis    - [Gula](kandungan_gizi) dalam teh manis
+
+    - Ganti kopi instan manis    - [Serat](kandungan_gizi) dalam brokoli
+
+    - Alternatif es teh manis    - [Zat besi](kandungan_gizi) hati ayam
+
+    - Ganti susu coklat instan    - [Protein](kandungan_gizi) susu kedelai
+
+    - Alternatif snack kemasan    - [Gula](kandungan_gizi) dalam Nutella
+
+    - Ganti mie instan pedas    - [Lemak](kandungan_gizi) dalam pizza
+
+    - Alternatif makanan manis sore    - [Garam](kandungan_gizi) dalam mie instan kuah
+
+    - Camilan manis sore biar nggak gemuk    - [Protein](kandungan_gizi) dalam kacang almond
+
+    - [Lemak sehat](kandungan_gizi) alpukat
+
+# ===================================================================    - [Gula](kandungan_gizi) dalam coklat batang
+
+# TANYA WAKTU MAKAN INTENT (50 examples)    - [Karbohidrat](kandungan_gizi) roti tawar
+
+# ===================================================================    - [Serat](kandungan_gizi) oatmeal
+
+- intent: tanya_waktu_makan    - [Vitamin B12](kandungan_gizi) daging sapi
+
+  examples: |    - [Protein](kandungan_gizi) ikan lele
+
+    - Kapan waktu terbaik sarapan?    - [Gula](kandungan_gizi) Floridina 350 ml
+
+    - Jam berapa makan siang sehat?    - [Garam](kandungan_gizi) pada keripik singkong
+
+    - Jam berapa sebaiknya makan malam?
+
+    - Kapan waktu minum susu?# ===================================================================
+
+    - Kapan waktu minum kopi yang baik?# OTHER INTENTS (remaining intents with examples)
+
+    - Kapan minum teh yang sehat?# ===================================================================
+
+    - Waktu ngemil sehat
+
+    - Jam makan sehat untuk diet- intent: tanya_porsi_makan
+
+    - Kapan sebaiknya sahur?  examples: |
+
+    - Kapan sebaiknya berbuka puasa?    - Porsi nasi sehat untuk makan siang
+
+    - Kapan waktu minum air putih?    - Porsi ayam goreng sekali makan
+
+    - Waktu olahraga sebelum makan    - Porsi sayur harian
+
+    - Waktu olahraga setelah makan    - Porsi buah sehari
+
+    - Kapan waktu minum vitamin?    - Porsi susu untuk anak
+
+    - Waktu makan sehat untuk anak    - Porsi nasi merah per makan
+
+    - Jam sarapan anak sekolah    - Porsi tempe sehat
+
+    - Jam makan malam anak    - Porsi tahu yang baik
+
+    - Waktu minum susu anak    - Porsi ikan sehari
+
+    - Kapan sebaiknya makan buah?    - Porsi daging sapi sekali makan
+
+    - Kapan waktu minum jus sehat?    - Porsi telur sehat
+
+    - Waktu makan untuk pekerja kantoran    - Porsi roti tawar sarapan
+
+    - Pola makan sehat harian    - Porsi kentang rebus
+
+    - Waktu makan untuk diet keto    - Porsi mie instan sekali makan
+
+    - Jam makan untuk diet intermittent fasting    - Porsi camilan sehat
+
+    - Waktu minum teh hijau    - Porsi keju sehat
+
+    - Waktu minum kopi sore    - Porsi yoghurt sehat
+
+    - Jam makan ideal untuk lansia    - Porsi jus buah sehat
+
+    - Jam makan untuk pasien diabetes    - Porsi sayur di piring makan
+
+    - Waktu ngemil untuk diet sehat    - Porsi nasi di piring makan
+
+    - Waktu minum susu rendah lemak
+
+    - Jam makan sehat untuk ibu hamil- intent: tanya_label_gizi
+
+    - Waktu makan sayur  examples: |
+
+    - Waktu minum air hangat    - Bagaimana cara membaca label gizi?
+
+    - Jam sarapan untuk diet    - Apa arti %AKG di label gizi?
+
+    - Jam makan siang untuk diet    - Apa itu takaran saji?
+
+    - Jam makan malam untuk diet    - Dimana lihat kalori di label?
+
+    - Waktu ngemil buah    - Apa arti lemak trans di label?
+
+    - Kapan waktu minum air kelapa?    - Cara tahu kandungan gula dari label
+
+    - Waktu minum teh chamomile    - Apa itu kalori kosong di label?
+
+    - Jam makan pagi pekerja malam    - Apa maksud energi total?
+
+    - Waktu minum kopi untuk mahasiswa    - Bagaimana tahu kandungan protein?
+
+    - Waktu minum vitamin C    - Apa itu natrium di label gizi?
+
+    - Waktu minum vitamin D    - Arti lemak jenuh di label
+
+    - Waktu minum suplemen zat besi    - Cara tahu vitamin dari label
+
+    - Waktu terbaik makan camilan sore    - Apa arti klaim rendah gula?
+
+    - Jam makan malam keluarga    - Apa arti klaim bebas kolesterol?
+
+    - Waktu minum air setelah olahraga    - Apa maksud tinggi serat?
+
+    - Jam minum susu untuk lansia
+
+    - Waktu sarapan ideal untuk siswa- intent: tanya_makanan_diet
+
+    - Waktu terbaik minum susu untuk orang tua  examples: |
+
+    - Makanan untuk diet rendah garam
+
+# ===================================================================    - Diet rendah gula cocok makan apa?
+
+# TANYA TIPS HIDUP SEHAT INTENT (50 examples)    - Diet rendah lemak makan apa?
+
+# ===================================================================    - Diet tinggi protein makan apa?
+
+- intent: tanya_tips_hidup_sehat    - Diet [keto](jenis_diet) makan apa?
+
+  examples: |    - Diet [vegetarian](jenis_diet) makan apa?
+
+    - Tips hidup sehat apa saja?    - Diet [vegan](jenis_diet) makan apa?
+
+    - Bagaimana cara menjaga kesehatan?    - Diet [mediterania](jenis_diet) makan apa?
+
+    - Tips diet sehat    - Diet [DASH](jenis_diet) makan apa?
+
+    - Bagaimana cara menjaga berat badan ideal?    - Diet untuk penderita diabetes
+
+    - Tips menjaga imun tubuh    - Diet untuk penderita hipertensi
+
+    - Tips makan sehat sehari-hari    - Diet untuk penderita kolesterol
+
+    - Tips olahraga untuk pemula    - Diet untuk menurunkan berat badan
+
+    - Tips tidur yang sehat    - Diet untuk menambah berat badan
+
+    - Tips mengurangi stres    - Diet untuk otot
+
+    - Tips pola makan sehat di kantor
+
+    - Tips menjaga kesehatan jantung- intent: tanya_efek_kesehatan
+
+    - Tips menjaga kesehatan otak  examples: |
+
+    - Tips menjaga kesehatan mata    - Apa efek minum kopi berlebihan?
+
+    - Tips menjaga kesehatan tulang    - Bahaya konsumsi gula berlebih
+
+    - Tips menjaga kesehatan kulit    - Efek terlalu banyak garam
+
+    - Tips sehat untuk mahasiswa    - Efek kekurangan protein
+
+    - Tips sehat untuk anak kos    - Efek kurang vitamin C
+
+    - Tips sehat untuk pekerja malam    - Efek kebanyakan mie instan
+
+    - Tips sehat untuk ibu hamil    - Bahaya minum boba tiap hari
+
+    - Tips sehat untuk lansia    - Efek kurang minum air
+
+    - Tips sehat saat puasa    - Efek kebanyakan gorengan
+
+    - Tips sehat saat lelah kerja    - Efek terlalu banyak fast food
+
+    - Tips sehat saat musim hujan    - Efek makan junk food sering
+
+    - Tips sehat saat panas terik    - Efek terlalu banyak kafein
+
+    - Tips sehat menjaga berat badan    - Efek merokok
+
+    - Tips sehat mengurangi gula    - Efek minum alkohol
+
+    - Tips sehat mengurangi garam    - Efek makan terlalu asin
+
+    - Tips sehat mengurangi lemak
+
+    - Tips sehat olahraga di rumah- intent: tanya_alternatif_makanan
+
+    - Tips sehat bekerja dari rumah  examples: |
+
+    - Tips sehat untuk anak sekolah    - Apa pengganti nasi putih?
+
+    - Tips sehat untuk remaja    - Alternatif gula pasir apa ya?
+
+    - Tips sehat untuk orang gemuk    - Apa pengganti susu sapi?
+
+    - Tips sehat untuk orang kurus    - Pengganti mie instan yang sehat
+
+    - Tips sehat agar tidak cepat lelah    - Alternatif camilan manis
+
+    - Tips sehat agar tidak mudah sakit    - Ganti nasi jadi apa untuk diet?
+
+    - Tips sehat untuk tidur nyenyak    - Alternatif minuman bersoda
+
+    - Tips sehat untuk kerja malam    - Apa pengganti gorengan sehat?
+
+    - Tips sehat untuk jaga imun    - Camilan rendah kalori apa?
+
+    - Tips sehat untuk pencernaan    - Alternatif susu untuk vegan
+
+    - Tips sehat untuk kulit glowing    - Ganti es krim pakai apa?
+
+    - Bagaimana cara biar badan tetap bugar?    - Alternatif mie goreng
+
+    - Tips menjaga stamina tubuh    - Ganti keripik apa ya?
+
+    - Bagaimana cara biar jarang sakit?    - Pengganti snack manis
+
+    - Tips hidup sehat untuk pekerja kantoran    - Alternatif minuman energi
+
+    - Bagaimana cara menjaga pola makan sehat?
+
+    - Tips sederhana biar sehat setiap hari- intent: tanya_waktu_makan
+
+    - Bagaimana cara menjaga kesehatan tubuh?  examples: |
+
+    - Tips sehat murah dan mudah    - Kapan waktu terbaik sarapan?
+
+    - Apa saja kebiasaan sehat sebelum tidur?    - Jam berapa makan siang sehat?
+
+    - Jam berapa sebaiknya makan malam?
+
+# ===================================================================    - Kapan waktu minum susu?
+
+# BASIC INTENTS    - Kapan waktu minum kopi yang baik?
+
+# ===================================================================    - Kapan minum teh yang sehat?
+
+    - Waktu ngemil sehat
+
+- intent: affirm    - Jam makan sehat untuk diet
+
+  examples: |    - Kapan sebaiknya sahur?
+
+    - ya    - Kapan sebaiknya berbuka puasa?
+
+    - iya    - Kapan waktu minum air putih?
+
+    - benar    - Waktu olahraga sebelum makan
+
+    - betul    - Waktu olahraga setelah makan
+
+    - oke    - Kapan waktu minum vitamin?
+
+    - ok    - Waktu makan sehat untuk anak
+
+    - setuju
+
+    - baik- intent: tanya_tips_hidup_sehat
+
+    - lanjut  examples: |
+
+    - silakan    - Tips hidup sehat apa saja?
+
+    - tentu    - Bagaimana cara menjaga kesehatan?
+
     - Tips diet sehat
-    - Cara menjaga berat badan ideal
-    - Tips agar tidak mudah sakit
-    - Pola makan sehat
-    - Cara meningkatkan imunitas
-    - Tips olahraga rutin
-    - Cara mengurangi stress
-    - Tips tidur berkualitas
-    - Cara hidup lebih sehat
-    - Tips menjaga kebugaran
-    - Pola hidup untuk lansia
-    - Tips sehat untuk ibu hamil
+
+- intent: deny    - Bagaimana cara menjaga berat badan ideal?
+
+  examples: |    - Tips menjaga imun tubuh
+
+    - tidak    - Tips makan sehat sehari-hari
+
+    - bukan    - Tips olahraga untuk pemula
+
+    - salah    - Tips tidur yang sehat
+
+    - tidak setuju    - Tips mengurangi stres
+
+    - jangan    - Tips pola makan sehat di kantor
+
+    - stop    - Tips menjaga kesehatan jantung
+
+    - batal    - Tips menjaga kesehatan otak
+
+    - skip    - Tips menjaga kesehatan mata
+
+    - Tips menjaga kesehatan tulang
+
+- intent: out_of_scope    - Tips menjaga kesehatan kulit
+
+  examples: |
+
+    - cuaca hari ini# ===================================================================
+
+    - harga saham# LEGACY INTENTS (for compatibility)
+
+    - berita politik# ===================================================================
+
+    - cara main game
+
+    - resep masakan non-gizi- intent: provide_name
+
+    - film terbaru  examples: |
+
+    - musik populer    - nama saya [John](name)
+
+    - jadwal kereta api    - saya [Alice](name)
+
+    - ramalan cuaca    - [Mike](name)
+
+    - cara belajar bahasa    - panggil saya [Sarah](name)
+
+    - tempat wisata
+
+    - harga motor- intent: provide_email
+
+    - tutorial makeup  examples: |
+
+    - tips investasi    - email saya [test@email.com](email)
+
+    - cara membuat blog    - alamat email [user@domain.com](email)
+
+
+- intent: mood_great
+  examples: |
+    - bagus
+    - hebat
+    - fantastis
+    - luar biasa
+    - sempurna
+
+- intent: mood_unhappy
+  examples: |
+    - sedih
+    - buruk
+    - tidak baik
+    - kecewa
+    - lelah
+
+- intent: bot_challenge
+  examples: |
+    - apakah kamu bot?
+    - kamu robot?
+    - are you a bot?
+    - are you human?
+
+- intent: user_regist
+  examples: |
+    - daftar
+    - registrasi
+    - sign up
+    - buat akun
+
+- intent: show_info
+  examples: |
+    - tampilkan info
+    - lihat data
+    - show my info
+    - info saya
+
+# ===================================================================
+# BASIC INTENTS
+# ===================================================================
+
+- intent: affirm
+  examples: |
+    - ya
+    - iya
+    - benar
+    - betul
+    - oke
+    - ok
+    - setuju
+    - baik
+    - lanjut
+    - silakan
+    - tentu
+
+- intent: deny
+  examples: |
+    - tidak
+    - bukan
+    - salah
+    - tidak setuju
+    - jangan
+    - stop
+    - batal
+    - skip
+
+- intent: out_of_scope
+  examples: |
+    - cuaca hari ini
+    - harga saham
+    - berita politik
+    - cara main game
+    - resep masakan non-gizi
+    - film terbaru
+    - musik populer
+    - jadwal kereta api
+    - ramalan cuaca
+    - cara belajar bahasa
+    - tempat wisata
+    - harga motor
+    - tutorial makeup
+    - tips investasi
+    - cara membuat blog
