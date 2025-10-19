@@ -1,0 +1,36 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - tanya_info_gizi_produk
+  - tanya_kalori_harian
+  - tanya_rekomendasi_makanan
+  - tanya_kandungan_zat
+  - tanya_porsi_makan
+  - tanya_label_gizi
+  - tanya_makanan_diet
+  - tanya_efek_kesehatan
+  - tanya_alternatif_makanan
+  - tanya_waktu_makan
+  - tanya_tips_hidup_sehat
+
+responses:
+  utter_greet:
+    - text: "Halo! Ada yang bisa saya bantu terkait informasi gizi?"
+    - text: "Selamat datang di Asisten Gizi! Ada yang ingin Anda tanyakan?"
+  
+  utter_goodbye:
+    - text: "Sampai jumpa! Tetap jaga kesehatan ya."
+    - text: "Bye! Jangan lupa konsumsi makanan sehat."
+  
+  utter_default:
+    - text: "Maaf, saya kurang mengerti. Bisa ulangi pertanyaan Anda?"
+    - text: "Saya belum memahami pertanyaan Anda. Coba tanyakan dengan cara lain ya!"
+  
+  utter_provide_info:
+    - text: "Berikut informasi gizi yang Anda butuhkan."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

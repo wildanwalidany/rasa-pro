@@ -1,0 +1,651 @@
+User Input,Intent,Response
+Hai,greeting,Halo! Ada yang bisa saya bantu terkait informasi gizi?
+Halo,greeting,Halo! Ada yang bisa saya bantu terkait informasi gizi?
+Selamat pagi,greeting,Selamat pagi! Siap membantu cek gizi hari ini.
+Selamat siang,greeting,Selamat siang! Apakah Anda ingin cek gizi produk?
+Selamat sore,greeting,Selamat sore! Mari cek informasi gizi Anda.
+Selamat malam,greeting,Selamat malam! Ada produk yang ingin dicek gizinya?
+Assalamualaikum,greeting,"Waalaikumsalam, halo! Apa yang ingin Anda tanyakan?"
+Waalaikumsalam,greeting,Waalaikumsalam! Saya siap bantu cek gizi.
+Apa kabar,greeting,"Saya baik, terima kasih. Siap bantu Anda soal gizi."
+Pagi,greeting,"Pagi! Yuk, cek gizi makanan/minuman Anda."
+Siang,greeting,Selamat siang! Ada yang ingin Anda tanyakan soal gizi?
+Sore,greeting,Selamat sore! Sehat selalu ya.
+Malam,greeting,Selamat malam! Mari hidup sehat bersama.
+Halo bot,greeting,Halo! Saya siap memberikan info gizi.
+Hai asisten,greeting,Hai! Ada produk yang ingin Anda cek gizinya?
+Hai gizi bot,greeting,Hai! Saya bisa bantu cek gizi makanan/minuman Anda.
+Halo gizi,greeting,Halo! Mari kita cek info gizi bersama.
+Hai teman,greeting,"Hai, senang bisa bantu cek gizi Anda."
+Selamat datang,greeting,Selamat datang di Asisten Gizi!
+"Halo, apa kabar",greeting,"Saya baik, siap bantu Anda cek gizi."
+"Hai, selamat pagi",greeting,"Selamat pagi, siap bantu hitung kalori."
+"Halo, sehat?",greeting,"Saya sehat, semoga Anda juga sehat ya."
+"Halo, gimana kabarnya",greeting,"Baik, terima kasih! Siap bantu soal gizi."
+"Halo, apa bisa bantu saya",greeting,Tentu! Silakan tanyakan info gizi yang Anda butuhkan.
+"Hai, boleh tanya",greeting,"Boleh, silakan tanyakan produk yang ingin dicek."
+"Hai, saya mau info",greeting,"Siap, produk apa yang ingin dicek gizinya?"
+"Halo, salam kenal",greeting,Salam kenal! Saya asisten gizi Anda.
+Pagi asisten,greeting,"Selamat pagi, ada yang ingin dicek gizinya?"
+Selamat siang bot,greeting,"Selamat siang, saya siap bantu Anda."
+Hai teman sehat,greeting,"Hai, mari hidup sehat bersama."
+"Halo, bisa cek gizi",greeting,"Bisa, produk apa yang ingin dicek?"
+"Hai, selamat siang",greeting,"Selamat siang, saya siap bantu soal kalori."
+Halo sahabat,greeting,"Halo sahabat sehat, mari cek gizi."
+Selamat sore asisten,greeting,"Selamat sore, produk apa yang ingin Anda cek?"
+"Halo, ada info gizi",greeting,"Ada, silakan sebutkan produk Anda."
+"Hai, kabar baik?",greeting,Baik! Siap bantu Anda.
+"Halo, saya ingin tahu",greeting,"Silakan, info gizi apa yang ingin ditanyakan?"
+"Hai, boleh nanya?",greeting,"Tentu, silakan."
+"Halo, gimana caranya cek gizi",greeting,"Tinggal sebutkan produk, saya bantu cek."
+"Halo, saya butuh bantuan",greeting,"Tentu, saya bisa bantu soal gizi."
+"Hai, ada info makanan sehat?",greeting,"Ada, saya bisa rekomendasikan."
+"Halo, bisa hitung kalori?",greeting,"Bisa, sebutkan produk Anda."
+"Halo, saya lapar",greeting,"Yuk, pilih makanan sehat."
+"Hai, ada rekomendasi makanan?",greeting,"Ada, saya bisa rekomendasikan menu sehat."
+"Hai, gimana cara cek kalori",greeting,"Sebutkan produk, saya bantu cek kalorinya."
+"Halo, saya ingin coba bot ini",greeting,Silakan! Tanya soal gizi apapun.
+"Hai, tolong cek gizi produk",greeting,"Tentu, produk apa yang dimaksud?"
+"Halo, ada informasi kesehatan?",greeting,"Ada, saya siap berikan."
+"Hai, bantu cek makanan ini",greeting,"Oke, sebutkan nama produk."
+"Halo, bisa bantu saya?",greeting,"Bisa, mari cek gizi produk Anda."
+Dadah,goodbye,Sampai jumpa! Tetap jaga kesehatan ya.
+Bye,goodbye,Bye! Jangan lupa konsumsi makanan sehat.
+Sampai jumpa,goodbye,"Sampai jumpa lagi, semoga sehat selalu."
+"Terima kasih, sudah cukup",goodbye,Sama-sama! Jangan lupa pola makan seimbang.
+"Oke, saya pamit",goodbye,"Baik, sampai jumpa lagi."
+Sudah dulu ya,goodbye,"Oke, sehat selalu!"
+Saya keluar,goodbye,"Sampai jumpa, tetap semangat."
+See you,goodbye,"See you, jangan lupa makan sehat."
+Makasih ya,goodbye,"Sama-sama, silakan kembali kapan saja."
+Udahan dulu,goodbye,"Oke, sampai jumpa."
+Dah,goodbye,"Dah, sehat selalu ya."
+Bye bye,goodbye,"Bye bye, tetap jaga kesehatan."
+"Ok, terima kasih",goodbye,"Sama-sama, semoga sehat selalu."
+Cukup dulu,goodbye,"Baik, sehat terus ya."
+Selesai,goodbye,"Selesai, sampai jumpa."
+Pamit dulu,goodbye,"Baik, sampai jumpa."
+Aku keluar,goodbye,Sampai ketemu lagi.
+Nanti lagi,goodbye,"Oke, kita sambung nanti."
+Sampai ketemu,goodbye,Sampai ketemu lagi ya.
+Terima kasih banyak,goodbye,"Sama-sama, sehat selalu!"
+Thanks,goodbye,"Thanks, jaga kesehatan."
+Udah cukup,goodbye,"Oke, sampai jumpa lagi."
+Nanti sambung lagi,goodbye,"Siap, sampai ketemu."
+Ok selesai,goodbye,"Baik, sampai jumpa."
+Stop dulu,goodbye,"Baik, sehat selalu."
+Sampai jumpa lagi,goodbye,"Sampai jumpa, tetap semangat hidup sehat."
+"Oke, bye",goodbye,"Bye, sehat selalu."
+"Udah, makasih",goodbye,"Sama-sama, jaga pola makan ya."
+Tutup dulu,goodbye,"Baik, sampai jumpa lagi."
+Saya udahan,goodbye,"Oke, sehat selalu ya."
+Sampai ketemu lagi,goodbye,"Sampai ketemu, jangan lupa makan sehat."
+Sampai besok,goodbye,"Sampai besok, tetap sehat."
+Dah ya,goodbye,"Dah, sehat terus ya."
+"Baik, saya pergi",goodbye,"Baik, hati-hati dan sehat selalu."
+Aku udahan,goodbye,"Oke, sampai jumpa."
+Oke cukup,goodbye,"Oke, sehat selalu ya."
+Saya sudahi,goodbye,"Oke, sampai jumpa."
+"Terima kasih, sampai ketemu",goodbye,"Sama-sama, sehat selalu ya."
+Bye bot,goodbye,"Bye, sehat selalu."
+Makasih asisten,goodbye,"Sama-sama, semoga bermanfaat."
+"Ok, sampai jumpa",goodbye,"Oke, sampai jumpa lagi."
+Saya pamit ya,goodbye,"Baik, sampai jumpa."
+Udah dulu,goodbye,"Oke, sehat selalu."
+Ok saya keluar,goodbye,"Baik, sampai jumpa."
+Terima kasih banyak bot,goodbye,"Sama-sama, sehat selalu."
+"Dah, sehat selalu",goodbye,"Dah, tetap sehat ya."
+"Ok, udah cukup",goodbye,"Baik, sehat selalu."
+Stop disini,goodbye,"Baik, kita lanjut kapan-kapan."
+"Terima kasih, bye",goodbye,"Sama-sama, bye."
+"Bye bye, makasih",goodbye,"Bye bye, sehat selalu ya."
+Berapa kalori dalam Teh Botol Sosro?,tanya_info_gizi_produk,Teh Botol Sosro 350 ml mengandung ±140 kkal.
+Info gizi Ultra Milk Strawberry 200 ml,tanya_info_gizi_produk,"Ultra Milk Strawberry 200 ml: 110 kkal, 17g gula, 4g lemak."
+Apa kandungan gizi Aqua 600 ml?,tanya_info_gizi_produk,Aqua hanya mengandung mineral tanpa kalori.
+Berapa kalori Pop Mie Rasa Ayam?,tanya_info_gizi_produk,Pop Mie Ayam 1 cup: ±360 kkal.
+Tolong cek info gizi Indomie Goreng,tanya_info_gizi_produk,"Indomie Goreng: 390 kkal, 14g lemak, 730 mg natrium."
+Informasi gizi Coca Cola 250 ml,tanya_info_gizi_produk,"Coca Cola 250 ml: ±105 kkal, 26g gula."
+Kandungan gizi Silverqueen 25g,tanya_info_gizi_produk,"Silverqueen 25g: ±140 kkal, 8g lemak, 12g gula."
+Apakah Oreo mengandung banyak kalori?,tanya_info_gizi_produk,Oreo 28g: ±140 kkal.
+Gizi Nutrisari Jeruk 1 sachet,tanya_info_gizi_produk,"Nutrisari Jeruk: 60 kkal, 15g gula."
+Apa isi gizi Yakult?,tanya_info_gizi_produk,"Yakult 65 ml: 50 kkal, 10g gula, probiotik."
+Kalori Chitato 68 gram,tanya_info_gizi_produk,Chitato 68g: ±360 kkal.
+Gizi Good Day Cappuccino,tanya_info_gizi_produk,"Good Day Cappuccino sachet: ±110 kkal, 18g gula."
+Info Fruit Tea Apel 350 ml,tanya_info_gizi_produk,"Fruit Tea Apel: 150 kkal, 36g gula."
+Kandungan Aqua Reflections,tanya_info_gizi_produk,Aqua Reflections hanya mengandung mineral alami.
+Info Frestea Green Tea 500 ml,tanya_info_gizi_produk,"Frestea Green Tea: 180 kkal, 42g gula."
+Kalori KFC Chicken 1 potong,tanya_info_gizi_produk,1 potong ayam goreng KFC: ±300 kkal.
+Nutrisi Burger McD,tanya_info_gizi_produk,"McD Burger: ±250 kkal, 9g lemak."
+Kalori Pizza Hut ukuran kecil,tanya_info_gizi_produk,Pizza kecil: ±600 kkal per porsi.
+Info Popcorn 50g,tanya_info_gizi_produk,Popcorn manis: ±200 kkal.
+Kalori Sari Roti Coklat,tanya_info_gizi_produk,"Sari Roti Coklat: 190 kkal, 8g lemak."
+Nutrisi Dancow Fortigro 200 ml,tanya_info_gizi_produk,"Dancow Fortigro: 150 kkal, 5g lemak."
+Kalori Es Teh Pucuk 350 ml,tanya_info_gizi_produk,"Teh Pucuk: 140 kkal, 35g gula."
+Gizi Fanta 250 ml,tanya_info_gizi_produk,"Fanta 250 ml: 110 kkal, 26g gula."
+Info Sprite botol kecil,tanya_info_gizi_produk,"Sprite 250 ml: 100 kkal, 24g gula."
+Kalori Yakult Light,tanya_info_gizi_produk,"Yakult Light: 30 kkal, 7g gula."
+Gizi Beng Beng 20g,tanya_info_gizi_produk,"Beng Beng: 120 kkal, 6g lemak."
+Kalori Energen 1 sachet,tanya_info_gizi_produk,"Energen: 120 kkal, 2g protein."
+Info Biskuat mini,tanya_info_gizi_produk,Biskuat 15g: 70 kkal.
+Nutrisi Pringles 42 gram,tanya_info_gizi_produk,Pringles 42g: 220 kkal.
+Kalori Pocari Sweat 350 ml,tanya_info_gizi_produk,"Pocari Sweat: 80 kkal, elektrolit."
+Info Teh Gelas 350 ml,tanya_info_gizi_produk,Teh Gelas: 140 kkal.
+Nutrisi Teh Kotak Jasmine,tanya_info_gizi_produk,Teh Kotak: 130 kkal.
+Kalori Bear Brand 189 ml,tanya_info_gizi_produk,"Bear Brand: 120 kkal, kaya vitamin."
+Info Milo UHT 200 ml,tanya_info_gizi_produk,"Milo: 140 kkal, 20g gula."
+Nutrisi Nutriboost Coklat,tanya_info_gizi_produk,"Nutriboost: 190 kkal, 30g gula."
+Kalori Cimory Yogurt Drink,tanya_info_gizi_produk,Cimory Yogurt: 110 kkal.
+Info Fruit Tea Lemon 350 ml,tanya_info_gizi_produk,Fruit Tea Lemon: 140 kkal.
+Nutrisi Mizone 500 ml,tanya_info_gizi_produk,Mizone: 120 kkal.
+Info Floridina 350 ml,tanya_info_gizi_produk,"Floridina: 130 kkal, vitamin C."
+Nutrisi Indomilk Kids 115 ml,tanya_info_gizi_produk,Indomilk Kids: 90 kkal.
+Info Cheetos 50g,tanya_info_gizi_produk,Cheetos: 260 kkal.
+Nutrisi Tango Wafer 20g,tanya_info_gizi_produk,Tango: 100 kkal.
+Kalori Sari Gandum 20g,tanya_info_gizi_produk,Sari Gandum: 95 kkal.
+Info Koko Krunch 30g,tanya_info_gizi_produk,Koko Krunch: 120 kkal.
+Nutrisi Milo Sachet 30g,tanya_info_gizi_produk,Milo sachet: 110 kkal.
+Kalori Ultra Milk Full Cream 200 ml,tanya_info_gizi_produk,Ultra Milk: 130 kkal.
+Info Good Time Cookies 30g,tanya_info_gizi_produk,Good Time: 150 kkal.
+Nutrisi Taro Net 30g,tanya_info_gizi_produk,Taro Net: 140 kkal.
+Kalori Twister 20g,tanya_info_gizi_produk,Twister: 100 kkal.
+Kalori Prenagen Velvety Choco 185ml,tanya_info_gizi_produk,Kandungan kalori sekitar 115 kkal
+Berapa kebutuhan kalori saya per hari?,tanya_kalori_harian,Rata-rata orang dewasa butuh 2000–2500 kkal/hari.
+Hitung kebutuhan kalori harian,tanya_kalori_harian,"Kebutuhan kalori tergantung usia, jenis kelamin, dan aktivitas."
+Wanita butuh berapa kalori?,tanya_kalori_harian,Wanita dewasa rata-rata 2000 kkal/hari.
+Pria dewasa perlu berapa energi?,tanya_kalori_harian,Pria dewasa rata-rata 2500 kkal/hari.
+Kalori untuk anak usia 10 tahun,tanya_kalori_harian,Anak usia 10 tahun butuh ±1800 kkal/hari.
+Kalori remaja berapa?,tanya_kalori_harian,Remaja butuh ±2200 kkal/hari.
+Berapa kalori orang obesitas?,tanya_kalori_harian,Disarankan <2000 kkal/hari sesuai dokter.
+Kalori ibu hamil,tanya_kalori_harian,Ibu hamil perlu tambahan ±300 kkal/hari.
+Kalori untuk orang diet,tanya_kalori_harian,Diet umumnya 1500–1800 kkal/hari.
+Kalori bayi 1 tahun,tanya_kalori_harian,Bayi 1 tahun butuh ±900 kkal/hari.
+Kalori orang tua,tanya_kalori_harian,Lansia biasanya butuh 1600–2000 kkal/hari.
+Kalori untuk atlet,tanya_kalori_harian,Atlet bisa butuh 3000–4000 kkal/hari.
+Kalori saat puasa,tanya_kalori_harian,"Tetap 2000 kkal, dibagi saat sahur & buka."
+Kalori ibu menyusui,tanya_kalori_harian,Tambahan ±500 kkal/hari.
+Kalori mahasiswa,tanya_kalori_harian,±2200 kkal/hari.
+Kalori karyawan kantor,tanya_kalori_harian,±2000 kkal/hari.
+Kalori pekerja lapangan,tanya_kalori_harian,±2500–3000 kkal/hari.
+Kalori anak sekolah,tanya_kalori_harian,±1800–2000 kkal/hari.
+Kalori lansia,tanya_kalori_harian,±1600 kkal/hari.
+Kalori remaja putri,tanya_kalori_harian,±2000 kkal/hari.
+Kalori remaja pria,tanya_kalori_harian,±2400 kkal/hari.
+Kalori pria aktif,tanya_kalori_harian,±2800 kkal/hari.
+Kalori wanita aktif,tanya_kalori_harian,±2200 kkal/hari.
+Kalori pekerja ringan,tanya_kalori_harian,±2000 kkal/hari.
+Kalori pekerja berat,tanya_kalori_harian,±3000 kkal/hari.
+Kalori ibu rumah tangga,tanya_kalori_harian,±2000 kkal/hari.
+Kalori balita,tanya_kalori_harian,±1200 kkal/hari.
+Kalori anak SMP,tanya_kalori_harian,±2000 kkal/hari.
+Kalori anak SMA,tanya_kalori_harian,±2200 kkal/hari.
+Kalori pasien diabetes,tanya_kalori_harian,"Sesuai rekomendasi dokter, biasanya 1500–1800 kkal/hari."
+Kalori pasien hipertensi,tanya_kalori_harian,±1800–2000 kkal/hari.
+Kalori pasien jantung,tanya_kalori_harian,±1600–1800 kkal/hari.
+Kalori orang kurus,tanya_kalori_harian,±2500 kkal/hari untuk menambah berat badan.
+Kalori orang gemuk,tanya_kalori_harian,±1600–1800 kkal/hari untuk menurunkan berat badan.
+Kalori diet rendah karbo,tanya_kalori_harian,±1500 kkal/hari.
+Kalori diet tinggi protein,tanya_kalori_harian,±1800–2000 kkal/hari.
+Kalori pelari,tanya_kalori_harian,±3000 kkal/hari.
+Kalori pesepeda,tanya_kalori_harian,±2800–3200 kkal/hari.
+Kalori perenang,tanya_kalori_harian,±3000 kkal/hari.
+Kalori pegawai bank,tanya_kalori_harian,±2000 kkal/hari.
+Kalori programmer,tanya_kalori_harian,±1900 kkal/hari.
+Kalori dosen,tanya_kalori_harian,±2000 kkal/hari.
+Kalori guru,tanya_kalori_harian,±2000 kkal/hari.
+Kalori dokter,tanya_kalori_harian,±2200 kkal/hari.
+Kalori perawat,tanya_kalori_harian,±2100 kkal/hari.
+Kalori sopir,tanya_kalori_harian,±2200 kkal/hari.
+Kalori petani,tanya_kalori_harian,±2500–2800 kkal/hari.
+Kalori nelayan,tanya_kalori_harian,±2600–3000 kkal/hari.
+Kalori pekerja bangunan,tanya_kalori_harian,±3000 kkal/hari.
+Kalori tentara,tanya_kalori_harian,±3500 kkal/hari.
+Apa rekomendasi makanan sehat hari ini?,tanya_rekomendasi_makanan,"Sayur, buah, dan protein seimbang sangat baik."
+Menu makan siang sehat,tanya_rekomendasi_makanan,"Coba nasi merah, ayam panggang, dan sayur hijau."
+Sarapan sehat apa ya?,tanya_rekomendasi_makanan,Oatmeal dengan buah segar sangat bagus.
+Camilan sehat sore,tanya_rekomendasi_makanan,Buah potong atau kacang panggang bisa jadi pilihan.
+Makanan sehat malam hari,tanya_rekomendasi_makanan,Sup sayur dengan ikan rebus cocok.
+Rekomendasi makanan untuk diet,tanya_rekomendasi_makanan,"Pilih sayur hijau, protein tanpa lemak, dan buah segar."
+Makanan sehat untuk anak sekolah,tanya_rekomendasi_makanan,"Bekal nasi, ayam, telur, dan buah potong."
+Menu sehat untuk ibu hamil,tanya_rekomendasi_makanan,"Tambahkan susu, sayur, buah, dan protein."
+Apa makanan sehat untuk remaja?,tanya_rekomendasi_makanan,"Susu, telur, buah, dan sayur sangat baik."
+Rekomendasi makanan vegetarian,tanya_rekomendasi_makanan,"Tahu, tempe, sayur hijau, dan kacang-kacangan."
+Makanan sehat untuk vegan,tanya_rekomendasi_makanan,"Buah, sayur, kacang, dan biji-bijian."
+Menu sehat untuk lansia,tanya_rekomendasi_makanan,"Bubur, ikan kukus, sayur rebus, dan buah lunak."
+Rekomendasi makanan rendah gula,tanya_rekomendasi_makanan,Pilih buah rendah gula seperti apel atau pir.
+Makanan rendah garam,tanya_rekomendasi_makanan,"Sayuran segar, buah, dan ikan rebus."
+Makanan rendah lemak,tanya_rekomendasi_makanan,"Ikan kukus, ayam tanpa kulit, sayuran."
+Makanan tinggi protein sehat,tanya_rekomendasi_makanan,"Telur, dada ayam, ikan, dan kacang-kacangan."
+Rekomendasi makanan tinggi serat,tanya_rekomendasi_makanan,"Sayur hijau, kacang, dan buah segar."
+Makanan sehat untuk penderita diabetes,tanya_rekomendasi_makanan,"Nasi merah, sayur, ikan, dan buah rendah gula."
+Makanan sehat untuk hipertensi,tanya_rekomendasi_makanan,"Sayuran hijau, buah, dan ikan rendah garam."
+Makanan sehat untuk jantung,tanya_rekomendasi_makanan,"Ikan salmon, kacang, sayuran hijau."
+Menu sehat untuk sarapan anak,tanya_rekomendasi_makanan,"Roti gandum, telur rebus, dan susu."
+Makanan sehat saat sahur,tanya_rekomendasi_makanan,"Nasi merah, ayam, sayur, dan buah segar."
+Makanan sehat saat berbuka puasa,tanya_rekomendasi_makanan,"Kurma, sup sayur, dan ikan."
+Rekomendasi makanan untuk pekerja kantoran,tanya_rekomendasi_makanan,"Nasi merah, dada ayam, sayur rebus."
+Menu sehat untuk mahasiswa,tanya_rekomendasi_makanan,"Roti gandum, telur, dan buah."
+Makanan sehat untuk anak kos,tanya_rekomendasi_makanan,"Telur rebus, sayur, buah potong."
+Rekomendasi makanan untuk atlet,tanya_rekomendasi_makanan,"Nasi merah, daging tanpa lemak, sayur hijau."
+Makanan sehat untuk diet keto,tanya_rekomendasi_makanan,"Alpukat, ikan, telur, dan minyak zaitun."
+Makanan sehat untuk diet rendah karbo,tanya_rekomendasi_makanan,"Telur, daging, ikan, dan sayur hijau."
+Makanan sehat untuk diet tinggi protein,tanya_rekomendasi_makanan,"Telur, ayam, ikan, dan susu rendah lemak."
+Rekomendasi makanan vegetarian sehat,tanya_rekomendasi_makanan,"Tahu, tempe, kacang merah, sayur."
+Menu sehat rendah kalori,tanya_rekomendasi_makanan,"Sup sayur, ikan kukus, buah segar."
+Makanan sehat tinggi vitamin C,tanya_rekomendasi_makanan,"Jeruk, kiwi, stroberi, dan paprika."
+Makanan sehat tinggi kalsium,tanya_rekomendasi_makanan,"Susu, keju, yoghurt, dan sayuran hijau."
+Makanan sehat tinggi zat besi,tanya_rekomendasi_makanan,"Bayam, hati ayam, kacang-kacangan."
+Makanan sehat untuk diet Mediterania,tanya_rekomendasi_makanan,"Minyak zaitun, ikan, kacang, buah segar."
+Rekomendasi makanan tradisional sehat,tanya_rekomendasi_makanan,"Pecel sayur, gado-gado, urap."
+Makanan sehat untuk camilan malam,tanya_rekomendasi_makanan,"Yogurt rendah lemak, buah potong."
+Rekomendasi makanan lokal bergizi,tanya_rekomendasi_makanan,"Tempe, tahu, ikan pindang, sayur hijau."
+Makanan sehat untuk meningkatkan imun,tanya_rekomendasi_makanan,"Buah kaya vitamin C, sayur, madu."
+Rekomendasi makanan untuk diet DASH,tanya_rekomendasi_makanan,"Buah, sayur, kacang, produk susu rendah lemak."
+Makanan sehat untuk menurunkan berat badan,tanya_rekomendasi_makanan,"Sayuran hijau, ikan, nasi merah."
+Makanan sehat untuk menambah berat badan,tanya_rekomendasi_makanan,"Susu, alpukat, kacang, daging tanpa lemak."
+Rekomendasi makanan untuk stamina,tanya_rekomendasi_makanan,"Pisang, oatmeal, telur rebus."
+Makanan sehat untuk otot,tanya_rekomendasi_makanan,"Dada ayam, telur, whey protein."
+Menu sehat untuk vegetarian pemula,tanya_rekomendasi_makanan,"Tahu, tempe, brokoli, kentang."
+Makanan sehat untuk vegan pemula,tanya_rekomendasi_makanan,"Buah, sayur, kacang, biji-bijian."
+Camilan sehat untuk anak,tanya_rekomendasi_makanan,"Buah potong, biskuit gandum."
+Camilan sehat untuk remaja,tanya_rekomendasi_makanan,"Yoghurt, granola bar, buah segar."
+Camilan sehat untuk orang dewasa,tanya_rekomendasi_makanan,"Kacang panggang, buah kering."
+Berapa kandungan gula dalam Coca Cola?,tanya_kandungan_zat,Coca Cola 250 ml mengandung ±26g gula.
+Garam pada Indomie Goreng berapa?,tanya_kandungan_zat,Indomie Goreng: ±730 mg natrium.
+Lemak dalam Silverqueen?,tanya_kandungan_zat,Silverqueen 25g mengandung 8g lemak.
+Protein dalam Ultra Milk?,tanya_kandungan_zat,Ultra Milk 200 ml: ±6g protein.
+Karbohidrat Pop Mie berapa?,tanya_kandungan_zat,Pop Mie 1 cup: ±50g karbohidrat.
+Kandungan vitamin C di Nutrisari?,tanya_kandungan_zat,Nutrisari 1 sachet: ±60 mg vitamin C.
+Berapa natrium di Chitato?,tanya_kandungan_zat,Chitato 68g: ±400 mg natrium.
+Gula dalam Teh Botol Sosro,tanya_kandungan_zat,Teh Botol Sosro 350 ml: ±32g gula.
+Lemak trans dalam margarin ada berapa?,tanya_kandungan_zat,"Margarin umumnya mengandung lemak trans, ±1–2g per sajian."
+Protein dalam telur ayam,tanya_kandungan_zat,1 butir telur: ±6g protein.
+Serat dalam pisang,tanya_kandungan_zat,Pisang ukuran sedang: ±3g serat.
+Gula di Yakult,tanya_kandungan_zat,Yakult 65 ml: ±10g gula.
+Kalsium dalam susu sapi,tanya_kandungan_zat,Susu 200 ml: ±250 mg kalsium.
+Vitamin A dalam wortel,tanya_kandungan_zat,Wortel 100g: ±835 mcg vitamin A.
+Zat besi pada bayam,tanya_kandungan_zat,Bayam 100g: ±2.7 mg zat besi.
+Karbohidrat nasi putih,tanya_kandungan_zat,Nasi putih 100g: ±28g karbohidrat.
+Lemak pada ayam goreng,tanya_kandungan_zat,Ayam goreng 1 potong: ±12g lemak.
+Protein tahu,tanya_kandungan_zat,Tahu 100g: ±8g protein.
+Protein tempe,tanya_kandungan_zat,Tempe 100g: ±19g protein.
+Gula dalam donat,tanya_kandungan_zat,1 donat: ±10–15g gula.
+Gula Good Day Cappuccino,tanya_kandungan_zat,1 sachet: ±18g gula.
+Garam dalam kerupuk,tanya_kandungan_zat,Kerupuk 20g: ±250 mg natrium.
+Protein ikan salmon,tanya_kandungan_zat,Salmon 100g: ±20g protein.
+Omega-3 pada ikan tuna,tanya_kandungan_zat,Tuna 100g: ±1g omega-3.
+Serat apel,tanya_kandungan_zat,1 buah apel sedang: ±4g serat.
+Gula dalam Fanta,tanya_kandungan_zat,Fanta 250 ml: ±26g gula.
+Gula Sprite 250 ml,tanya_kandungan_zat,Sprite 250 ml: ±24g gula.
+Garam Indomie Kari Ayam,tanya_kandungan_zat,±720 mg natrium per sajian.
+Karbohidrat kentang rebus,tanya_kandungan_zat,100g kentang: ±17g karbohidrat.
+Gula dalam boba milk tea,tanya_kandungan_zat,1 gelas boba: ±30–40g gula.
+Kalium dalam pisang,tanya_kandungan_zat,1 buah pisang: ±422 mg kalium.
+Vitamin C jeruk,tanya_kandungan_zat,1 buah jeruk: ±70 mg vitamin C.
+Vitamin D dalam susu UHT,tanya_kandungan_zat,±2.5 mcg per gelas.
+Protein dalam daging sapi,tanya_kandungan_zat,100g daging sapi: ±26g protein.
+Gula dalam teh manis,tanya_kandungan_zat,1 gelas teh manis: ±25g gula.
+Serat dalam brokoli,tanya_kandungan_zat,Brokoli 100g: ±2.6g serat.
+Zat besi hati ayam,tanya_kandungan_zat,±9 mg zat besi per 100g.
+Protein susu kedelai,tanya_kandungan_zat,±7g protein per 200 ml.
+Gula dalam Nutella,tanya_kandungan_zat,1 sdm Nutella: ±11g gula.
+Lemak dalam pizza,tanya_kandungan_zat,1 slice pizza: ±10g lemak.
+Garam dalam mie instan kuah,tanya_kandungan_zat,±1500 mg natrium per bungkus.
+Protein dalam kacang almond,tanya_kandungan_zat,Almond 28g: ±6g protein.
+Lemak sehat alpukat,tanya_kandungan_zat,100g alpukat: ±15g lemak sehat.
+Gula dalam coklat batang,tanya_kandungan_zat,20g coklat: ±12g gula.
+Karbohidrat roti tawar,tanya_kandungan_zat,2 lembar roti tawar: ±28g karbohidrat.
+Serat oatmeal,tanya_kandungan_zat,40g oatmeal: ±4g serat.
+Vitamin B12 daging sapi,tanya_kandungan_zat,±2.5 mcg per 100g.
+Protein ikan lele,tanya_kandungan_zat,Lele 100g: ±18g protein.
+Gula Floridina 350 ml,tanya_kandungan_zat,Floridina: ±30g gula.
+Garam pada keripik singkong,tanya_kandungan_zat,±300 mg natrium per 30g.
+Porsi nasi sehat untuk makan siang,tanya_porsi_makan,Porsi nasi sehat sekitar 100 gram atau 1 centong sedang.
+Porsi ayam goreng sekali makan,tanya_porsi_makan,1 potong ayam tanpa kulit cukup untuk sekali makan.
+Porsi sayur harian,tanya_porsi_makan,Dianjurkan 250 gram sayur per hari.
+Porsi buah sehari,tanya_porsi_makan,2–3 porsi buah atau setara 150–250 gram.
+Porsi susu untuk anak,tanya_porsi_makan,2 gelas susu sehari cukup untuk anak.
+Porsi nasi merah per makan,tanya_porsi_makan,100 gram atau setara ½ gelas.
+Porsi tempe sehat,tanya_porsi_makan,2–3 potong tempe ukuran sedang per makan.
+Porsi tahu yang baik,tanya_porsi_makan,2 potong sedang cukup untuk sekali makan.
+Porsi ikan sehari,tanya_porsi_makan,75–100 gram ikan per porsi.
+Porsi daging sapi sekali makan,tanya_porsi_makan,50–75 gram per porsi sudah cukup.
+Porsi telur sehat,tanya_porsi_makan,1–2 butir telur per hari.
+Porsi roti tawar sarapan,tanya_porsi_makan,2 lembar roti gandum cukup untuk sarapan.
+Porsi kentang rebus,tanya_porsi_makan,100 gram kentang setara 1 porsi.
+Porsi mie instan sekali makan,tanya_porsi_makan,1 bungkus sudah lebih dari cukup.
+Porsi camilan sehat,tanya_porsi_makan,Segenggam kacang atau buah potong kecil.
+Porsi keju sehat,tanya_porsi_makan,1 lembar tipis atau 20 gram.
+Porsi yoghurt sehat,tanya_porsi_makan,1 cup kecil (±125 ml).
+Porsi jus buah sehat,tanya_porsi_makan,1 gelas kecil (150 ml) tanpa gula tambahan.
+Porsi sayur di piring makan,tanya_porsi_makan,Isi ½ bagian piring dengan sayur.
+Porsi nasi di piring makan,tanya_porsi_makan,Isi ¼ bagian piring dengan karbohidrat.
+Porsi lauk protein di piring,tanya_porsi_makan,Isi ¼ bagian piring dengan lauk berprotein.
+Porsi camilan buah sore,tanya_porsi_makan,1 buah apel atau 1 pisang.
+Porsi kacang sehat,tanya_porsi_makan,Segenggam atau ±28 gram.
+Porsi minum air putih harian,tanya_porsi_makan,8 gelas (2 liter) per hari.
+Porsi kopi sehat,tanya_porsi_makan,1–2 cangkir kopi tanpa gula sehari.
+Porsi teh sehat,tanya_porsi_makan,1–2 cangkir teh tanpa gula sehari.
+Porsi camilan keripik sehat?,tanya_porsi_makan,Batasi 1 genggam kecil saja.
+Porsi buah untuk diet,tanya_porsi_makan,3–4 porsi buah rendah gula per hari.
+Porsi nasi untuk diet,tanya_porsi_makan,½ centong kecil per makan.
+Porsi sayur untuk diet,tanya_porsi_makan,300–400 gram sayur per hari.
+Porsi daging ayam untuk diet,tanya_porsi_makan,100 gram dada ayam tanpa kulit.
+Porsi ikan untuk diet,tanya_porsi_makan,100 gram ikan kukus/rebus.
+Porsi buah untuk anak,tanya_porsi_makan,2 porsi buah potong kecil.
+Porsi susu untuk lansia,tanya_porsi_makan,1–2 gelas susu rendah lemak.
+Porsi bubur bayi,tanya_porsi_makan,½ mangkok kecil sesuai usia bayi.
+Porsi camilan biskuit,tanya_porsi_makan,2 keping biskuit gandum.
+Porsi mie sehat,tanya_porsi_makan,½ porsi mie ditambah banyak sayur.
+Porsi nasi uduk sehat,tanya_porsi_makan,½ piring kecil saja.
+Porsi sate ayam sehat,tanya_porsi_makan,5 tusuk sate ayam tanpa kulit.
+Porsi gorengan yang aman,tanya_porsi_makan,"1–2 potong kecil, jangan sering."
+Porsi buah semangka,tanya_porsi_makan,1–2 potong segitiga.
+Porsi buah melon,tanya_porsi_makan,1–2 potong kecil.
+Porsi alpukat sehat,tanya_porsi_makan,½ buah alpukat per kali makan.
+Porsi susu coklat,tanya_porsi_makan,1 gelas kecil saja.
+Porsi air kelapa,tanya_porsi_makan,1 gelas (200 ml) cukup.
+Porsi es krim,tanya_porsi_makan,"½ cup kecil, konsumsi sesekali."
+Porsi kue manis,tanya_porsi_makan,"1 potong kecil, jangan sering."
+Porsi buah anggur,tanya_porsi_makan,10–12 butir anggur.
+Porsi buah stroberi,tanya_porsi_makan,6–7 buah sedang.
+Porsi buah pepaya,tanya_porsi_makan,1 potong sedang.
+Bagaimana cara membaca label gizi?,tanya_label_gizi,"Mulailah dari takaran saji, lalu lihat kalori dan zat gizi utama."
+Apa arti %AKG di label gizi?,tanya_label_gizi,%AKG menunjukkan kontribusi zat gizi terhadap kebutuhan harian.
+Apa itu takaran saji?,tanya_label_gizi,Takaran saji adalah porsi standar yang digunakan sebagai acuan gizi.
+Dimana lihat kalori di label?,tanya_label_gizi,Kalori biasanya ditulis di bagian atas tabel informasi gizi.
+Apa arti lemak trans di label?,tanya_label_gizi,Lemak trans adalah jenis lemak tidak sehat yang sebaiknya dihindari.
+Cara tahu kandungan gula dari label,tanya_label_gizi,Lihat di baris karbohidrat total → gula.
+Apa itu kalori kosong di label?,tanya_label_gizi,Kalori kosong artinya kalori tinggi tapi miskin nutrisi.
+Apa maksud energi total?,tanya_label_gizi,Energi total adalah jumlah kalori dalam satu sajian.
+Bagaimana tahu kandungan protein?,tanya_label_gizi,Lihat di baris protein pada label gizi.
+Apa itu natrium di label gizi?,tanya_label_gizi,"Natrium adalah garam, disarankan <2000 mg per hari."
+Arti lemak jenuh di label,tanya_label_gizi,Lemak jenuh adalah lemak padat yang harus dibatasi.
+Cara tahu vitamin dari label,tanya_label_gizi,Vitamin biasanya tertera di bagian bawah tabel gizi.
+"Apa arti klaim ""rendah gula""?",tanya_label_gizi,Artinya produk mengandung ≤5g gula per 100g.
+"Apa arti klaim ""bebas kolesterol""?",tanya_label_gizi,Produk mengandung <2mg kolesterol per sajian.
+"Apa maksud ""tinggi serat""?",tanya_label_gizi,Produk mengandung ≥6g serat per 100g.
+Cara cek zat besi di label,tanya_label_gizi,"Lihat di bagian mineral, biasanya ditulis dalam mg."
+Bagaimana baca % lemak di label?,tanya_label_gizi,Itu menunjukkan berapa persen dari kebutuhan harian.
+"Apa maksud ""light"" di kemasan?",tanya_label_gizi,Biasanya berarti rendah kalori atau rendah lemak.
+"Apa arti ""sugar free""?",tanya_label_gizi,Artinya gula <0.5g per porsi.
+"Apa arti ""low fat""?",tanya_label_gizi,Artinya lemak <3g per 100g produk.
+"Apa itu ""high protein"" di label?",tanya_label_gizi,Artinya protein ≥20% dari energi total.
+Cara cek serat di label,tanya_label_gizi,Lihat di bagian karbohidrat → serat pangan.
+"Arti klaim ""fortified""",tanya_label_gizi,Produk diperkaya vitamin/mineral tertentu.
+"Apa maksud ""enriched""?",tanya_label_gizi,Produk ditambah zat gizi tertentu setelah diproses.
+Apa itu label gizi harian?,tanya_label_gizi,Acuan label berdasarkan kebutuhan 2000 kkal/hari.
+Arti kalori per sajian,tanya_label_gizi,Kalori dihitung sesuai porsi standar yang ditentukan.
+"Apa maksud ""takaran saji"" 200 ml?",tanya_label_gizi,Artinya semua nilai gizi berlaku untuk 200 ml produk.
+"Apa arti ""per 100 gram""?",tanya_label_gizi,Informasi gizi ditulis untuk setiap 100 gram produk.
+"Apa maksud ""per serving""?",tanya_label_gizi,Sama dengan per takaran saji.
+Cara tahu kalori per bungkus,tanya_label_gizi,Kalikan kalori per sajian dengan jumlah sajian/bungkus.
+"Apa arti klaim ""0 kalori""?",tanya_label_gizi,Artinya kalori <5 kkal per sajian.
+"Apa arti ""no added sugar""?",tanya_label_gizi,"Tidak ada gula tambahan, tapi bisa ada gula alami."
+"Apa maksud ""gluten free""?",tanya_label_gizi,Produk bebas dari gluten (protein gandum).
+"Apa arti ""lactose free""?",tanya_label_gizi,"Produk bebas laktosa, cocok untuk intoleransi laktosa."
+Bagaimana cek kalsium di label,tanya_label_gizi,"Lihat di bagian mineral, biasanya %AKG."
+"Apa maksud ""trans fat free""?",tanya_label_gizi,Produk mengandung <0.5g lemak trans per sajian.
+Cara tahu protein per bungkus,tanya_label_gizi,Kalikan protein per sajian dengan jumlah sajian.
+Arti label halal,tanya_label_gizi,Produk sudah disertifikasi halal oleh MUI.
+Arti label organik,tanya_label_gizi,Produk berasal dari bahan tanpa pestisida/kimia sintetis.
+"Apa arti ""cholesterol free""?",tanya_label_gizi,Kolesterol <2 mg per sajian.
+"Apa maksud ""plant based""?",tanya_label_gizi,Produk berbahan dasar tumbuhan.
+Cara tahu vitamin D di label,tanya_label_gizi,Tertera di bagian vitamin/mineral.
+Arti label gizi kecil di depan kemasan,tanya_label_gizi,"Itu ringkasan energi, lemak, gula, dan garam."
+Bagaimana cara cek gula harian?,tanya_label_gizi,Batas konsumsi gula = 50g/hari (WHO).
+Cara cek garam harian,tanya_label_gizi,Maksimal 2000 mg natrium/hari.
+Cara tahu batas lemak harian,tanya_label_gizi,Lemak total sebaiknya <67g/hari.
+"Apa arti ""low sodium""?",tanya_label_gizi,Natrium ≤120 mg per 100g.
+"Apa arti ""high calcium""?",tanya_label_gizi,Produk mengandung ≥200 mg kalsium per sajian.
+"Apa arti ""dietary fiber""?",tanya_label_gizi,Itu istilah untuk serat pangan.
+Bagaimana cara bandingkan produk lewat label?,tanya_label_gizi,"Bandingkan kalori, gula, garam, dan lemak antar produk."
+Makanan untuk diet rendah garam,tanya_makanan_diet,"Pilih sayur segar, buah, dan ikan rebus tanpa garam tambahan."
+Diet rendah gula cocok makan apa?,tanya_makanan_diet,"Buah rendah gula (apel, pir), sayuran hijau, dan nasi merah."
+Diet rendah lemak makan apa?,tanya_makanan_diet,"Konsumsi ikan kukus, ayam tanpa kulit, dan sayur rebus."
+Diet tinggi protein makan apa?,tanya_makanan_diet,"Telur rebus, dada ayam, ikan, dan kacang-kacangan."
+Diet keto makan apa?,tanya_makanan_diet,"Konsumsi alpukat, ikan, telur, minyak zaitun, dan kacang."
+Diet vegetarian makan apa?,tanya_makanan_diet,"Tahu, tempe, sayur hijau, kacang, dan biji-bijian."
+Diet vegan makan apa?,tanya_makanan_diet,"Buah, sayur, kacang, biji-bijian, tanpa produk hewani."
+Diet Mediterania makan apa?,tanya_makanan_diet,"Ikan, minyak zaitun, kacang, sayur, buah segar."
+Diet DASH makan apa?,tanya_makanan_diet,"Buah, sayur, susu rendah lemak, biji-bijian utuh."
+Diet untuk penderita diabetes,tanya_makanan_diet,"Nasi merah, sayur, ikan, buah rendah gula."
+Diet untuk penderita hipertensi,tanya_makanan_diet,"Sayuran hijau, buah, ikan, dan kacang tanpa garam."
+Diet untuk penderita kolesterol,tanya_makanan_diet,"Oatmeal, ikan salmon, buah, kacang-kacangan."
+Diet untuk menurunkan berat badan,tanya_makanan_diet,"Kurangi gula & gorengan, banyak sayur dan buah."
+Diet untuk menambah berat badan,tanya_makanan_diet,"Susu, alpukat, kacang, daging tanpa lemak."
+Diet untuk otot,tanya_makanan_diet,"Dada ayam, telur, whey protein, sayuran."
+Diet sehat untuk remaja,tanya_makanan_diet,"Susu, telur, nasi merah, sayur hijau."
+Diet sehat untuk ibu hamil,tanya_makanan_diet,"Susu, sayur, buah, ikan, dan biji-bijian."
+Diet sehat untuk ibu menyusui,tanya_makanan_diet,"Susu, ikan, sayuran, buah, dan kacang."
+Diet sehat untuk lansia,tanya_makanan_diet,"Bubur, ikan kukus, sayur rebus, buah lunak."
+Diet rendah kalori,tanya_makanan_diet,"Sup sayur, ikan rebus, buah segar."
+Diet tinggi serat,tanya_makanan_diet,"Sayur hijau, kacang, buah-buahan segar."
+Diet rendah karbohidrat,tanya_makanan_diet,"Telur, ikan, ayam, dan sayur hijau."
+Diet tinggi kalsium,tanya_makanan_diet,"Susu, yoghurt, keju, dan sayur hijau."
+Diet tinggi zat besi,tanya_makanan_diet,"Bayam, hati ayam, kacang merah."
+Diet tinggi vitamin C,tanya_makanan_diet,"Jeruk, kiwi, stroberi, paprika."
+Diet gluten free,tanya_makanan_diet,"Nasi, kentang, jagung, buah, sayur."
+Diet lactose free,tanya_makanan_diet,"Susu kedelai, susu almond, sayuran."
+Diet paleo makan apa?,tanya_makanan_diet,"Daging tanpa lemak, ikan, sayur, buah."
+Diet flexitarian,tanya_makanan_diet,"Sayur, buah, kacang, dengan sedikit daging."
+Diet raw food,tanya_makanan_diet,Buah dan sayuran segar tanpa dimasak.
+Diet rendah kolesterol,tanya_makanan_diet,"Buah, sayur, kacang, ikan."
+Diet sehat ala Indonesia,tanya_makanan_diet,"Nasi merah, sayur lodeh, tempe, ikan bakar."
+Diet ala Jepang,tanya_makanan_diet,"Ikan, nasi, sayuran rebus, teh hijau."
+Diet ala Korea,tanya_makanan_diet,"Nasi, kimchi, ikan panggang, sayur."
+Diet ala Barat sehat,tanya_makanan_diet,"Roti gandum, salad, ayam panggang."
+Diet rendah sodium,tanya_makanan_diet,"Sayur segar, buah, ikan kukus."
+Diet tinggi energi,tanya_makanan_diet,"Alpukat, susu, daging, kacang."
+Diet untuk anemia,tanya_makanan_diet,"Bayam, hati ayam, kacang merah."
+Diet untuk maag,tanya_makanan_diet,"Bubur, pisang, sup sayur, telur rebus."
+Diet untuk asam urat,tanya_makanan_diet,"Sayur hijau, buah, nasi merah, ikan rendah purin."
+Diet untuk ginjal,tanya_makanan_diet,"Buah segar, nasi putih, sayur rendah kalium."
+Diet untuk jantung,tanya_makanan_diet,"Ikan salmon, sayur hijau, kacang."
+Diet untuk hipertensi ringan,tanya_makanan_diet,"Buah, sayur, susu rendah lemak."
+Diet sehat ala Mediterania,tanya_makanan_diet,"Buah, sayur, ikan, minyak zaitun."
+Diet sehat tinggi protein,tanya_makanan_diet,"Dada ayam, telur, ikan."
+Diet sehat rendah karbohidrat,tanya_makanan_diet,"Sayur hijau, telur, ikan."
+Diet sehat rendah gula,tanya_makanan_diet,"Buah rendah gula, sayuran hijau."
+Diet sehat tradisional,tanya_makanan_diet,"Pecel sayur, gado-gado, urap."
+Diet sehat modern,tanya_makanan_diet,"Smoothie buah, salad, oatmeal."
+Diet intermittent fasting,tanya_makanan_diet,"Pola makan 16:8, makan sehat saat jendela makan."
+Apa efek minum kopi berlebihan?,tanya_efek_kesehatan,Bisa menyebabkan gangguan tidur dan jantung berdebar.
+Bahaya konsumsi gula berlebih,tanya_efek_kesehatan,Dapat meningkatkan risiko obesitas dan diabetes.
+Efek terlalu banyak garam,tanya_efek_kesehatan,Bisa memicu hipertensi dan penyakit jantung.
+Efek kekurangan protein,tanya_efek_kesehatan,"Menyebabkan lemas, rambut rontok, dan massa otot berkurang."
+Efek kurang vitamin C,tanya_efek_kesehatan,Bisa sebabkan sariawan dan daya tahan tubuh menurun.
+Efek kebanyakan mie instan,tanya_efek_kesehatan,"Tinggi natrium, berisiko tekanan darah tinggi."
+Bahaya minum boba tiap hari,tanya_efek_kesehatan,Kandungan gula tinggi dapat memicu diabetes.
+Efek kurang minum air,tanya_efek_kesehatan,"Dehidrasi, sakit kepala, dan gangguan konsentrasi."
+Efek kebanyakan gorengan,tanya_efek_kesehatan,Lemak jenuh tinggi → kolesterol naik.
+Efek terlalu banyak fast food,tanya_efek_kesehatan,Bisa menyebabkan obesitas dan diabetes.
+Efek makan junk food sering,tanya_efek_kesehatan,"Risiko obesitas, kolesterol, dan tekanan darah tinggi."
+Efek terlalu banyak kafein,tanya_efek_kesehatan,"Bisa menyebabkan cemas, tremor, insomnia."
+Efek kurang tidur,tanya_efek_kesehatan,Menurunkan imun dan konsentrasi.
+Efek stres berlebihan,tanya_efek_kesehatan,Meningkatkan risiko hipertensi dan gangguan jantung.
+Efek merokok,tanya_efek_kesehatan,"Risiko kanker paru, jantung, dan stroke."
+Efek minum alkohol,tanya_efek_kesehatan,"Gangguan hati, lambung, dan saraf."
+Efek makan terlalu asin,tanya_efek_kesehatan,Risiko hipertensi meningkat.
+Efek makan terlalu manis,tanya_efek_kesehatan,Risiko diabetes dan obesitas.
+Efek makan terlalu pedas,tanya_efek_kesehatan,Bisa memicu maag atau diare.
+Efek makan terlalu banyak daging merah,tanya_efek_kesehatan,Bisa meningkatkan risiko kolesterol tinggi.
+Efek kebanyakan makanan olahan,tanya_efek_kesehatan,Risiko kanker usus dan penyakit jantung.
+Efek terlalu banyak softdrink,tanya_efek_kesehatan,Gula tinggi → risiko diabetes dan obesitas.
+Efek sering makan coklat manis,tanya_efek_kesehatan,Bisa merusak gigi dan meningkatkan berat badan.
+Efek kurang olahraga,tanya_efek_kesehatan,Bisa menyebabkan obesitas dan lemah otot.
+Efek terlalu sering begadang,tanya_efek_kesehatan,Turunkan imun dan tingkatkan risiko penyakit.
+Efek kebanyakan nasi putih,tanya_efek_kesehatan,Bisa meningkatkan kadar gula darah.
+Efek makan gorengan setiap hari,tanya_efek_kesehatan,Risiko kolesterol tinggi dan obesitas.
+Efek makan mie instan tiap hari,tanya_efek_kesehatan,Bisa sebabkan hipertensi dan gangguan pencernaan.
+Efek tidak sarapan,tanya_efek_kesehatan,Bisa menurunkan konsentrasi dan energi.
+Efek diet terlalu ketat,tanya_efek_kesehatan,Bisa sebabkan kekurangan gizi dan lemas.
+Efek diet tanpa karbohidrat,tanya_efek_kesehatan,Bisa menyebabkan cepat lelah dan pusing.
+Efek minum susu berlebihan,tanya_efek_kesehatan,Bisa sebabkan diare atau obesitas.
+Efek minum suplemen berlebihan,tanya_efek_kesehatan,Risiko keracunan vitamin/mineral.
+Efek kurang makan sayur,tanya_efek_kesehatan,Bisa sebabkan sembelit dan kekurangan vitamin.
+Efek kurang makan buah,tanya_efek_kesehatan,Bisa menurunkan imun dan serat tubuh.
+Efek kebanyakan ngemil,tanya_efek_kesehatan,Bisa meningkatkan berat badan.
+Efek kebanyakan es krim,tanya_efek_kesehatan,Tinggi gula dan lemak → obesitas.
+Efek kebanyakan kopi susu,tanya_efek_kesehatan,Risiko gula darah tinggi dan kolesterol.
+Efek sering makan gorengan pedas,tanya_efek_kesehatan,Risiko asam lambung naik.
+Efek kurang minum susu,tanya_efek_kesehatan,Bisa sebabkan tulang rapuh (osteoporosis).
+Efek terlalu sering makan sate,tanya_efek_kesehatan,Bisa meningkatkan risiko kolesterol.
+Efek terlalu banyak jeroan,tanya_efek_kesehatan,Risiko asam urat dan kolesterol tinggi.
+Efek terlalu sering makan bakso,tanya_efek_kesehatan,Bisa tinggi natrium dan lemak jenuh.
+Efek sering makan keripik,tanya_efek_kesehatan,Bisa meningkatkan risiko obesitas.
+Efek sering makan coklat,tanya_efek_kesehatan,Bisa sebabkan jerawat dan gigi berlubang.
+Efek kurang minum teh,tanya_efek_kesehatan,"Tidak berbahaya, tapi hilang manfaat antioksidannya."
+Efek minum teh berlebihan,tanya_efek_kesehatan,Bisa sebabkan anemia karena gangguan penyerapan zat besi.
+Efek terlalu banyak makanan manis,tanya_efek_kesehatan,"Risiko diabetes, obesitas, dan gigi rusak."
+Efek terlalu banyak makanan asin,tanya_efek_kesehatan,Risiko hipertensi dan gangguan ginjal.
+Efek sering makan makanan instan,tanya_efek_kesehatan,Risiko kanker usus dan obesitas.
+Apa pengganti nasi putih?,tanya_alternatif_makanan,"Bisa diganti nasi merah, kentang, atau ubi."
+Alternatif gula pasir apa ya?,tanya_alternatif_makanan,"Madu, stevia, atau gula aren bisa jadi pilihan."
+Apa pengganti susu sapi?,tanya_alternatif_makanan,"Susu kedelai, susu almond, atau susu oat."
+Pengganti mie instan yang sehat,tanya_alternatif_makanan,Bisa coba mie gandum utuh atau bihun jagung.
+Alternatif camilan manis,tanya_alternatif_makanan,"Buah potong, yoghurt, atau kacang panggang."
+Ganti nasi jadi apa untuk diet?,tanya_alternatif_makanan,"Nasi merah, quinoa, atau jagung rebus."
+Alternatif minuman bersoda,tanya_alternatif_makanan,"Air mineral, infused water, atau jus segar."
+Apa pengganti gorengan sehat?,tanya_alternatif_makanan,"Kentang panggang, ubi rebus, atau jagung."
+Camilan rendah kalori apa?,tanya_alternatif_makanan,"Popcorn tanpa gula, sayuran rebus, buah segar."
+Alternatif susu untuk vegan,tanya_alternatif_makanan,"Susu almond, oat, atau kedelai."
+Ganti es krim pakai apa?,tanya_alternatif_makanan,Yoghurt beku dengan buah.
+Alternatif mie goreng,tanya_alternatif_makanan,Mie sayur rebus dengan bumbu alami.
+Ganti keripik apa ya?,tanya_alternatif_makanan,"Edamame, kacang panggang, atau wortel stik."
+Pengganti snack manis,tanya_alternatif_makanan,"Kurma, kismis, atau buah kering."
+Alternatif minuman energi,tanya_alternatif_makanan,Jus buah segar atau air kelapa.
+Ganti roti tawar putih,tanya_alternatif_makanan,Roti gandum atau roti multigrain.
+Alternatif makanan cepat saji,tanya_alternatif_makanan,"Salad, sandwich gandum, sup sayur."
+Ganti cemilan malam,tanya_alternatif_makanan,Buah potong atau kacang rebus.
+Alternatif nasi goreng,tanya_alternatif_makanan,Nasi merah goreng dengan sayur dan minyak zaitun.
+Ganti mie instan malam hari,tanya_alternatif_makanan,Sup sayur dengan telur rebus.
+Alternatif minuman manis,tanya_alternatif_makanan,Air lemon hangat tanpa gula.
+Ganti minuman beralkohol,tanya_alternatif_makanan,Jus segar atau mocktail tanpa gula.
+Alternatif cemilan anak,tanya_alternatif_makanan,Biskuit gandum atau buah potong.
+Ganti snack asin,tanya_alternatif_makanan,Popcorn tanpa garam atau kacang panggang.
+Alternatif gula untuk kopi,tanya_alternatif_makanan,Stevia atau madu.
+Ganti teh manis,tanya_alternatif_makanan,Teh tawar atau teh hijau.
+Alternatif minuman kaleng,tanya_alternatif_makanan,Infused water atau jus segar.
+Ganti coklat manis,tanya_alternatif_makanan,Coklat hitam 70% kakao.
+Alternatif kerupuk,tanya_alternatif_makanan,Sayuran panggang renyah.
+Ganti snack goreng,tanya_alternatif_makanan,Ubi kukus atau jagung rebus.
+Alternatif susu tinggi lemak,tanya_alternatif_makanan,Susu rendah lemak atau skim.
+Ganti saus botolan,tanya_alternatif_makanan,Saus tomat homemade tanpa gula.
+Alternatif margarin,tanya_alternatif_makanan,Minyak zaitun atau alpukat tumbuk.
+Ganti gula teh,tanya_alternatif_makanan,Kayu manis atau stevia.
+Alternatif minuman kemasan,tanya_alternatif_makanan,Air putih atau infused water.
+Ganti snack coklat,tanya_alternatif_makanan,Buah kering atau kacang almond.
+Alternatif donat,tanya_alternatif_makanan,Roti gandum isi buah.
+Ganti boba,tanya_alternatif_makanan,Jelly rumput laut rendah gula.
+Alternatif keripik singkong,tanya_alternatif_makanan,Keripik sayur panggang.
+Ganti susu kental manis,tanya_alternatif_makanan,Susu evaporasi tanpa gula.
+Alternatif camilan tengah malam,tanya_alternatif_makanan,Yoghurt rendah lemak dengan buah.
+Ganti minuman berkarbonasi,tanya_alternatif_makanan,Air mineral dingin atau sparkling water tanpa gula.
+Alternatif biskuit manis,tanya_alternatif_makanan,Biskuit gandum tanpa gula.
+Ganti kopi instan manis,tanya_alternatif_makanan,Kopi hitam tanpa gula.
+Alternatif es teh manis,tanya_alternatif_makanan,Teh hijau dingin tanpa gula.
+Ganti susu coklat instan,tanya_alternatif_makanan,Kakao bubuk + susu rendah lemak tanpa gula.
+Alternatif snack kemasan,tanya_alternatif_makanan,Buah segar atau kacang.
+Ganti mie instan pedas,tanya_alternatif_makanan,Sup sayur pedas dengan bihun jagung.
+Alternatif makanan manis sore,tanya_alternatif_makanan,Smoothie buah tanpa gula tambahan.
+Camilan manis sore biar nggak gemuk,tanya_alternatif_makanan,Smoothie buah tanpa gula tambahan.
+Kapan waktu terbaik sarapan?,tanya_waktu_makan,Sarapan ideal antara jam 6–9 pagi.
+Jam berapa makan siang sehat?,tanya_waktu_makan,Waktu makan siang ideal jam 12–2 siang.
+Jam berapa sebaiknya makan malam?,tanya_waktu_makan,Makan malam sebaiknya sebelum jam 8 malam.
+Kapan waktu minum susu?,tanya_waktu_makan,Bisa pagi atau malam sebelum tidur.
+Kapan waktu minum kopi yang baik?,tanya_waktu_makan,"Setelah sarapan, jangan saat perut kosong."
+Kapan minum teh yang sehat?,tanya_waktu_makan,"Setelah makan, bukan saat perut kosong."
+Waktu ngemil sehat,tanya_waktu_makan,"Di sela makan, misalnya pukul 10 pagi atau 4 sore."
+Jam makan sehat untuk diet,tanya_waktu_makan,3 kali makan utama + 2 camilan sehat.
+Kapan sebaiknya sahur?,tanya_waktu_makan,"Sebelum imsak, sekitar jam 3–4 pagi."
+Kapan sebaiknya berbuka puasa?,tanya_waktu_makan,Segera setelah adzan Maghrib.
+Kapan waktu minum air putih?,tanya_waktu_makan,"Sepanjang hari, 8 gelas dibagi rata."
+Waktu olahraga sebelum makan,tanya_waktu_makan,Ideal 1–2 jam sebelum makan berat.
+Waktu olahraga setelah makan,tanya_waktu_makan,Tunggu 1–2 jam setelah makan.
+Kapan waktu minum vitamin?,tanya_waktu_makan,Setelah makan agar mudah diserap tubuh.
+Waktu makan sehat untuk anak,tanya_waktu_makan,3 kali makan utama + 2 camilan bergizi.
+Jam sarapan anak sekolah,tanya_waktu_makan,"Sebelum berangkat sekolah, sekitar jam 6–7 pagi."
+Jam makan malam anak,tanya_waktu_makan,Paling lambat jam 7 malam.
+Waktu minum susu anak,tanya_waktu_makan,Pagi dan malam sebelum tidur.
+Kapan sebaiknya makan buah?,tanya_waktu_makan,Bisa sebelum makan atau jadi camilan.
+Kapan waktu minum jus sehat?,tanya_waktu_makan,Pagi atau siang hari lebih baik.
+Waktu makan untuk pekerja kantoran,tanya_waktu_makan,"Sarapan jam 7, makan siang jam 12, makan malam jam 7."
+Pola makan sehat harian,tanya_waktu_makan,3 kali makan utama dan 2 kali camilan sehat.
+Waktu makan untuk diet keto,tanya_waktu_makan,"Sesuai jam makan normal, hindari ngemil berlebihan."
+Jam makan untuk diet intermittent fasting,tanya_waktu_makan,"Jendela makan 8 jam, misal jam 12–8 malam."
+Waktu minum teh hijau,tanya_waktu_makan,"Pagi atau sore, bukan malam hari."
+Waktu minum kopi sore,tanya_waktu_makan,Sebelum jam 5 sore agar tidak ganggu tidur.
+Jam makan ideal untuk lansia,tanya_waktu_makan,"Lebih awal, makan malam sebelum jam 7 malam."
+Jam makan untuk pasien diabetes,tanya_waktu_makan,Teratur tiap 4–5 jam dengan porsi kecil.
+Waktu ngemil untuk diet sehat,tanya_waktu_makan,Pukul 10 pagi dan 4 sore.
+Waktu minum susu rendah lemak,tanya_waktu_makan,Malam hari sebelum tidur.
+Jam makan sehat untuk ibu hamil,tanya_waktu_makan,3 kali makan utama + 2–3 camilan sehat.
+Waktu makan sayur,tanya_waktu_makan,Bisa di setiap jam makan utama.
+Waktu minum air hangat,tanya_waktu_makan,Saat bangun pagi dan sebelum tidur.
+Jam sarapan untuk diet,tanya_waktu_makan,Pukul 7–8 pagi dengan porsi seimbang.
+Jam makan siang untuk diet,tanya_waktu_makan,Pukul 12–1 siang dengan makanan sehat.
+Jam makan malam untuk diet,tanya_waktu_makan,Paling lambat pukul 7 malam.
+Waktu ngemil buah,tanya_waktu_makan,Pagi jam 10 atau sore jam 4.
+Kapan waktu minum air kelapa?,tanya_waktu_makan,Siang hari untuk segarkan tubuh.
+Waktu minum teh chamomile,tanya_waktu_makan,Malam hari untuk bantu tidur nyenyak.
+Jam makan pagi pekerja malam,tanya_waktu_makan,"Setelah bangun tidur, meski siang hari."
+Waktu minum kopi untuk mahasiswa,tanya_waktu_makan,"Pagi atau siang, hindari malam hari."
+Waktu minum vitamin C,tanya_waktu_makan,Pagi atau siang bersama makanan.
+Waktu minum vitamin D,tanya_waktu_makan,Siang hari setelah makan siang.
+Waktu minum suplemen zat besi,tanya_waktu_makan,Pagi hari dengan jus jeruk.
+Waktu terbaik makan camilan sore,tanya_waktu_makan,Sekitar pukul 4 sore.
+Jam makan malam keluarga,tanya_waktu_makan,Ideal sekitar pukul 6–7 malam.
+Waktu minum air setelah olahraga,tanya_waktu_makan,Segera setelah selesai olahraga.
+Jam minum susu untuk lansia,tanya_waktu_makan,Malam sebelum tidur.
+Waktu sarapan ideal untuk siswa,tanya_waktu_makan,Pukul 6–7 pagi sebelum sekolah.
+Waktu terbaik minum susu untuk orang tua,tanya_waktu_makan,Malam sebelum tidur.
+Tips hidup sehat apa saja?,tanya_tips_hidup_sehat,"Jaga pola makan, olahraga rutin, tidur cukup, dan kelola stres."
+Bagaimana cara menjaga kesehatan?,tanya_tips_hidup_sehat,"Konsumsi gizi seimbang, cukup tidur, dan rajin olahraga."
+Tips diet sehat,tanya_tips_hidup_sehat,"Batasi gula, garam, lemak, perbanyak sayur dan buah."
+Bagaimana cara menjaga berat badan ideal?,tanya_tips_hidup_sehat,"Kontrol kalori, olahraga, dan cukup istirahat."
+Tips menjaga imun tubuh,tanya_tips_hidup_sehat,"Konsumsi vitamin, sayur, buah, olahraga, tidur cukup."
+Tips makan sehat sehari-hari,tanya_tips_hidup_sehat,"Ikuti pola “Isi Piringku”: ½ sayur & buah, ¼ karbo, ¼ protein."
+Tips olahraga untuk pemula,tanya_tips_hidup_sehat,Mulai dengan jalan kaki 30 menit per hari.
+Tips tidur yang sehat,tanya_tips_hidup_sehat,"Tidur 7–8 jam setiap malam, hindari gadget sebelum tidur."
+Tips mengurangi stres,tanya_tips_hidup_sehat,"Lakukan relaksasi, olahraga, atau hobi."
+Tips pola makan sehat di kantor,tanya_tips_hidup_sehat,"Bawa bekal sehat, hindari gorengan dan minuman manis."
+Tips menjaga kesehatan jantung,tanya_tips_hidup_sehat,"Konsumsi ikan, kurangi garam, rutin olahraga."
+Tips menjaga kesehatan otak,tanya_tips_hidup_sehat,"Konsumsi omega-3, cukup tidur, rajin membaca."
+Tips menjaga kesehatan mata,tanya_tips_hidup_sehat,Istirahatkan mata tiap 20 menit saat menatap layar.
+Tips menjaga kesehatan tulang,tanya_tips_hidup_sehat,"Konsumsi kalsium, vitamin D, dan olahraga beban."
+Tips menjaga kesehatan kulit,tanya_tips_hidup_sehat,"Minum cukup air, makan buah, gunakan tabir surya."
+Tips sehat untuk mahasiswa,tanya_tips_hidup_sehat,"Pola makan teratur, cukup tidur, hindari junk food."
+Tips sehat untuk anak kos,tanya_tips_hidup_sehat,Masak sederhana dengan sayur dan telur.
+Tips sehat untuk pekerja malam,tanya_tips_hidup_sehat,"Jaga pola tidur teratur, konsumsi buah & sayur."
+Tips sehat untuk ibu hamil,tanya_tips_hidup_sehat,"Tambah nutrisi, minum cukup air, kontrol rutin ke dokter."
+Tips sehat untuk lansia,tanya_tips_hidup_sehat,"Makan lunak bergizi, olahraga ringan, tidur cukup."
+Tips sehat saat puasa,tanya_tips_hidup_sehat,"Sahur dengan protein, berbuka dengan kurma & air putih."
+Tips sehat saat lelah kerja,tanya_tips_hidup_sehat,"Istirahat sebentar, minum air, konsumsi buah segar."
+Tips sehat saat musim hujan,tanya_tips_hidup_sehat,Perbanyak vitamin C dan minum air hangat.
+Tips sehat saat panas terik,tanya_tips_hidup_sehat,Minum air lebih banyak dan hindari dehidrasi.
+Tips sehat menjaga berat badan,tanya_tips_hidup_sehat,"Konsumsi kalori sesuai kebutuhan, olahraga rutin."
+Tips sehat mengurangi gula,tanya_tips_hidup_sehat,Ganti dengan buah segar atau stevia.
+Tips sehat mengurangi garam,tanya_tips_hidup_sehat,Gunakan rempah alami sebagai pengganti bumbu.
+Tips sehat mengurangi lemak,tanya_tips_hidup_sehat,Pilih makanan panggang/rebus dibanding goreng.
+Tips sehat olahraga di rumah,tanya_tips_hidup_sehat,"Lakukan senam, yoga, atau skipping 20 menit."
+Tips sehat bekerja dari rumah,tanya_tips_hidup_sehat,"Tetap olahraga, makan teratur, dan istirahat cukup."
+Tips sehat untuk anak sekolah,tanya_tips_hidup_sehat,"Sarapan sehat, tidur cukup, bawa bekal."
+Tips sehat untuk remaja,tanya_tips_hidup_sehat,"Hindari junk food, banyak minum air putih."
+Tips sehat untuk orang gemuk,tanya_tips_hidup_sehat,"Batasi kalori, perbanyak sayur dan olahraga."
+Tips sehat untuk orang kurus,tanya_tips_hidup_sehat,"Tambah kalori sehat dari kacang, alpukat, susu."
+Tips sehat agar tidak cepat lelah,tanya_tips_hidup_sehat,"Cukup tidur, minum air, makan bergizi."
+Tips sehat agar tidak mudah sakit,tanya_tips_hidup_sehat,"Konsumsi vitamin, olahraga, dan istirahat cukup."
+Tips sehat untuk tidur nyenyak,tanya_tips_hidup_sehat,"Hindari kafein malam, buat kamar nyaman."
+Tips sehat untuk kerja malam,tanya_tips_hidup_sehat,Atur jam tidur dan makan dengan teratur.
+Tips sehat untuk jaga imun,tanya_tips_hidup_sehat,"Perbanyak buah, sayur, olahraga, tidur cukup."
+Tips sehat untuk pencernaan,tanya_tips_hidup_sehat,"Konsumsi serat, minum air, hindari makanan pedas."
+Tips sehat untuk kulit glowing,tanya_tips_hidup_sehat,"Minum cukup air, makan sayur & buah, tidur cukup"
+Bagaimana cara biar badan tetap bugar?,tanya_tips_hidup_sehat,"Olahraga rutin, makan bergizi, dan tidur cukup."
+Tips menjaga stamina tubuh,tanya_tips_hidup_sehat,"Perbanyak air putih, konsumsi buah, olahraga teratur."
+Bagaimana cara biar jarang sakit?,tanya_tips_hidup_sehat,Tingkatkan imun dengan gizi seimbang dan istirahat cukup.
+Tips hidup sehat untuk pekerja kantoran,tanya_tips_hidup_sehat,"Bawa bekal sehat, banyak gerak, cukup minum air."
+Bagaimana cara menjaga pola makan sehat?,tanya_tips_hidup_sehat,"Ikuti konsep isi piring seimbang: sayur, buah, protein, karbo."
+Tips sederhana biar sehat setiap hari,tanya_tips_hidup_sehat,"Rajin olahraga, tidur teratur, dan kurangi junk food."
+Bagaimana cara menjaga kesehatan tubuh?,tanya_tips_hidup_sehat,"Konsumsi gizi seimbang, olahraga rutin, dan hindari stres."
+Tips sehat murah dan mudah,tanya_tips_hidup_sehat,"Minum air putih cukup, jalan kaki tiap hari, makan sayur."
+Apa saja kebiasaan sehat sebelum tidur?,tanya_tips_hidup_sehat,"Hindari gadget, minum air hangat, tidur cukup jam 10 malam."

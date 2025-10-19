@@ -1,0 +1,2126 @@
+
+================================================================================
+5-1-RASA Chatbot Frameworks.pptx
+================================================================================
+
+
+--- Slide 1 ---
+RASAChatbot Frameworks
+atjahyanto@gmail.com
+
+--- Slide 2 ---
+Chatbot Frameworks
+Tools atau platform yang menyediakan kerangka kerja untuk membangun chatbot, sehingga pengembang tidak harus membuat semuanya dari nol. 
+Framework ini biasanya sudah punya fitur bawaan seperti Natural Language Understanding (NLU), dialog management, integrasi ke aplikasi pihak ketiga (misalnya WhatsApp, Telegram, Slack), dan deployment.
+Contoh: 
+Rasa, Dialogflow, Botpress.
+
+--- Slide 3 ---
+Beberapa Chatbot Framework 
+
+--- Slide 4 ---
+RASA Framework
+Framework open-source untuk membangun chatbot dan voice assistant yang cerdas.
+Kelebihan:
+Open-source & Python-based → bisa dikustom penuh.
+Bisa self-hosted → privasi & kontrol data terjamin.
+Mendukung integrasi ML (misalnya BERT, spaCy).
+Kelemahan:
+Setup rumit.
+Butuh pengetahuan teknis (Python, ML, server).
+
+--- Slide 5 ---
+RASA Framework
+Tim RASA (Alan Nichol & Alex Weidauer) sengaja memilih kata “Rasa” karena:
+pendek, mudah diingat,
+bermakna “essence”, 
+sesuai tujuan framework: mengekstrak inti percakapan
+Berasal dari bahasa Sanskerta yang berarti essence, juice, atau flavor
+https://www.forbes.com/pictures/5a61df5931358e4955ab18cb/rasa-alan-nichol--alexand/
+
+--- Slide 6 ---
+Setup Environment for RASA
+Install python 3.10 atau 3.11 (misal di D:\python311)
+Install package manager, masuk CMD, jalankan:
+
+Create Virtual Environment
+
+
+
+Install Rasa
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+mkdir my-rasacd my-rasa
+uv venv --python 3.11
+.venv\Scripts\activate
+Get license key
+
+https://rasa.com/docs/learn/quickstart/pro
+
+
+Setelah dikirimi email, Follow the simple steps in our installation guide.
+
+--- Slide 7 ---
+Setup Environment for RASA
+Install Rasa
+uv pip install rasa-pro
+set RASA_LICENSE=YOUR_LICENSE_KEY
+rasa --version
+
+dari email
+
+--- Slide 8 ---
+Setup Environment for RASA
+Create a new template CALM assistant from a template
+
+
+
+
+
+
+Type: myfirst-chatbot <ENTER>
+Type: Y
+Dan seterusnya
+
+
+rasa init --template tutorial
+
+Akses https://rasa.com/docs/pro/tutorial
+
+
+--- Slide 9 ---
+Testing myfirst-chatbot
+Train dan run myfirst-chatbot
+
+
+
+
+
+
+
+Open in Browser dan mulai percakapan dengan chatbot
+dir
+
+
+
+
+
+cd myfirst-chatbot
+
+rasa train
+
+rasa inspect
+
+--- Slide 10 ---
+Testing myfirst-chatbot
+Open in Browser dan mulai percakapan dengan chatbot
+Ketik “hello”, jika chatbot sudah memberi respons. Lakukan percakapan seperti di samping.
+
+--- Slide 11 ---
+
+--- Slide 12 ---
+File yang terkait dengan myfirst-chatbot
+File-file yang terkait dengan tutorial:
+
+
+
+
+File data/flows.yml (versi RASA Pro 3.6+), berfungsi mendefinisikan alur percakapan (flows) yang lebih terstruktur dibandingkan dengan stories.yml (RASA open source).
+data/flows.yml
+domain.yml
+actions/actions.py
+
+
+--- Slide 13 ---
+File yang terkait dengan myfirst-chatbot
+File domain.yml berfungsi sebagai jantung konfigurasi RASA yang mendefinisikan apa yang chatbot ketahui dan bisa lakukan.
+Berisi definisi:
+Intents → misal: book_ticket, greet.
+Entities → informasi yang bisa diekstrak dari input user (misal: city, date).
+Slots → variabel tempat menyimpan entity (misal: origin, destination).
+Responses → teks/template jawaban chatbot (misal: utter_greet).
+Actions → aksi custom yang dipanggil (misal: action_search_ticket).
+
+--- Slide 14 ---
+File yang terkait dengan myfirst-chatbot
+File actions/actions.py berisi custom actions dalam bentuk kode Python.
+Action ini dijalankan ketika chatbot perlu melakukan sesuatu di luar jawaban statis
+Misalnya:
+Query ke database.
+Memanggil API eksternal.
+Mengolah data sebelum merespons user.
+
+--- Slide 15 ---
+Contoh isi data/flows.yml
+
+flows:
+  transfer_money:
+    description: Help users send money to friends and family.
+    steps:
+      - collect: recipient
+      - collect: amount
+        description: the number of US dollars to send
+      - action: utter_transfer_complete
+
+File data/flows.yml berfungsi mendefinisikan alur percakapan (flows) 
+
+--- Slide 16 ---
+Contoh isi domain.yml
+version: "3.1"
+
+slots:
+  recipient:
+    type: text
+    mappings:
+      - type: from_llm
+  amount:
+    type: float
+    mappings:
+      - type: from_llm
+
+responses:
+  utter_ask_recipient:
+    - text: "Who would you like to send money to?"
+
+  utter_ask_amount:
+    - text: "How much money would you like to send?"
+
+  utter_transfer_complete:
+    - text: "All done. {amount} has been sent to {recipient}."
+File domain.yml digunakan mendefinisikan intent, entity, slot, response, action
+
+--- Slide 17 ---
+Contoh isi actions/actions.py
+from typing import Any, Dict, List, Text
+
+from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet
+from rasa_sdk.executor import CollectingDispatcher
+
+
+class ActionCheckSufficientFunds(Action):
+    def name(self) -> Text:
+        return "action_check_sufficient_funds"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        # hard-coded balance for tutorial purposes. in production this
+        # would be retrieved from a database or an API
+        balance = 1000
+        transfer_amount = tracker.get_slot("amount")
+        has_sufficient_funds = transfer_amount <= balance
+        return [SlotSet("has_sufficient_funds", has_sufficient_funds)]
+File actions/actions.py berisi custom actions dalam bentuk kode Python.
+
+
+--- Slide 18 ---
+Contoh hasil percakapan
+
+--- Slide 19 ---
+
+--- Slide 20 ---
+Menjalankan ulang RASA
+cd myfirst-chatbot
+.venv\Scripts\activate
+set RASA_LICENSE=YOUR_LICENSE_KEY
+
+rasa --version
+rasa data validate
+
+rasa train
+rasa inspect
+
+
+--- Slide 21 ---
+
+--- Slide 22 ---
+Mengatur chatbot: file config.yml
+File konfigurasi utama di RASA yang berisi pengaturan:
+Pipeline NLU  Alur processing input teks user sebelum pengenalan intent & entity.
+Tokenizer (memecah teks jadi token kata/karakter)
+Featurizer (mengubah kata jadi vektor)
+Classifier (menentukan intent & entity).
+Policies (Dialog Management)  Menentukan action/respon. 
+RulePolicy → aturan deterministik (greet, fallback, dsb.)
+TEDPolicy → ML policy yang belajar dari stories.yml
+MemoizationPolicy → mengingat percakapan yang sudah persis ada di training
+FlowPolicy (RASA Pro) → menjalankan flows.yml.
+recipe: default.v1
+language: en
+pipeline:
+- name: CompactLLMCommandGenerator
+  llm:
+    model_group: rasa_command_generation_model
+  flow_retrieval:
+    active: false
+
+policies:
+  - name: FlowPolicy
+#  - name: EnterpriseSearchPolicy
+Konfigurasi default config.yml RASA Pro
+
+--- Slide 23 ---
+
+--- Slide 24 ---
+Menyiapkan Percakapan Sederhana
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - provide_name
+  - provide_email
+  - user_regist
+  - show_info
+
+entities:
+  - name
+  - email
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: name
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: email
+
+forms:
+  user_registration_form:
+    required_slots:
+      - name
+      - email
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_name:
+    - text: "What is your name?"
+
+  utter_ask_email:
+    - text: "What is your email?"
+  
+  utter_submit:
+    - text: "Thanks {name}, we have registered your email: {email}."    
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+domain.yml
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+- intent: provide_name
+  examples: |
+    - My name is Ali
+    - I am John
+    - It's Sarah
+    - My name Budi
+
+- intent: provide_email
+  examples: |
+    - My email is ali@example.com
+    - My email is budi@example.com
+    - You can reach me at john@mail.com
+
+- intent: user_regist
+  examples: |
+    - I want to register
+    - Registration please
+    - I am a new user
+
+- intent: show_info
+  examples: |
+    - Show me my registration
+    - What did I give?
+    - Review my data
+
+data/nlu.yml
+version: "3.1"
+
+stories:
+
+- story: happy path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: happy path 2
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: User registration via form
+  steps:
+  - intent: user_regist
+  - action: utter_ask_name
+  - intent: provide_name
+  - action: utter_ask_email
+  - intent: provide_email
+  - action: utter_submit
+
+data/stories.yml
+version: "3.1"
+
+language: "en"
+
+# -------------------------
+# NLU Pipeline
+# -------------------------
+pipeline:
+- name: WhitespaceTokenizer          # memecah teks jadi token
+- name: RegexFeaturizer              # untuk pola regex
+- name: LexicalSyntacticFeaturizer   # fitur linguistik
+- name: CountVectorsFeaturizer       # BoW untuk intent/entity
+- name: CountVectorsFeaturizer       # char n-grams
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier               # intent + entity recognition
+  epochs: 100
+- name: EntitySynonymMapper
+- name: ResponseSelector             # opsional, untuk FAQ
+  epochs: 100
+- name: NLUCommandAdapter   # adapter ditambahkan di sini
+
+# -------------------------
+# Dialogue Policies
+# -------------------------
+policies:
+- name: MemoizationPolicy            # mengingat persis dari stories
+  max_history: 5
+- name: RulePolicy                   # untuk aturan fix (greet, fallback)
+  core_fallback_threshold: 0.3
+  core_fallback_action_name: "action_default_fallback"
+  enable_fallback_prediction: true
+- name: TEDPolicy                    # ML policy utama untuk belajar dari stories.yml
+  max_history: 5
+  epochs: 100
+  constrain_similarities: true
+assistant_id: 20250924-045037-leather-model
+config.yml
+Jangan lupa hapus dulu file flows.yml
+
+--- Slide 25 ---
+Contoh Simulasi Dialog
+Entity belum dapat dikenali !!
+
+--- Slide 26 ---
+
+--- Slide 27 ---
+Contoh isi nlu.yml
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+File nlu.yml dipakai untuk melatih NLU (Natural Language Understanding).
+Isinya berupa contoh-contoh kalimat (training examples) yang dihubungkan dengan intent dan kadang entity.
+version: → versi schema (misalnya "3.1").
+nlu: → root key untuk daftar intent dan training data.
+intent: → nama intent (harus ada di domain.yml).
+examples: | → list contoh kalimat (gunakan - untuk setiap contoh).
+
+--- Slide 28 ---
+Contoh isi nlu.yml
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+
+ - lookup: location
+    examples: |
+      - Jakarta
+      - Bandung
+      - Bali
+      - Surabaya
+
+  - regex: zipcode
+    examples: |
+      - \d{5}
+
+  - synonym: NYC
+    examples: |
+      - New York
+      - New York City
+Selain entity, file nlu.yml dapat berisi lookup table, synonym, regex entity.
+
+--- Slide 29 ---
+Contoh isi stories.yml
+version: "3.1"
+
+stories:
+
+- story: happy path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  
+  
+- story: happy path 2
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+
+- story: User registration via form
+  steps:
+  - intent: user_regist
+  - action: utter_ask_name
+  - intent: provide_name
+  - action: utter_ask_email
+  - intent: provide_email
+  - action: utter_submit
+
+story: → nama cerita, hanya label supaya mudah dibaca.
+steps: → daftar langkah percakapan:
+intent: → apa yang user ucapkan (harus ada di nlu.yml & domain.yml).
+action: → respon bot (bisa berupa utter_xxx atau custom action dari actions.py).
+File stories.yml berisi cerita dialog yang menggambarkan alur percakapan antara user (intent) dan bot (action/response).
+Untuk melatih model dialog manager.
+Isinya adalah contoh “jalan cerita” (conversation path) dalam format YAML.
+
+--- Slide 30 ---
+Contoh isi domain.yml
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+ - provide_email
+  - user_regist
+  - show_info
+
+entities:
+  - name
+  - email
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: name
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: email
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+File domain.yml adalah “jantung” RASA, karena di sinilah didefinisikan:
+intent apa saja yang dikenali,
+entity yang dipakai,
+slot yang menyimpan data,
+responses (template jawaban bot),
+form
+session_config (mengatur sesi percakapan)
+actions (custom atau bawaan).
+
+================================================================================
+6-1-Remote Interpreter Modul.pptx
+================================================================================
+
+
+--- Slide 1 ---
+NLUCommandAdapter atauRemote Interpreter untuk RASA framework
+atjahyanto@gmail.com
+
+--- Slide 2 ---
+NLUCommandAdapter atau Remote Interpreter 
+Cara agar RASA tidak perlu menjalankan NLU sendiri, melainkan meneruskan teks user ke sebuah server NLU eksternal lewat HTTP.
+Menggunakan model NLU sendiri (misalnya BERT fine-tuned, spaCy, GPT, dsb).
+RASA hanya mengurus dialog management (Core), sedangkan interpretasi intent dan entity dilakukan di server terpisah.
+RASA
+user
+input
+API Service
+Intent & Entity Recog
+req
+
+--- Slide 3 ---
+Cara kerja NLUCommandAdapter atau Remote Interpreter 
+User mengirim pesan: “my email is john@gmail.com".
+RASA Core menerima pesan itu.
+RASA meneruskan teks ke Remote NLU server (endpoint REST API).
+Remote server memproses teks (misalnya pakai BERT classifier).
+Remote server mengembalikan JSON dengan format:
+{ 
+ "entities": [
+       {
+            "type": "EMAIL",
+            "word": "john@gmail.com"
+        }
+    ],
+    "intent": {
+        "confidence": 0.2590380012989044,
+        "name": "affirm"
+    },
+    "text": "my email is john@gmail.com"
+}
+
+--- Slide 4 ---
+Skenario
+"my email is john@gmail.com"
+{ 
+ "entities": [
+       {
+            "type": "EMAIL",
+            "word": "john@gmail.com"
+        }
+    ],
+    "intent": {
+        "confidence": 0.2590380012989044,
+        "name": "affirm"
+    },
+    "text": "my email is john@gmail.com"
+}
+"my_intent_model"
+
+--- Slide 5 ---
+Testing dengan Postman
+POST
+Route/address
+Body
+Raw
+Text
+Send
+
+
+@app.route("/model/parse", methods=["POST"])
+def parse():
+    data = request.get_json()
+    user_input = data.get("text", "")
+ 
+// …
+
+myInterpreter.py
+
+--- Slide 6 ---
+Testing dengan Postman
+
+--- Slide 7 ---
+Konfigurasi pada config.yml
+version: "3.1"
+
+language: "en"
+
+# -------------------------
+# NLU Pipeline
+# -------------------------
+pipeline:
+- name: NLUCommandAdapter   # adapter ditambahkan di sini
+  url: "http://localhost:3000"   
+
+
+# -------------------------
+# Dialogue Policies
+# -------------------------
+policies:
+- name: MemoizationPolicy            # mengingat persis dari stories
+  max_history: 5
+- name: RulePolicy                   # untuk aturan fix (greet, fallback)
+  core_fallback_threshold: 0.3
+  core_fallback_action_name: "action_default_fallback"
+  enable_fallback_prediction: true
+- name: TEDPolicy                    # ML policy utama untuk belajar dari stories.yml
+  max_history: 5
+  epochs: 100
+  constrain_similarities: true
+assistant_id: 20250924-045037-leather-model
+config.yml
+
+--- Slide 8 ---
+Konfigurasi pada endpoints.yml
+action_endpoint:
+  actions_module: "actions"
+
+# Allow rephrasing of responses using a Rasa-hosted model
+nlg:
+  type: rephrase
+  llm:
+    model_group: rasa_command_generation_model
+
+model_groups:
+  - id: rasa_command_generation_model
+    models:
+      - provider: rasa
+        model: rasa/command-generator-llama-3.1-8b-instruct
+        api_base: "https://tutorial-llm.rasa.ai"
+
+nlu:
+  url: "http://localhost:3000"   # alamat server NLU 
+
+endpoints.yml
+
+--- Slide 9 ---
+NLUCommandAdapter
+Sebuah adapter/komponen khusus di RASA yang berfungsi sebagai jembatan (bridge) agar RASA bisa menggunakan service atau perintah NLU eksternal (biasanya lewat command line atau HTTP request).
+Menyambungkan RASA ke NLU custom (misalnya skrip Python atau API model BERT).
+Menjalankan perintah eksternal (command) setiap kali ada input user yang perlu diparse.
+Mengubah hasil parsing dari format eksternal → ke format standar RASA (intent, confidence, entities).
+
+--- Slide 10 ---
+Contoh NLUCommandAdapter
+from flask import Flask, request, jsonify
+from transformers import pipeline
+import re
+
+app = Flask(__name__)
+
+ner_pipeline = pipeline("ner", model="dslim/bert-base-NER", aggregation_strategy="simple")
+
+def hybrid_entity_recognition(text):
+    # 1. BERT-based NER
+    bert_entities = ner_pipeline(text)
+
+    # Standardisasi key dari BERT ke format seragam
+    standardized_bert_entities = [
+        {
+            "entity": ent["entity_group"],
+            "word": ent["word"],
+            "score": ent["score"],
+            "start": ent["start"],
+            "end": ent["end"],
+        }
+        for ent in bert_entities
+    ]
+
+    # 2. Regex-based NER
+    regex_patterns = {
+        "EMAIL": r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}",
+        "PHONE": r"\+?\d{1,3}[-\s]?\d{3}[-\s]?\d{3}[-\s]?\d{4}",
+        "DATE": r"\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b",
+        "URL": r"https?://[^\s]+",
+    }
+
+    regex_entities = []
+    for label, pattern in regex_patterns.items():
+        for match in re.finditer(pattern, text):
+            regex_entities.append({
+                "entity": label,
+                "word": match.group(),
+                "score": 1.0,   # Regex tidak pakai probabilitas
+                "start": match.start(),
+                "end": match.end(),
+            })
+
+    # 3. Gabungkan hasil BERT + Regex
+    all_entities = standardized_bert_entities + regex_entities
+
+    return all_entities
+
+
+#============================================
+
+from transformers import BertTokenizer, BertForSequenceClassification
+import torch
+import pickle
+
+def load_intent_model(model_path="my_intent_model"):
+    """Load model, tokenizer, dan label encoder."""
+    model = BertForSequenceClassification.from_pretrained(model_path)
+    tokenizer = BertTokenizer.from_pretrained(model_path)
+    with open(f"{model_path}/label_encoder.pkl", "rb") as f:
+        label_encoder = pickle.load(f)
+    model.eval()
+    return model, tokenizer, label_encoder
+
+def get_intent(text, model, tokenizer, label_encoder, entity_list):
+    """Prediksi intent dari input text."""
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+    with torch.no_grad():
+        outputs = model(**inputs)
+        probs = torch.nn.functional.softmax(outputs.logits, dim=-1)
+        pred_idx = torch.argmax(probs, dim=1).item()
+        intent_name = label_encoder.inverse_transform([pred_idx])[0]
+        confidence = probs[0][pred_idx].item()
+
+    return {
+        "intent": {
+            "name": intent_name,
+            "confidence": float(confidence)
+        },
+        "entities": entity_list,
+        "text": text
+    }
+
+model, tokenizer, label_encoder = load_intent_model("my_intent_model")
+
+def get_intent_and_entity(text):
+    entities = hybrid_entity_recognition(text)
+    entity_list = []
+    for ent in entities:
+        my_entity = {'word': ent['word'], 'type': ent['entity']}
+        entity_list.append(my_entity)
+        #print(f"{ent['word']:<30} --> {ent['entity']} (start={ent['start']}, end={ent['end']})")
+
+    hasil = get_intent(text, model, tokenizer, label_encoder, entity_list)
+
+    return hasil 
+
+
+@app.route("/model/parse", methods=["POST"])
+def parse():
+    data = request.get_json()
+    user_input = data.get("text", "")
+    
+    print(f"Text: {user_input}")
+
+    # Return RASA-style response
+    response = get_intent_and_entity(user_input)
+
+    print (response)
+    
+    return jsonify(response)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=3000)
+
+
+python myInterpreter.py
+myInterpreter.py
+Intent recognition
+Entity recognition
+Jalankan:
+
+
+Test dengan postman
+def load_intent_model(model_path="my_intent_model"):
+    // …
+
+--- Slide 11 ---
+Contoh proses fine-tuning model untuk NLUCommandAdapter
+import torch
+import pandas as pd 
+import numpy as np 
+import torch.nn as nn
+from torch.utils.data import DataLoader, Dataset
+from transformers import BertTokenizer, BertForSequenceClassification
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score, classification_report
+import matplotlib.pyplot as plt
+
+bertModel = 'bert-base-uncased'
+
+# Load the dataset 
+
+# ====== Dataset ======
+data = {
+    "text": [
+    # greet
+    "hey", "hello", "hi", "hello there", "good morning", "good evening",
+    "moin", "hey there", "let's go", "hey dude", "goodmorning",
+    "goodevening", "good afternoon",
+
+    # goodbye
+    "cu", "good by", "cee you later", "good night", "bye", "goodbye",
+    "have a nice day", "see you around", "bye bye", "see you later",
+
+    # affirm
+    "yes", "yeah", "indeed", "of course", "that sounds good", "correct",
+
+    # deny
+    "no", "not", "never", "I don't think so", "don't like that", "no way", "not really",
+
+    # mood_great
+    "perfect", "great", "amazing", "feeling like a king", "wonderful",
+    "I am feeling very good", "I am great", "I am amazing",
+    "I am going to save the world", "super stoked", "extremely good",
+    "so so perfect", "so good", "so perfect",
+
+    # mood_unhappy
+    "my day was horrible", "I am sad", "I don't feel very well", "I am disappointed",
+    "super sad", "I'm so sad", "sad", "very sad", "unhappy", "not good",
+    "not very good", "extremly sad", "so saad", "so sad",
+
+    # bot_challenge
+    "are you a bot?", "are you a human?", "am I talking to a bot?", "am I talking to a human?",
+
+    # provide_name
+    "My name is Ali", "I am John", "It's Sarah", "My name Budi",
+
+    # provide_email
+    "My email is ali@example.com", "My email is budi@example.com", "You can reach me at john@mail.com",
+
+    # user_regist
+    "I want to register", "Registration please", "I am a new user",
+
+    # show_info
+    "Show me my registration", "What did I give?", "Review my data"
+    ],
+    "label": [
+    # greet
+    "greet","greet","greet","greet","greet","greet","greet","greet","greet","greet","greet","greet","greet",
+
+    # goodbye
+    "goodbye","goodbye","goodbye","goodbye","goodbye","goodbye","goodbye","goodbye","goodbye","goodbye",
+
+    # affirm
+    "affirm","affirm","affirm","affirm","affirm","affirm",
+
+    # deny
+    "deny","deny","deny","deny","deny","deny","deny",
+
+    # mood_great
+    "mood_great","mood_great","mood_great","mood_great","mood_great",
+    "mood_great","mood_great","mood_great","mood_great","mood_great",
+    "mood_great","mood_great","mood_great","mood_great",
+
+    # mood_unhappy
+    "mood_unhappy","mood_unhappy","mood_unhappy","mood_unhappy","mood_unhappy",
+    "mood_unhappy","mood_unhappy","mood_unhappy","mood_unhappy","mood_unhappy",
+    "mood_unhappy","mood_unhappy","mood_unhappy","mood_unhappy",
+
+    # bot_challenge
+    "bot_challenge","bot_challenge","bot_challenge","bot_challenge",
+
+    # provide_name
+    "provide_name","provide_name","provide_name","provide_name",
+
+    # provide_email
+    "provide_email","provide_email","provide_email",
+
+    # user_regist
+    "user_regist","user_regist","user_regist",
+
+    # show_info
+    "show_info","show_info","show_info"
+    ]
+}
+df = pd.DataFrame(data)
+
+texts = list(df["text"])
+labels = df["label"].values
+
+categories = np.unique(labels)
+sample_size = len(texts)
+num_class = len(categories)
+
+# Encode labels
+label_encoder = LabelEncoder()
+encoded_labels = label_encoder.fit_transform(labels)
+
+# Split the dataset into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(texts, encoded_labels, test_size=0.3, random_state=42)
+
+# Tokenizer and Dataset Class
+tokenizer = BertTokenizer.from_pretrained(bertModel)
+
+class myDataset(Dataset):
+    def __init__(self, texts, labels, tokenizer, max_len=512):
+        self.texts = texts
+        self.labels = labels
+        self.tokenizer = tokenizer
+        self.max_len = max_len
+
+    def __len__(self):
+        return len(self.texts)
+
+    def __getitem__(self, idx):
+        text = self.texts[idx]
+        label = self.labels[idx]
+        encoding = self.tokenizer.encode_plus(
+            text,
+            add_special_tokens=True,
+            truncation=True,
+            max_length=self.max_len,
+            return_token_type_ids=False,
+            padding='max_length',
+            return_attention_mask=True,
+            return_tensors='pt'
+        )
+        return {
+            'input_ids': encoding['input_ids'].flatten(),
+            'attention_mask': encoding['attention_mask'].flatten(),
+            'label': torch.tensor(label, dtype=torch.long)
+        }
+
+
+print ("Prepare the datasets")
+
+# Prepare the datasets
+train_dataset = myDataset(X_train, y_train, tokenizer)
+test_dataset = myDataset(X_test, y_test, tokenizer)
+
+# DataLoader
+train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=16)
+
+
+print ("Load the BERT model")
+
+# Load BERT model
+model = BertForSequenceClassification.from_pretrained(bertModel, num_labels=num_class)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model.to(device)
+
+print ("Device yang dipakai: ", device)
+
+# Optimizer and loss function
+optimizer = torch.optim.Adam(model.parameters(), lr=2e-5)
+loss_fn = nn.CrossEntropyLoss()
+
+
+# save the model
+def save_model(model, tokenizer, model_name = "my_intent_model"):
+   # ======  Save Model and Tokenizer ======
+   model.save_pretrained(model_name)
+   tokenizer.save_pretrained(model_name)
+   import pickle
+   with open(model_name+"/label_encoder.pkl", "wb") as f:
+       pickle.dump(label_encoder, f)
+
+   return 
+
+# Training loop
+def train_model(model, train_loader, loss_fn, optimizer, device, epochs=10):
+    model.train()
+    train_losses = []
+    for epoch in range(epochs):
+        total_loss = 0
+        correct_predictions = 0
+        for batch in train_loader:
+            input_ids = batch['input_ids'].to(device)
+            attention_mask = batch['attention_mask'].to(device)
+            labels = batch['label'].to(device)
+
+            optimizer.zero_grad()
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+            loss = loss_fn(outputs.logits, labels)
+            total_loss += loss.item()
+
+            _, preds = torch.max(outputs.logits, dim=1)
+            correct_predictions += torch.sum(preds == labels)
+            loss.backward()
+            optimizer.step()
+
+        avg_loss = total_loss / len(train_loader)
+        accuracy = correct_predictions.double() / len(train_loader.dataset)
+        train_losses.append(avg_loss)
+
+        print(f'Epoch {epoch+1}/{epochs}, Loss: {avg_loss}, Accuracy: {accuracy:.4f}')
+
+    return train_losses
+
+# Evaluation
+def evaluate_model(model, test_loader, device):
+    model.eval()
+    all_preds = []
+    all_labels = []
+    with torch.no_grad():
+        for batch in test_loader:
+            input_ids = batch['input_ids'].to(device)
+            attention_mask = batch['attention_mask'].to(device)
+            labels = batch['label'].to(device)
+
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+            _, preds = torch.max(outputs.logits, dim=1)
+
+            all_preds.extend(preds.cpu().numpy())
+            all_labels.extend(labels.cpu().numpy())
+
+    print (all_labels)
+    print (all_preds)
+    
+    print (type(all_labels))
+    print (type(all_preds))
+        
+    accuracy = accuracy_score(all_labels, all_preds)
+    print(f'Accuracy: {accuracy:.4f}')
+    print(classification_report(all_labels, all_preds))
+    
+    return accuracy
+
+# Train the model
+train_losses = train_model(model, train_loader, loss_fn, optimizer, device)
+
+save_model(model, tokenizer)
+
+# Evaluate the model
+accuracy = evaluate_model(model, test_loader, device)
+
+# Plot training loss
+plt.plot(train_losses, label='Training loss')
+plt.title('Training Loss over Epochs')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+
+
+
+
+Modifikasi hyper-parameter yang digunakan agar kinerja lebih bagus
+Epoch
+Menambah dataset
+dsb
+def save_model(model, tokenizer, model_name = "my_intent_model"):
+    // …
+
+================================================================================
+7-1-Integrasi dengan External API.pptx
+================================================================================
+
+
+--- Slide 1 ---
+Integrasi RASA Framework dengan External API Services
+atjahyanto@gmail.com
+
+--- Slide 2 ---
+Integrasi RASA Framework dengan External API Services
+Agar RASA dapat berkomunikasi dengan layanan eksternal melalui API. 
+Contoh layanan eksternal:
+Akademik: Menampilkan transkrip nilai, jadwal kuliah, status pembayaran.
+E-commerce: Mengecek status pesanan, stok barang, harga terbaru.
+Perjalanan: Mengecek tiket pesawat/kereta, jadwal keberangkatan.
+Informasi umum: Cuaca, berita terkini, kurs mata uang.
+
+--- Slide 3 ---
+External API Services
+Layanan eksternal yang menyediakan Application Programming Interface (API) agar aplikasi lain bisa berkomunikasi, bertukar data, atau menggunakan fitur tertentu tanpa harus membangun semuanya dari nol.
+Menggunakan protokol HTTP/HTTPS dengan format data JSON atau XML, sehingga mudah diakses lintas platform.
+
+--- Slide 4 ---
+Contoh Skenario pada Chatbot Akademik
+User bertanya: “Tolong tampilkan transkrip nilai saya.”
+RASA mengenali intent → minta_transkrip.
+Custom Action di RASA memanggil API eksternal (misalnya NodeJS + MySQL) yang menyediakan data nilai.
+API mengembalikan data JSON (daftar mata kuliah dan nilai).
+RASA menampilkan hasil ke user dalam format natural language.
+
+--- Slide 5 ---
+API Services
+
+--- Slide 6 ---
+NodeJS Rest API
+Git Bash or CMD:
+$ mkdir my-nodejs
+$ cd my-nodejs
+$ npm install express
+
+Tes hello world :
+$ node index.js
+‘/hello’
+
+--- Slide 7 ---
+Create database & table
+CREATE TABLE mahasiswa(
+nrp INT(11) PRIMARY KEY NOT NULL,
+mhs_name VARCHAR(30),
+mhs_addr VARCHAR(80)
+)ENGINE=INNODB;
+
+INSERT INTO mahasiswa(nrp,mhs_name, mhs_addr) VALUES
+(5211,'Adi Husada','Jl Mangga 123 Surabaya'),
+(5222,'Budi Santosa', 'Jl Nanas 54 Surabaya'),
+(5233,'Edi Darmadi','Jl. Pangsud 2A Surabaya'),
+(5244,'Farida Pasha','Jl. Gatsu 65 Surabaya'),
+(5255,'Gigih Perkasa','Jl. ARH 73 Surabaya');
+
+
+Install XAMPP
+Start Apache
+Start MySQL
+
+Akses ke http://localhost/phpmyadmin/
+Create db, misal: cobadb
+dst
+
+--- Slide 8 ---
+Create table
+CREATE TABLE transkrip (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nrp INT(11),
+    mata_kuliah VARCHAR(100),
+    nilai CHAR(2)
+);
+
+INSERT INTO transkrip (nrp, mata_kuliah, nilai) VALUES
+(5211, 'Algoritma dan Struktur Data', 'A'),
+(5211, 'Basis Data', 'B+'),
+(5211, 'Kecerdasan Buatan', 'A-'),
+(5222, 'Algoritma dan Struktur Data', 'AB'),
+(5222, 'Basis Data', 'AB'),
+(5222, 'Kecerdasan Buatan', 'AB');
+
+
+--- Slide 9 ---
+Configure database connection
+Create a directory:
+   $ mkdir config
+   $ cd config
+Create a database.js file in the folder
+const mysql = require('mysql');
+
+// buat konfigurasi koneksi
+const koneksi = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'cobadb',
+    multipleStatements: true
+});
+
+// koneksi database
+koneksi.connect((err) => {
+    if (err) throw err;
+    console.log('MySQL Connected...');
+});
+
+module.exports = koneksi;
+database.js
+Jika COPAS dari PPT ini, mungkin terjadi perubahan tanda petik yang menyebabkan error.
+
+--- Slide 10 ---
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const port = 4000;
+
+// Koneksi database
+const db = require('./config/database');
+
+// Endpoint untuk transkrip
+app.get('/transkrip/:nrp', (req, res) => {
+  const nrp = req.params.nrp;
+  db.query('SELECT mata_kuliah, nilai FROM transkrip WHERE nrp = ?', [nrp], (err, results) => {
+    if (err) return res.status(500).json({ error: err });
+    res.json(results);
+  });
+});
+
+app.listen(port, () => {
+  console.log(`API berjalan di http://localhost:${port}`);
+});
+$ node my-API-transkrip.js
+my-API-transkrip.js
+Uji dengan Postman:
+GET
+http://localhost:4000/transkrip/5211
+
+
+3
+API services
+
+--- Slide 11 ---
+Hasil uji coba dengan Postman
+Uji dengan Postman:
+GET
+http://localhost:4000/transkrip/5211
+
+
+
+--- Slide 12 ---
+
+--- Slide 13 ---
+Contoh Skenario
+#--------------------------------------
+
+- story: tanya transkrip
+  steps:
+    - intent: minta_transkrip
+    - action: utter_greet
+    - action: utter_ask_nrp
+    - intent: provide_nrp
+    - action: minta_transkrip_action
+    
+ 
+data/stories.yml
+2
+Chatbot
+
+--- Slide 14 ---
+Custom Action di RASA (actions/actions.py)
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+import requests
+
+class ActionGetTranskrip(Action):
+    def name(self) -> Text:
+        return "minta_transkrip_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        print ("Masuk ke ActionGetTranskrip")
+        nrp = tracker.get_slot("nrp")  # Slot dari user
+        response = requests.get(f"http://localhost:4000/transkrip/{nrp}")
+
+        if response.status_code == 200:
+            data = response.json()
+            if len(data) == 0:
+                dispatcher.utter_message(text="Transkrip tidak ditemukan.")
+            else:
+                msg = f"Transkrip nilai untuk nrp {nrp}:\n"
+                for item in data:
+                    msg += f"- {item['mata_kuliah']}: {item['nilai']}\n"
+                dispatcher.utter_message(text=msg)
+        else:
+            dispatcher.utter_message(text="Gagal mengambil data transkrip.")
+        return []
+File actions/actions.py berisi custom actions dalam bentuk kode Python.
+Action ini dijalankan ketika chatbot perlu melakukan sesuatu di luar jawaban statis
+
+
+
+--- Slide 15 ---
+Domain File (domain.yml)
+File domain.yml digunakan mendefinisikan intent, entity, slot, response, action
+
+version: "3.1"
+
+intents:
+  - greet
+  - provide_name
+  - provide_nrp 
+  - goodbye
+  - mood_great 
+  - minta_transkrip
+
+entities:
+  - name
+  - nrp
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: name
+#--------
+
+--- Slide 16 ---
+Menyiapkan Percakapan Sederhana
+version: "3.1"
+
+intents:
+  - greet
+  - provide_name
+  - provide_nrp 
+  - goodbye
+  - mood_great 
+  - minta_transkrip
+
+entities:
+  - name
+  - nrp
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: name
+
+  nrp:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: nrp
+
+
+responses:
+  utter_greet:
+  - text: "Halo, saya chatbot."
+  utter_confirm:
+  - text: "Ok {name}"
+  utter_confirm_nrp:
+  - text: "Ok nrp Anda adalah {nrp}"
+  utter_ask_name:
+  - text: "Siapa nama Anda?"
+  utter_ask_nrp:
+  - text: "Berapa nrp Anda?"
+  utter_name_received:
+  - text: "Senang bertemu denganmu, {name}!"
+  utter_goodbye:
+  - text: Bye
+  - text: Nice chatting with you!! Bye bye!!
+  - text: See ya!!
+  utter_restart:
+  - text: Is there anything else that I can help you with?
+  - text: Do you have any other query?
+
+actions:
+- utter_greet
+- utter_restart
+- utter_ask_name
+- utter_ask_nrp
+- utter_confirm
+- minta_transkrip_action
+- utter_name_received
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+domain.yml
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - halo
+    - hi
+    - selamat pagi
+    - hai
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+    
+- intent: provide_name
+  examples: |
+    - Nama saya [Aris](name)
+    - Saya [Budi](name)
+    - Panggil saya [Citra](name)
+    - Saya bernama [Dewi](name)
+    - [Andi](name) adalah nama saya
+
+- intent: provide_nrp
+  examples: |
+    - NRP saya adalah [5211](nrp)
+    - Saya [5211](nrp)
+    - NRP saya [5211](nrp)
+    - Saya punya NRP [5211](nrp)
+    - [5211](nrp) adalah NRP saya
+
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    
+- intent: minta_transkrip
+  examples: |
+    - show my transcript,
+    - give me my transcript,
+    - show transcript,
+    - please show my grades,
+    - show the transcript
+ 
+data/nlu.yml
+version: "3.1"
+stories:
+- story: perkenalan sederhana dengan stories
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_name
+    - intent: provide_name
+    - action: utter_confirm
+
+
+- story: amazing dan tanya nrp
+  steps:
+    - intent: mood_great
+    - action: utter_greet
+    - action: utter_ask_nrp
+    - intent: provide_nrp
+    - action: utter_confirm_nrp
+
+- story: tanya transkrip
+  steps:
+    - intent: minta_transkrip
+    - action: utter_greet
+    - action: utter_ask_nrp
+    - intent: provide_nrp
+    - action: minta_transkrip_action
+    
+ 
+data/stories.yml
+recipe: default.v1
+
+language: "en"
+
+# -------------------------
+# NLU Pipeline
+# -------------------------
+pipeline:
+- name: NLUCommandAdapter   # adapter ditambahkan di sini
+  url: "http://localhost:3000"   
+
+
+# -------------------------
+# Dialogue Policies
+# -------------------------
+policies:
+  - name: MemoizationPolicy
+  - name: TEDPolicy
+    max_history: 10
+    epochs: 200
+  - name: RulePolicy
+  
+assistant_id: 20250924-045037-leather-model
+config.yml
+Jangan lupa hapus dulu file flows.yml
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+data/rules.yml
+
+--- Slide 17 ---
+File config.yml
+recipe: default.v1
+
+language: "en"
+
+# -------------------------
+# NLU Pipeline
+# -------------------------
+pipeline:
+- name: NLUCommandAdapter   # adapter 
+  url: "http://localhost:3000"   
+
+
+# -------------------------
+# Dialogue Policies
+# -------------------------
+policies:
+  - name: MemoizationPolicy
+  - name: TEDPolicy
+    max_history: 10
+    epochs: 200
+  - name: RulePolicy
+  
+assistant_id: 20250924-045037-leather-model
+config.yml
+from flask import Flask, request, jsonify
+from transformers import pipeline
+import re
+
+app = Flask(__name__)
+
+ner_pipeline = pipeline("ner", model="dslim/bert-base-NER", aggregation_strategy="simple")
+
+def hybrid_entity_recognition(text):
+    # 1. BERT-based NER
+    bert_entities = ner_pipeline(text)
+
+    # Standardisasi key dari BERT ke format seragam
+    standardized_bert_entities = [
+        {
+            "entity": ent["entity_group"],
+            "word": ent["word"],
+            "score": ent["score"],
+            "start": ent["start"],
+            "end": ent["end"],
+        }
+        for ent in bert_entities
+    ]
+
+    # 2. Regex-based NER
+    regex_patterns = {
+        "EMAIL": r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}",
+        "PHONE": r"\+?\d{1,3}[-\s]?\d{3}[-\s]?\d{3}[-\s]?\d{4}",
+        "DATE": r"\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b",
+        "URL": r"https?://[^\s]+",
+        "NRP": r"\b52\d+\b"
+        }
+
+    regex_entities = []
+    for label, pattern in regex_patterns.items():
+        for match in re.finditer(pattern, text):
+            regex_entities.append({
+                "entity": label,
+                "word": match.group(),
+                "score": 1.0,   # Regex tidak pakai probabilitas
+                "start": match.start(),
+                "end": match.end(),
+            })
+
+    # 3. Gabungkan hasil BERT + Regex
+    all_entities = standardized_bert_entities + regex_entities
+
+    return all_entities
+
+
+#============================================
+
+from transformers import BertTokenizer, BertForSequenceClassification
+import torch
+import pickle
+
+def load_intent_model(model_path="my_intent_model"):
+    """Load model, tokenizer, dan label encoder."""
+    model = BertForSequenceClassification.from_pretrained(model_path)
+    tokenizer = BertTokenizer.from_pretrained(model_path)
+    with open(f"{model_path}/label_encoder.pkl", "rb") as f:
+        label_encoder = pickle.load(f)
+    model.eval()
+    return model, tokenizer, label_encoder
+
+def get_intent(text, model, tokenizer, label_encoder, entity_list, modtext):
+    """Prediksi intent dari input text."""
+    inputs = tokenizer(modtext, return_tensors="pt", truncation=True, padding=True)
+    with torch.no_grad():
+        outputs = model(**inputs)
+        probs = torch.nn.functional.softmax(outputs.logits, dim=-1)
+        pred_idx = torch.argmax(probs, dim=1).item()
+        intent_name = label_encoder.inverse_transform([pred_idx])[0]
+        confidence = probs[0][pred_idx].item()
+
+    if (text=='/session_start'):
+        intent_name = 'session_start'
+        confidence = '1.0'
+       
+
+
+    return {
+        "intent": {
+            "name": intent_name,
+            "confidence": float(confidence)
+        },
+        "entities": entity_list,
+        "text": text,
+        "modtext": modtext
+    }
+
+model, tokenizer, label_encoder = load_intent_model("my_intent_model")
+
+def replace_entity(text, entity_value, placeholder):
+    # Escape entity_value biar aman kalau ada karakter khusus (seperti . atau @)
+    pattern = re.escape(entity_value)
+    return re.sub(pattern, placeholder, text)
+
+
+def get_intent_and_entity(text):
+    entities = hybrid_entity_recognition(text)
+    entity_list = []
+    modtext = text
+    for ent in entities:
+        entity_type = ent['entity']
+        entity_typex = entity_type
+        
+        # value dari entity_typex harus sama dengan slot pada domain.yml
+        if (entity_type=='PER'):
+            entity_typex = 'name'
+        if (entity_type=='NRP'):
+            entity_typex = 'nrp'
+        
+        my_entity = {'value': ent['word'], 'entity': entity_typex}
+        entity_list.append(my_entity)
+        
+        # modtext adalah user_input yang digunakan untuk prediksi intent 
+        if (entity_type=='NRP'):
+            modtext = replace_entity(text, ent['word'], "<nrp>")
+        if (entity_type=='EMAIL'):
+            modtext = replace_entity(text, ent['word'], "<email>")
+        if (entity_type=='PER'):
+            modtext = replace_entity(text, ent['word'], "<name>")
+            
+        #print(f"{ent['word']:<30} --> {ent['entity']} (start={ent['start']}, end={ent['end']})")
+        
+    hasil = get_intent(text, model, tokenizer, label_encoder, entity_list, modtext)
+
+    return hasil 
+
+
+@app.route("/model/parse", methods=["POST"])
+def parse():
+    data = request.get_json()
+    user_input = data.get("text", "")
+    
+    print(f"Text: {user_input}")
+
+    # Return RASA-style response
+    response = get_intent_and_entity(user_input)
+
+    print (response)
+    
+    return jsonify(response)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=3000)
+
+
+myInterpreter.py
+import torch
+import pandas as pd 
+import numpy as np 
+import torch.nn as nn
+from torch.utils.data import DataLoader, Dataset
+from transformers import BertTokenizer, BertForSequenceClassification
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score, classification_report
+import matplotlib.pyplot as plt
+
+bertModel = 'bert-base-uncased'
+bertModel = 'distilbert-base-uncased'
+
+n_epochs = 10
+
+# Load the dataset 
+
+# ====== Dataset ======
+data = {
+    "text": [
+    # greet
+    "hallo", "hello", "hi",  "good morning",  
+    "hey dude", "good afternoon",
+
+    # goodbye
+    "good bye", "cee you later", "byebye","goodbye", "bye bye", "see you later",
+
+    # affirm
+    "yes", "yeah", "indeed", "of course", "that sounds good", "correct",
+
+    # deny
+    "no", "not", "never", "don't like that", "no way", "not really",
+
+    # mood_great
+    "perfect", "great", "amazing", "wonderful",
+    "so good", "so perfect",
+
+    # mood_unhappy
+    "my day was horrible", "I am sad", "I don't feel very well", "I am disappointed", "I'm so sad",
+
+    # bot_challenge
+    "are you a bot?", "are you a human?", "am I talking to a bot?", "am I talking to a human?",
+
+    # provide_name
+    "My name is <name>",  "I am <name>",  "It's <name>",   "Name <name>", "It is <name>",
+
+    # provide_email
+    "My email is <email>", "This email <email> is mine", "You can reach me at <email>", "email saya adalah <email>",
+
+    # provide_nrp
+    "My nim is <nrp>", "My nrp is <nrp>", "NRP saya <nrp>", "NRP <nrp>","NIM <nrp>",
+
+
+    # user_regist
+    "I want to register", "Registration please", "I am a new user",
+
+    # show_info
+    "Show me my registration", "What did I give?", "Review my data",
+    
+    "show my transcript",
+    "give me my transcript",
+    "show transcript",
+    "please show my grades",
+    "show the transcript"
+
+    ],
+    
+    "label": [
+    # greet
+    "greet","greet","greet","greet","greet","greet", 
+
+    # goodbye
+    "goodbye","goodbye","goodbye","goodbye","goodbye","goodbye", 
+
+    # affirm
+    "affirm","affirm","affirm","affirm","affirm","affirm",
+
+    # deny
+    "deny","deny","deny","deny","deny","deny",
+
+    # mood_great
+    "mood_great","mood_great","mood_great","mood_great","mood_great",    "mood_great",
+
+    # mood_unhappy
+    "mood_unhappy","mood_unhappy","mood_unhappy","mood_unhappy","mood_unhappy",
+
+    # bot_challenge
+    "bot_challenge","bot_challenge","bot_challenge","bot_challenge",
+
+    # provide_name
+    "provide_name","provide_name","provide_name","provide_name", "provide_name",
+
+    # provide_email
+    "provide_email","provide_email","provide_email","provide_email",
+
+    # provide_nrp
+    "provide_nrp","provide_nrp","provide_nrp","provide_nrp", "provide_nrp",
+
+
+    # user_regist
+    "user_regist","user_regist","user_regist",
+
+    # show_info
+    "show_info","show_info","show_info",
+    
+    # minta_transkrip
+    "minta_transkrip", "minta_transkrip", "minta_transkrip", "minta_transkrip", "minta_transkrip"
+    ]
+}
+df = pd.DataFrame(data)
+
+texts = list(df["text"])
+labels = df["label"].values
+
+categories = np.unique(labels)
+sample_size = len(texts)
+num_class = len(categories)
+
+# Encode labels
+label_encoder = LabelEncoder()
+encoded_labels = label_encoder.fit_transform(labels)
+
+# Split the dataset into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(texts, encoded_labels, test_size=0.3, random_state=42)
+
+# Tokenizer and Dataset Class
+tokenizer = BertTokenizer.from_pretrained(bertModel)
+
+class myDataset(Dataset):
+    def __init__(self, texts, labels, tokenizer, max_len=512):
+        self.texts = texts
+        self.labels = labels
+        self.tokenizer = tokenizer
+        self.max_len = max_len
+
+    def __len__(self):
+        return len(self.texts)
+
+    def __getitem__(self, idx):
+        text = self.texts[idx]
+        label = self.labels[idx]
+        encoding = self.tokenizer.encode_plus(
+            text,
+            add_special_tokens=True,
+            truncation=True,
+            max_length=self.max_len,
+            return_token_type_ids=False,
+            padding='max_length',
+            return_attention_mask=True,
+            return_tensors='pt'
+        )
+        return {
+            'input_ids': encoding['input_ids'].flatten(),
+            'attention_mask': encoding['attention_mask'].flatten(),
+            'label': torch.tensor(label, dtype=torch.long)
+        }
+
+
+print ("Prepare the datasets")
+
+# Prepare the datasets
+train_dataset = myDataset(X_train, y_train, tokenizer)
+test_dataset = myDataset(X_test, y_test, tokenizer)
+
+# DataLoader
+train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=16)
+
+
+print ("Load the BERT model")
+
+# Load BERT model
+model = BertForSequenceClassification.from_pretrained(bertModel, num_labels=num_class)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model.to(device)
+
+print ("Device yang dipakai: ", device)
+
+# Optimizer and loss function
+optimizer = torch.optim.Adam(model.parameters(), lr=2e-5)
+loss_fn = nn.CrossEntropyLoss()
+
+
+# save the model
+def save_model(model, tokenizer, model_name = "my_intent_model"):
+   # ======  Save Model and Tokenizer ======
+   model.save_pretrained(model_name)
+   tokenizer.save_pretrained(model_name)
+   import pickle
+   with open(model_name+"/label_encoder.pkl", "wb") as f:
+       pickle.dump(label_encoder, f)
+
+   return 
+
+# Training loop
+def train_model(model, train_loader, loss_fn, optimizer, device, epochs=n_epochs):
+    model.train()
+    train_losses = []
+    for epoch in range(epochs):
+        total_loss = 0
+        correct_predictions = 0
+        for batch in train_loader:
+            input_ids = batch['input_ids'].to(device)
+            attention_mask = batch['attention_mask'].to(device)
+            labels = batch['label'].to(device)
+
+            optimizer.zero_grad()
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+            loss = loss_fn(outputs.logits, labels)
+            total_loss += loss.item()
+
+            _, preds = torch.max(outputs.logits, dim=1)
+            correct_predictions += torch.sum(preds == labels)
+            loss.backward()
+            optimizer.step()
+
+        avg_loss = total_loss / len(train_loader)
+        accuracy = correct_predictions.double() / len(train_loader.dataset)
+        train_losses.append(avg_loss)
+
+        print(f'Epoch {epoch+1}/{epochs}, Loss: {avg_loss}, Accuracy: {accuracy:.4f}')
+
+    return train_losses
+
+# Evaluation
+def evaluate_model(model, test_loader, device):
+    model.eval()
+    all_preds = []
+    all_labels = []
+    with torch.no_grad():
+        for batch in test_loader:
+            input_ids = batch['input_ids'].to(device)
+            attention_mask = batch['attention_mask'].to(device)
+            labels = batch['label'].to(device)
+
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+            _, preds = torch.max(outputs.logits, dim=1)
+
+            all_preds.extend(preds.cpu().numpy())
+            all_labels.extend(labels.cpu().numpy())
+
+    print (all_labels)
+    print (all_preds)
+    
+    print (type(all_labels))
+    print (type(all_preds))
+        
+    accuracy = accuracy_score(all_labels, all_preds)
+    print(f'Accuracy: {accuracy:.4f}')
+    print(classification_report(all_labels, all_preds))
+    
+    return accuracy
+
+# Train the model
+train_losses = train_model(model, train_loader, loss_fn, optimizer, device)
+
+save_model(model, tokenizer)
+
+# Evaluate the model
+accuracy = evaluate_model(model, test_loader, device)
+
+# Plot training loss
+plt.plot(train_losses, label='Training loss')
+plt.title('Training Loss over Epochs')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+
+
+
+
+Fine-tuning-myInterpreter.py
+1
+Intent & Entity recognizer

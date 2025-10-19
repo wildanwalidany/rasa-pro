@@ -1,0 +1,283 @@
+version: "3.1"
+
+nlu:
+# ===================================================================
+# GREET INTENT - Sapaan umum
+# ===================================================================
+- intent: greet
+  examples: |
+    - Hai
+    - Halo
+    - Selamat pagi
+    - Selamat siang
+    - Selamat sore
+    - Selamat malam
+    - Assalamualaikum
+    - Apa kabar
+    - Pagi
+    - Siang
+    - Sore
+    - Malam
+    - Halo bot
+    - Hai asisten gizi
+    - Halo gizi bot
+    - Selamat datang
+    - Halo, apa kabar
+    - Hai, sehat?
+    - Halo sahabat sehat
+
+# ===================================================================
+# GOODBYE INTENT - Perpisahan
+# ===================================================================
+- intent: goodbye
+  examples: |
+    - Sampai jumpa
+    - Terima kasih
+    - Bye
+    - Dadah
+    - Selamat tinggal
+    - Sudah cukup
+    - Cukup sekian
+    - Oke terima kasih
+    - Thanks
+    - Makasih banyak
+    - Permisi
+    - Saya pergi dulu
+    - Sampai nanti
+    - See you
+
+# ===================================================================
+# TANYA INFO GIZI PRODUK - Informasi nutrisi produk makanan/minuman
+# ===================================================================
+- intent: tanya_info_gizi_produk
+  examples: |
+    - Berapa kalori Teh Botol Sosro
+    - Info gizi produk Teh Pucuk Harum
+    - Kandungan nutrisi Coca Cola
+    - Teh Botol Sosro kandungan gula berapa
+    - Apa saja kandungan gizi di Aqua
+    - Berapa kalori dalam Le Minerale
+    - Kalori Sprite berapa
+    - Info nutrisi Fanta
+    - Kandungan gizi Pocari Sweat
+    - Nutrisi apa saja di Mizone
+    - Berapa kalori Teh Kotak
+    - Gizi Indomie Goreng
+    - Nutrisi di SilverQueen
+    - Kalori biskuit Roma
+    - Info gizi wafer Tango
+    - Berapa kalori Oreo
+    - Kandungan Good Time
+    - Info nutrisi Beng Beng
+    - Kalori ChitChat
+    - Gizi Nabati
+
+# ===================================================================
+# TANYA KALORI HARIAN - Kebutuhan kalori harian
+# ===================================================================
+- intent: tanya_kalori_harian
+  examples: |
+    - Berapa kalori yang saya butuhkan per hari
+    - Kebutuhan kalori harian saya
+    - Kalori harian untuk orang dewasa
+    - Berapa kalori dibutuhkan untuk diet
+    - Kalori yang diperlukan anak-anak
+    - Kebutuhan energi harian
+    - Berapa asupan kalori yang ideal
+    - Kalori untuk menjaga berat badan
+    - Kebutuhan kalori wanita
+    - Kalori harian pria
+    - Berapa kalori untuk menurunkan berat badan
+    - Kalori untuk menambah berat badan
+    - Kalori untuk remaja
+    - Kebutuhan kalori lansia
+    - Berapa kalori normal per hari
+
+# ===================================================================
+# TANYA REKOMENDASI MAKANAN - Saran makanan sehat
+# ===================================================================
+- intent: tanya_rekomendasi_makanan
+  examples: |
+    - Rekomendasikan makanan sehat untuk saya
+    - Makanan apa yang bagus untuk kesehatan
+    - Saran menu sehat
+    - Makanan sehat untuk sarapan
+    - Rekomendasi makan siang sehat
+    - Menu sehat untuk malam
+    - Makanan bergizi untuk anak
+    - Saran makanan untuk ibu hamil
+    - Rekomendasi camilan sehat
+    - Makanan apa yang baik untuk tubuh
+    - Menu diet sehat
+    - Saran makanan untuk vegetarian
+    - Rekomendasi makanan berprotein tinggi
+    - Makanan kaya serat
+    - Saran menu rendah kalori
+
+# ===================================================================
+# TANYA KANDUNGAN ZAT - Kandungan zat gizi tertentu
+# ===================================================================
+- intent: tanya_kandungan_zat
+  examples: |
+    - Makanan apa yang kaya protein
+    - Sumber vitamin C
+    - Kandungan zat besi tinggi
+    - Makanan tinggi kalsium
+    - Sumber omega 3
+    - Makanan mengandung vitamin D
+    - Sumber magnesium
+    - Makanan kaya zinc
+    - Kandungan vitamin A tinggi
+    - Sumber folat
+    - Makanan dengan protein nabati
+    - Sumber vitamin B12
+    - Kandungan kalium tinggi
+    - Makanan kaya antioksidan
+    - Sumber karbohidrat kompleks
+
+# ===================================================================
+# TANYA PORSI MAKAN - Ukuran/takaran porsi makan
+# ===================================================================
+- intent: tanya_porsi_makan
+  examples: |
+    - Berapa porsi nasi yang ideal
+    - Takaran sayur per hari
+    - Porsi protein yang cukup
+    - Berapa banyak buah harus dimakan
+    - Ukuran porsi makan sehat
+    - Takaran makan untuk diet
+    - Porsi makan anak balita
+    - Berapa gram protein per hari
+    - Takaran karbohidrat ideal
+    - Porsi sayuran yang dianjurkan
+    - Berapa porsi buah per hari
+    - Ukuran porsi nasi untuk dewasa
+    - Takaran lauk per makan
+    - Porsi cemilan yang aman
+    - Berapa banyak air minum per hari
+
+# ===================================================================
+# TANYA LABEL GIZI - Cara membaca label nutrisi
+# ===================================================================
+- intent: tanya_label_gizi
+  examples: |
+    - Bagaimana cara membaca label gizi
+    - Apa itu nutrition facts
+    - Cara memahami informasi nilai gizi
+    - Arti label AKG
+    - Bagaimana membaca kalori di kemasan
+    - Cara cek kandungan gula di produk
+    - Apa itu serving size
+    - Bagaimana cara lihat sodium
+    - Cara membaca lemak jenuh
+    - Apa arti % AKG
+    - Bagaimana cek kandungan protein
+    - Cara membaca label komposisi
+    - Apa itu RDA
+    - Bagaimana tahu produk tinggi gula
+    - Cara membaca nilai gizi kemasan
+
+# ===================================================================
+# TANYA MAKANAN DIET - Makanan untuk program diet
+# ===================================================================
+- intent: tanya_makanan_diet
+  examples: |
+    - Makanan apa untuk diet
+    - Menu diet sehat
+    - Makanan rendah kalori
+    - Diet untuk menurunkan berat badan
+    - Makanan diet tinggi protein
+    - Menu diet keto
+    - Makanan untuk diet mayo
+    - Diet rendah karbohidrat
+    - Makanan diet diabetes
+    - Menu diet jantung
+    - Makanan untuk diet vegetarian
+    - Diet DEBM makan apa
+    - Makanan diet rendah garam
+    - Menu diet ibu menyusui
+    - Makanan diet untuk kolesterol
+
+# ===================================================================
+# TANYA EFEK KESEHATAN - Dampak makanan terhadap kesehatan
+# ===================================================================
+- intent: tanya_efek_kesehatan
+  examples: |
+    - Efek minum soda tiap hari
+    - Bahaya makan gorengan
+    - Dampak konsumsi gula berlebihan
+    - Efek makan mie instan
+    - Bahaya minuman manis
+    - Dampak kekurangan protein
+    - Efek kebanyakan makan garam
+    - Bahaya makanan tinggi lemak jenuh
+    - Dampak kurang serat
+    - Efek kekurangan vitamin D
+    - Bahaya konsumsi MSG
+    - Dampak makan cepat saji
+    - Efek kurang minum air
+    - Bahaya makanan ultra processed
+    - Dampak kebanyakan kafein
+
+# ===================================================================
+# TANYA ALTERNATIF MAKANAN - Pengganti makanan lebih sehat
+# ===================================================================
+- intent: tanya_alternatif_makanan
+  examples: |
+    - Pengganti nasi putih yang lebih sehat
+    - Alternatif gula pasir
+    - Pengganti mie instan
+    - Alternatif minuman manis
+    - Pengganti gorengan
+    - Alternatif cemilan sehat
+    - Pengganti santan
+    - Alternatif mentega
+    - Pengganti garam
+    - Alternatif susu sapi
+    - Pengganti daging merah
+    - Alternatif tepung terigu
+    - Pengganti keju
+    - Alternatif cokelat
+    - Pengganti es krim
+
+# ===================================================================
+# TANYA WAKTU MAKAN - Jadwal dan waktu makan yang tepat
+# ===================================================================
+- intent: tanya_waktu_makan
+  examples: |
+    - Kapan waktu terbaik untuk sarapan
+    - Jam berapa sebaiknya makan siang
+    - Waktu makan malam yang ideal
+    - Bolehkah makan sebelum tidur
+    - Jarak waktu antar makan
+    - Frekuensi makan per hari
+    - Waktu terbaik makan buah
+    - Kapan sebaiknya minum susu
+    - Waktu makan untuk diet
+    - Jam berapa harus sarapan
+    - Boleh makan malam jam 9
+    - Waktu terbaik olahraga sebelum atau sesudah makan
+    - Kapan waktu makan cemilan
+    - Jarak sarapan dan makan siang
+    - Waktu puasa intermittent
+
+# ===================================================================
+# TANYA TIPS HIDUP SEHAT - Tips gaya hidup sehat
+# ===================================================================
+- intent: tanya_tips_hidup_sehat
+  examples: |
+    - Tips hidup sehat
+    - Cara menjaga kesehatan
+    - Pola hidup sehat seperti apa
+    - Tips diet sehat
+    - Cara menjaga berat badan ideal
+    - Tips agar tidak mudah sakit
+    - Pola makan sehat
+    - Cara meningkatkan imunitas
+    - Tips olahraga rutin
+    - Cara mengurangi stress
+    - Tips tidur berkualitas
+    - Cara hidup lebih sehat
+    - Tips menjaga kebugaran
+    - Pola hidup untuk lansia
+    - Tips sehat untuk ibu hamil

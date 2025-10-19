@@ -1,0 +1,27 @@
+recipe: default.v1
+language: id  # Indonesian language
+
+# =========================================================
+# NLU Pipeline - Using External NLU via NLUCommandAdapter
+# =========================================================
+pipeline:
+  - name: nlu_command_adapter.NLUCommandAdapter
+    url: "http://localhost:3000"
+
+# =========================================================
+# Dialogue Management Policies
+# =========================================================
+policies:
+  - name: MemoizationPolicy
+    max_history: 5
+  
+  - name: TEDPolicy
+    max_history: 10
+    epochs: 50
+    constrain_similarities: true
+  
+  - name: RulePolicy
+    core_fallback_threshold: 0.4
+    core_fallback_action_name: "utter_default"
+
+assistant_id: nutrition_assistant_20251018
