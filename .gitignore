@@ -7,6 +7,8 @@ __pycache__/
 env/
 venv/
 ENV/
+.env/
+.venv/
 build/
 develop-eggs/
 dist/
@@ -24,7 +26,7 @@ wheels/
 *.egg
 
 # Rasa
-models/*.tar.gz
+models/
 results/
 .rasa/
 rasa-project/.rasa/
@@ -35,7 +37,7 @@ nutrition_nlu_model/model.safetensors
 nutrition_nlu_model/*.pkl
 *.zip
 
-# IDE
+# IDE/editor
 .vscode/
 .idea/
 *.swp
@@ -56,3 +58,12 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.bak
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Misc
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

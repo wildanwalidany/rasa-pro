@@ -112,7 +112,7 @@ nlu:
     - Stop disini
     - Terima kasih, bye
     - Bye bye, makasih
-
+	
 # =======================
 # Intent: TANYA_INFO_GIZI_PRODUK (101–150)
 # =======================

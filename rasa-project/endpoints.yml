@@ -1,3 +1,20 @@
+nlu_endpoint:
+  url: "http://localhost:3004/interpret"
+
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# HAPUS atau COMMENT nlu_endpoint jika ada
+# nlu_endpoint:
+#   url: "http://localhost:5004"
+
+# Model server endpoint (optional)
+# model_endpoint:
+#   url: "http://localhost:5005"
+
+# Tracker store (optional)
+# tracker_store:
+#   type: InMemoryTrackerStore
 # This file contains the different endpoints your bot can use.
 
 # Server where the models are pulled from.

@@ -1,7 +1,9 @@
 version: "3.1"
 
 intents:
+  # Primary intents from dataset_gizi.csv
   - greeting
+  - greet
   - goodbye
   - tanya_info_gizi_produk
   - tanya_kalori_harian
@@ -14,13 +16,156 @@ intents:
   - tanya_alternatif_makanan
   - tanya_waktu_makan
   - tanya_tips_hidup_sehat
+  # Additional intents for enhanced functionality
+  - konsultasi_makanan
+  - mood_great
+  - mood_unhappy
+  - deny
+  - affirm
+  - bot_challenge
+  - ask_time
+  - ask_user_info
 
+entities:
+  - nama_produk
+  - kategori_usia
+  - jenis_kelamin
+  - nama_zat
+  - nama_diet
+  - nama_makanan
+  - waktu_makan
+  - minuman
+  - tujuan
+  - aktivitas
+  - frekuensi
+  - kategori_pengguna
+  - kategori_tempat
+  - kategori_kondisi
+  - kondisi
+  - zat
+  - kalori
+  - protein
+  - lemak
+  - karbohidrat
+  - gula
+  - natrium
+  - serat
+  - user_name
+  - time_query
+  - date_query
+
+slots:
+  nama_produk:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: nama_produk
+  
+  kategori_usia:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: kategori_usia
+  
+  jenis_kelamin:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: jenis_kelamin
+  
+  nama_zat:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: nama_zat
+    - type: from_entity
+      entity: zat
+  
+  nama_diet:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: nama_diet
+  
+  nama_makanan:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: nama_makanan
+  
+  waktu_makan:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: waktu_makan
+  
+  minuman:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: minuman
+  
+  aktivitas:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: aktivitas
+  
+  user_id:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  
+  user_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: user_name
+    - type: custom
+  
+  session_started:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  
+  last_interaction:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
 
 responses:
   # =========================================================
-  # GREETING RESPONSES
+  # SYSTEM & METADATA RESPONSES
   # =========================================================
-  utter_greeting:
+   utter_system_info:
+    - text: "🤖 **Sistem Info Chatbot Gizi v15**\n📅 Dibuat: 2025-10-19 16:38:42 UTC\n👤 Admin: Veniaar2108\n🔗 Status: Online & Ready\n📊 Database: Connected to phpMyAdmin\n🌐 API: Node.js Integration Active"
+    - text: "ℹ️ **Bot Information**\nVersion: 15.0\nCreated: 2025-10-19\nMaintainer: Veniaar2108\nCapabilities: 13 intents, 650+ responses, Real-time DB"
+    - text: "📋 **Current Session Info**\n⏰ Server Time: 2025-10-19 16:38:42 UTC\n🎯 Specialized in: Nutrition & Health Consultation\n💾 Data Source: phpMyAdmin Database"
+
+   utter_ask_user_info:
+    - text: "👋 Halo! Saya belum mengenal Anda. Boleh tahu nama Anda?"
+    - text: "🤔 Sepertinya ini kali pertama kita berinteraksi. Siapa nama Anda?"
+    - text: "👤 Untuk personalisasi yang lebih baik, boleh saya tahu nama Anda?"
+
+   utter_time_info:
+    - text: "🕐 **Waktu Saat Ini**\n📅 Tanggal: 2025-10-19\n⏰ Waktu: 16:38:42 UTC\n🌍 Timezone: Universal Coordinated Time"
+    - text: "⏱️ Current System Time: 2025-10-19 16:38:42 UTC\n📊 Session ID: {user_id}\n👤 User: {user_name}"
+    - text: "🌐 Server Time: Saturday, October 19, 2025 - 16:38:42 UTC\n🤖 Bot Active Since: 2025-10-19\n📈 Uptime: Active"
+
+   utter_greeting:
     - text: "Halo! Ada yang bisa saya bantu terkait informasi gizi?"
     - text: "Selamat pagi! Siap membantu cek gizi hari ini."
     - text: "Selamat siang! Apakah Anda ingin cek gizi produk?"
@@ -71,10 +216,13 @@ responses:
     - text: "Oke, sebutkan nama produk."
     - text: "Bisa, mari cek gizi produk Anda."
 
-  # =========================================================
-  # GOODBYE RESPONSES
-  # =========================================================
-  utter_goodbye:
+   utter_greet:
+    - text: "Selamat datang! Siap membantu dengan informasi nutrisi terkini. 📊"
+    - text: "Hi! Ada yang ingin ditanyakan tentang gizi dan kesehatan? 🌿"
+    - text: "👋 Hello {user_name}! Ready untuk konsultasi gizi hari ini?"
+    - text: "🌟 Greetings! Saya bot gizi dengan database real-time connection!"
+
+   utter_goodbye:
     - text: "Sampai jumpa! Tetap jaga kesehatan ya."
     - text: "Bye! Jangan lupa konsumsi makanan sehat."
     - text: "Sampai jumpa lagi, semoga sehat selalu."
@@ -126,600 +274,216 @@ responses:
     - text: "Sama-sama, bye."
     - text: "Bye bye, sehat selalu ya."
 
-  # =========================================================
-  # DEFAULT FALLBACK RESPONSE
-  # =========================================================
-  utter_default:
-    - text: "Maaf, saya kurang mengerti. Bisa ulangi pertanyaan Anda?"
-    - text: "Saya belum memahami pertanyaan Anda. Coba tanyakan dengan cara lain ya!"
-    - text: "Mohon maaf, saya belum paham maksud Anda. Bisa dijelaskan lagi?"
+   utter_tanya_info_gizi_produk:
+    - text: "{nama_produk} mengandung {kalori} kalori."
+    - text: "{nama_produk}: {kalori} kalori, {gula}g gula."
+    - text: "{nama_produk}: {kalori} kalori, {gula}g gula, {lemak}g lemak."
+    - text: "{nama_produk}: {kalori} kalori, {lemak}g lemak, {natrium}mg natrium."
+    - text: "{nama_produk} mengandung {kalori} kalori dan {protein}g protein."
+    - text: "{nama_produk}: {kalori} kalori dengan kandungan probiotik."
+    - text: "{nama_produk}: {kalori} kalori, kaya akan vitamin C."
+    - text: "{nama_produk}: {kalori} kalori, mengandung elektrolit."
+    - text: "{nama_produk}: {kalori} kalori, diperkaya vitamin."
+    - text: "{nama_produk}: {kalori} kalori per {porsi}."
+    - text: "{nama_produk} hanya mengandung mineral alami tanpa kalori."
+    - text: "Informasi gizi {nama_produk}: {kalori} kalori, {karbohidrat}g karbohidrat."
 
-  # =========================================================
-  # TANYA_INFO_GIZI_PRODUK RESPONSES
-  # =========================================================
-  utter_tanya_info_gizi_produk:
-    - text: "Teh Botol Sosro 350 ml mengandung ±140 kkal."
-    - text: "Ultra Milk Strawberry 200 ml: 110 kkal, 17g gula, 4g lemak."
-    - text: "Aqua hanya mengandung mineral tanpa kalori."
-    - text: "Pop Mie Ayam 1 cup: ±360 kkal."
-    - text: "Indomie Goreng: 390 kkal, 14g lemak, 730 mg natrium."
-    - text: "Coca Cola 250 ml: ±105 kkal, 26g gula."
-    - text: "Silverqueen 25g: ±140 kkal, 8g lemak, 12g gula."
-    - text: "Oreo 28g: ±140 kkal."
-    - text: "Nutrisari Jeruk: 60 kkal, 15g gula."
-    - text: "Yakult 65 ml: 50 kkal, 10g gula, probiotik."
-    - text: "Chitato 68g: ±360 kkal."
-    - text: "Good Day Cappuccino sachet: ±110 kkal, 18g gula."
-    - text: "Fruit Tea Apel: 150 kkal, 36g gula."
-    - text: "Aqua Reflections hanya mengandung mineral alami."
-    - text: "Frestea Green Tea: 180 kkal, 42g gula."
-    - text: "1 potong ayam goreng KFC: ±300 kkal."
-    - text: "McD Burger: ±250 kkal, 9g lemak."
-    - text: "Pizza kecil: ±600 kkal per porsi."
-    - text: "Popcorn manis: ±200 kkal."
-    - text: "Sari Roti Coklat: 190 kkal, 8g lemak."
-    - text: "Dancow Fortigro: 150 kkal, 5g lemak."
-    - text: "Teh Pucuk: 140 kkal, 35g gula."
-    - text: "Fanta 250 ml: 110 kkal, 26g gula."
-    - text: "Sprite 250 ml: 100 kkal, 24g gula."
-    - text: "Yakult Light: 30 kkal, 7g gula."
-    - text: "Beng Beng: 120 kkal, 6g lemak."
-    - text: "Energen: 120 kkal, 2g protein."
-    - text: "Biskuat 15g: 70 kkal."
-    - text: "Pringles 42g: 220 kkal."
-    - text: "Pocari Sweat: 80 kkal, elektrolit."
-    - text: "Teh Gelas: 140 kkal."
-    - text: "Teh Kotak: 130 kkal."
-    - text: "Bear Brand: 120 kkal, kaya vitamin."
-    - text: "Milo: 140 kkal, 20g gula."
-    - text: "Nutriboost: 190 kkal, 30g gula."
-    - text: "Cimory Yogurt: 110 kkal."
-    - text: "Fruit Tea Lemon: 140 kkal."
-    - text: "Mizone: 120 kkal."
-    - text: "Floridina: 130 kkal, vitamin C."
-    - text: "Indomilk Kids: 90 kkal."
-    - text: "Cheetos: 260 kkal."
-    - text: "Tango: 100 kkal."
-    - text: "Sari Gandum: 95 kkal."
-    - text: "Koko Krunch: 120 kkal."
-    - text: "Milo sachet: 110 kkal."
-    - text: "Ultra Milk: 130 kkal."
-    - text: "Good Time: 150 kkal."
-    - text: "Taro Net: 140 kkal."
-    - text: "Twister: 100 kkal."
-    - text: "Kandungan kalori sekitar 115 kkal."
+   utter_tanya_kalori_harian:
+    - text: "{kategori_usia} membutuhkan sekitar {kebutuhan_kalori} kalori per hari."
+    - text: "Kebutuhan kalori harian untuk {kategori_usia} adalah {kebutuhan_kalori} kalori."
+    - text: "{kategori_usia} disarankan mengonsumsi {kebutuhan_kalori} kalori setiap hari."
+    - text: "Rata-rata {kategori_usia} memerlukan {kebutuhan_kalori} kalori per hari."
+    - text: "Untuk {kategori_usia}, kebutuhan kalori harian sekitar {kebutuhan_kalori} kalori."
+    - text: "{kategori_usia} sebaiknya mengonsumsi {kebutuhan_kalori} kalori per hari sesuai anjuran dokter."
+    - text: "Kebutuhan kalori {kategori_usia} berkisar {kebutuhan_kalori} kalori per hari."
+    - text: "{kategori_usia} membutuhkan tambahan {kalori_tambahan} kalori dari kebutuhan normal."
+    - text: "Untuk program diet, {kategori_usia} disarankan {kebutuhan_kalori} kalori per hari."
+    - text: "Aktivitas {kategori_usia} memerlukan sekitar {kebutuhan_kalori} kalori per hari."
+
+   utter_tanya_rekomendasi_makanan:
+    - text: "Untuk {kondisi_kesehatan}, disarankan konsumsi {nama_makanan} dengan kandungan {nutrisi_utama}."
+    - text: "Rekomendasi makanan sehat: {nama_makanan} yang kaya akan {nutrisi_utama}."
+    - text: "{nama_makanan} cocok untuk {kategori_usia} karena mengandung {nutrisi_utama}."
+    - text: "Untuk diet {jenis_diet}, pilih {nama_makanan} dengan {kalori} kalori per porsi."
+    - text: "Menu sehat hari ini: {nama_makanan} sebagai sumber {nutrisi_utama}."
+    - text: "{nama_makanan} baik dikonsumsi pada {waktu_makan} untuk memenuhi kebutuhan {nutrisi_utama}."
+    - text: "Alternatif sehat: ganti {makanan_lama} dengan {nama_makanan} yang lebih bergizi."
+    - text: "Untuk {tujuan_kesehatan}, konsumsi {nama_makanan} sebanyak {porsi_anjuran} per hari."
+    - text: "Kombinasi ideal: {nama_makanan1}, {nama_makanan2}, dan {nama_makanan3} untuk gizi seimbang."
+    - text: "Sumber {nutrisi_utama} terbaik: {nama_makanan} dengan {kandungan_nutrisi} per porsi."
+
+   utter_tanya_kandungan_zat:
+    - text: "{nama_produk} mengandung {jumlah} {satuan} {nama_zat} per porsi."
+    - text: "Kandungan {nama_zat} dalam {nama_produk}: {jumlah} {satuan}."
+    - text: "{nama_produk} memiliki {jumlah} {satuan} {nama_zat}, {keterangan_tambahan}."
+    - text: "Per {ukuran_porsi} {nama_produk} terdapat {jumlah} {satuan} {nama_zat}."
+    - text: "{nama_zat} dalam {nama_produk}: {jumlah} {satuan} atau {persentase_akg}% dari kebutuhan harian."
+    - text: "{nama_produk} adalah sumber {nama_zat} dengan kandungan {jumlah} {satuan}."
+    - text: "Tingkat {nama_zat} pada {nama_produk}: {kategori_tingkat} ({jumlah} {satuan})."
+
+   utter_tanya_porsi_makan:
+    - text: "Porsi ideal {nama_produk} adalah {porsi_anjuran} untuk {kategori_usia}."
+    - text: "{nama_produk} sebaiknya dikonsumsi {porsi_anjuran} per {frekuensi_konsumsi}."
+    - text: "Untuk {tujuan_konsumsi}, porsi {nama_produk} yang disarankan: {porsi_anjuran}."
+    - text: "Takaran sehat {nama_produk}: {porsi_anjuran} atau setara {kalori_per_porsi} kalori."
+    - text: "{kategori_usia} membutuhkan {porsi_anjuran} {nama_produk} per hari."
+    - text: "Porsi {nama_produk} untuk {kondisi_kesehatan}: {porsi_anjuran} dengan catatan {keterangan_khusus}."
+    - text: "Konsumsi {nama_produk} maksimal {porsi_maksimal} per hari untuk kesehatan optimal."
+
+   utter_tanya_label_gizi:
+    - text: "{nama_label} menunjukkan {deskripsi} pada kemasan produk."
+    - text: "Arti {nama_label}: {deskripsi} untuk membantu konsumen memilih produk."
+    - text: "{nama_label} pada label gizi berarti {deskripsi}."
+    - text: "Klaim {nama_label} menandakan produk {deskripsi}."
+    - text: "Informasi {nama_label} berguna untuk {kegunaan} dalam memilih makanan sehat."
+    - text: "Label {nama_label} membantu Anda {manfaat_konsumen}."
+    - text: "Perhatikan {nama_label} pada kemasan karena {alasan_penting}."
+
+   utter_tanya_makanan_diet:
+    - text: "Untuk diet {jenis_diet}, konsumsi {nama_makanan} sebagai sumber {nutrisi_utama}."
+    - text: "Menu diet {jenis_diet}: {nama_makanan} dengan {kalori} kalori per porsi."
+    - text: "{nama_makanan} cocok untuk {jenis_diet} karena {alasan_cocok}."
+    - text: "Pilihan diet {jenis_diet}: {nama_makanan1}, {nama_makanan2}, dan {nama_makanan3}."
+    - text: "Untuk {tujuan_diet}, konsumsi {nama_makanan} sebanyak {porsi_diet} per hari."
+    - text: "Diet {jenis_diet} sebaiknya hindari {makanan_dihindari}, pilih {nama_makanan}."
+    - text: "{nama_makanan} membantu {manfaat_diet} dalam program diet {jenis_diet}."
+
+   utter_tanya_efek_kesehatan:
+    - text: "Konsumsi berlebihan {nama_makanan} dapat menyebabkan {efek_negatif}."
+    - text: "{nama_makanan} berisiko {tingkat_risiko} terhadap {kondisi_kesehatan}."
+    - text: "Efek samping {nama_makanan}: {efek_negatif} jika dikonsumsi {kondisi_konsumsi}."
+    - text: "{nama_makanan} dengan kandungan {zat_bermasalah} tinggi dapat {efek_negatif}."
+    - text: "Dampak negatif {nama_makanan}: {efek_jangka_pendek} dan {efek_jangka_panjang}."
+    - text: "Konsumsi {nama_makanan} sebaiknya dibatasi karena dapat {efek_negatif}."
+    - text: "{nama_makanan} aman jika dikonsumsi {batas_aman}, berbahaya jika {kondisi_berbahaya}."
+
+   utter_tanya_alternatif_makanan:
+    - text: "Pengganti {makanan_asal}: {nama_alternatif} dengan {keunggulan}."
+    - text: "Alternatif sehat untuk {makanan_asal} adalah {nama_alternatif}."
+    - text: "Ganti {makanan_asal} dengan {nama_alternatif} yang mengandung {nutrisi_lebih}."
+    - text: "Opsi pengganti {makanan_asal}: {nama_alternatif} dengan {kalori_alternatif} kalori."
+    - text: "Untuk {kondisi_kesehatan}, {makanan_asal} bisa diganti {nama_alternatif}."
+    - text: "Pilihan alternatif: {nama_alternatif1}, {nama_alternatif2}, atau {nama_alternatif3}."
+    - text: "{nama_alternatif} lebih sehat dari {makanan_asal} karena {alasan_lebih_sehat}."
+
+   utter_tanya_waktu_makan:
+    - text: "Waktu ideal konsumsi {nama_makanan}: {waktu_optimal} untuk {alasan_waktu}."
+    - text: "{nama_makanan} sebaiknya dikonsumsi {waktu_optimal} agar {manfaat_waktu}."
+    - text: "Untuk {tujuan_konsumsi}, konsumsi {nama_makanan} pada {waktu_optimal}."
+    - text: "{nama_makanan} paling efektif dikonsumsi {waktu_optimal}."
+    - text: "Jadwal makan {nama_makanan}: {frekuensi_konsumsi} pada {waktu_optimal}."
+    - text: "Hindari konsumsi {nama_makanan} pada {waktu_dihindari}, lebih baik {waktu_optimal}."
+    - text: "{kategori_usia} sebaiknya konsumsi {nama_makanan} pada {waktu_optimal}."
+
+   utter_tanya_tips_hidup_sehat:
+    - text: "Tips {kategori_kesehatan}: {tip_utama}, {tip_tambahan1}, dan {tip_tambahan2}."
+    - text: "Untuk {tujuan_kesehatan}, lakukan {aktivitas_sehat} selama {durasi_aktivitas}."
+    - text: "Pola hidup sehat {kategori_usia}: {tip_gizi}, {tip_olahraga}, {tip_istirahat}."
+    - text: "Langkah sehat harian: {langkah1}, {langkah2}, {langkah3}."
+    - text: "Untuk {kondisi_kesehatan}, disarankan {tip_khusus} dan {tip_umum}."
+    - text: "Tips kesehatan: {tip_nutrisi}, {tip_aktivitas}, {tip_mental}."
+    - text: "Rutinitas sehat: {aktivitas_pagi}, {aktivitas_siang}, {aktivitas_malam}."
+
+   utter_data_tidak_tersedia:
+    - text: "Maaf, informasi tentang {topik_diminta} belum tersedia dalam database kami."
+    - text: "Data {jenis_data} untuk {item_diminta} sedang tidak tersedia."
+
+   utter_pertanyaan_tidak_jelas:
+    - text: "Bisa tolong diperjelas pertanyaan tentang {topik_umum}?"
+    - text: "Mohon sebutkan {detail_yang_dibutuhkan} agar saya dapat membantu lebih baik."
+
+   utter_rekomendasi_umum:
+    - text: "Secara umum, untuk {kategori_kesehatan} disarankan {saran_umum}."
+    - text: "Tips dasar {topik_kesehatan}: {tip_dasar} dan {tip_tambahan}."
+
+   utter_konsultasi_makanan:
+    - text: "Tentu! Saya siap membantu konsultasi makanan dan gizi Anda. 👨‍⚕️"
+    - text: "Silakan tanyakan tentang makanan yang ingin dikonsultasikan. 📋"
+    - text: "Ada makanan khusus yang ingin Anda konsultasikan? 🤔"
+
+   utter_mood_great:
+    - text: "Senang mendengar Anda dalam kondisi baik! Tetap jaga dengan gizi seimbang. 😊"
+    - text: "Bagus! Mood yang baik juga mendukung kesehatan. Apa yang bisa saya bantu? 🌟"
+    - text: "Great mood = better health! Ada yang ingin dikonsultasikan? 💪"
+
+   utter_mood_unhappy:
+    - text: "Maaf mendengar itu. Makanan bergizi bisa membantu mood. Mau rekomen? 🤗"
+    - text: "Semangat! Pola makan sehat bisa meningkatkan mood Anda. 💪"
+    - text: "Nutrition can boost your mood! Let me help you feel better. 🌈"
+
+   utter_deny:
+    - text: "Tidak apa-apa. Ada yang lain yang bisa saya bantu? 🤔"
+    - text: "Oke, mungkin lain kali. Silakan tanya kapan saja. 👋"
+    - text: "No problem! I'm here whenever you need nutrition advice. 🤖"
+
+   utter_affirm:
+    - text: "Baik! Silakan lanjutkan pertanyaan Anda. ✅"
+    - text: "Oke, saya siap membantu dengan database terkini! 💾"
+    - text: "Perfect! Ready to provide nutrition insights. 🎯"
+
+   utter_iamabot:
+    - text: "Saya chatbot asisten gizi v15 dengan AI dan database phpMyAdmin! 🤖💾"
+    - text: "Betul, saya bot khusus konsultasi gizi dengan teknologi terdepan. 🚀"
+    - text: "I'm an AI nutrition bot created on 2025-10-19 by Veniaar2108! 👨‍💻"
+
+   utter_default:
+    - text: "Maaf, saya belum memahami. Bisa diulang? Saya spesialis gizi & nutrisi. 🤔"
+    - text: "Pertanyaan di luar kemampuan saya. Silakan tanya seputar gizi dan nutrisi. 📊"
+    - text: "Sorry, that's outside my nutrition expertise. Try asking about food & health! 🥗"
+
+   utter_info_gizi_fallback:
+    - text: "📊 **Info Gizi Tersedia untuk 1000+ Produk**\n⏰ Database Updated: 2025-10-19\n👤 Maintained by: Veniaar2108\n🔍 Silakan sebutkan produk spesifik!"
+
+actions:
+  # Standard actions
+  - utter_greeting
+  - utter_greet  
+  - utter_goodbye
+  - utter_tanya_info_gizi_produk
+  - utter_tanya_kalori_harian
+  - utter_tanya_rekomendasi_makanan
+  - utter_tanya_kandungan_zat
+  - utter_tanya_porsi_makan
+  - utter_tanya_label_gizi
+  - utter_tanya_makanan_diet
+  - utter_tanya_efek_kesehatan
+  - utter_tanya_alternatif_makanan
+  - utter_tanya_waktu_makan
+  - utter_tanya_tips_hidup_sehat
+  - utter_konsultasi_makanan
+  - utter_mood_great
+  - utter_mood_unhappy
+  - utter_deny
+  - utter_affirm
+  - utter_iamabot
+  - utter_default
+  - utter_system_info
+  - utter_ask_user_info
+  - utter_time_info
+  - utter_info_gizi_fallback
   
-  # =========================================================
-  # TANYA KALORI_HARIAN RESPONSES
-  # =========================================================
-  utter_tanya_kalori_harian:
-    - text: "Rata-rata orang dewasa butuh 2000–2500 kkal/hari."
-    - text: "Kebutuhan kalori tergantung usia, jenis kelamin, dan aktivitas."
-    - text: "Wanita dewasa rata-rata 2000 kkal/hari."
-    - text: "Pria dewasa rata-rata 2500 kkal/hari."
-    - text: "Anak usia 10 tahun butuh ±1800 kkal/hari."
-    - text: "Remaja butuh ±2200 kkal/hari."
-    - text: "Disarankan <2000 kkal/hari sesuai dokter."
-    - text: "Ibu hamil perlu tambahan ±300 kkal/hari."
-    - text: "Diet umumnya 1500–1800 kkal/hari."
-    - text: "Bayi 1 tahun butuh ±900 kkal/hari."
-    - text: "Lansia biasanya butuh 1600–2000 kkal/hari."
-    - text: "Atlet bisa butuh 3000–4000 kkal/hari."
-    - text: "Tetap 2000 kkal, dibagi saat sahur & buka."
-    - text: "Ibu menyusui perlu tambahan ±500 kkal/hari."
-    - text: "Mahasiswa butuh ±2200 kkal/hari."
-    - text: "Karyawan kantor rata-rata 2000 kkal/hari."
-    - text: "Pekerja lapangan butuh ±2500–3000 kkal/hari."
-    - text: "Anak sekolah ±1800–2000 kkal/hari."
-    - text: "Lansia butuh ±1600 kkal/hari."
-    - text: "Remaja putri ±2000 kkal/hari."
-    - text: "Remaja pria ±2400 kkal/hari."
-    - text: "Pria aktif ±2800 kkal/hari."
-    - text: "Wanita aktif ±2200 kkal/hari."
-    - text: "Pekerja ringan ±2000 kkal/hari."
-    - text: "Pekerja berat ±3000 kkal/hari."
-    - text: "Ibu rumah tangga ±2000 kkal/hari."
-    - text: "Balita ±1200 kkal/hari."
-    - text: "Anak SMP ±2000 kkal/hari."
-    - text: "Anak SMA ±2200 kkal/hari."
-    - text: "Pasien diabetes 1500–1800 kkal/hari sesuai dokter."
-    - text: "Pasien hipertensi ±1800–2000 kkal/hari."
-    - text: "Pasien jantung ±1600–1800 kkal/hari."
-    - text: "Orang kurus ±2500 kkal/hari untuk menambah berat badan."
-    - text: "Orang gemuk ±1600–1800 kkal/hari untuk menurunkan berat badan."
-    - text: "Diet rendah karbo ±1500 kkal/hari."
-    - text: "Diet tinggi protein ±1800–2000 kkal/hari."
-    - text: "Pelari ±3000 kkal/hari."
-    - text: "Pesepeda ±2800–3200 kkal/hari."
-    - text: "Perenang ±3000 kkal/hari."
-    - text: "Pegawai bank ±2000 kkal/hari."
-    - text: "Programmer ±1900 kkal/hari."
-    - text: "Dosen ±2000 kkal/hari."
-    - text: "Guru ±2000 kkal/hari."
-    - text: "Dokter ±2200 kkal/hari."
-    - text: "Perawat ±2100 kkal/hari."
-    - text: "Sopir ±2200 kkal/hari."
-    - text: "Petani ±2500–2800 kkal/hari."
-    - text: "Nelayan ±2600–3000 kkal/hari."
-    - text: "Pekerja bangunan ±3000 kkal/hari."
-    - text: "Tentara ±3500 kkal/hari."
+  # Custom database actions
+  - action_get_info_gizi_produk
+  - action_get_kalori_harian
+  - action_get_rekomendasi_makanan
+  - action_get_kandungan_zat
+  - action_get_porsi_makan
+  - action_get_label_gizi
+  - action_get_makanan_diet
+  - action_get_efek_kesehatan
+  - action_get_alternatif_makanan
+  - action_get_waktu_makan
+  - action_get_tips_hidup_sehat
+  
+  # Enhanced system actions
+  - action_log_user_interaction
+  - action_get_system_status
+  - action_personalize_response
+  - action_track_session
+  - action_fallback
+  - action_set_user_context
+  - action_get_current_time
 
-  utter_tanya_rekomendasi_makanan:
-    - text: "Sayur, buah, dan protein seimbang sangat baik."
-    - text: "Coba nasi merah, ayam panggang, dan sayur hijau."
-    - text: "Oatmeal dengan buah segar sangat bagus."
-    - text: "Buah potong atau kacang panggang bisa jadi pilihan."
-    - text: "Sup sayur dengan ikan rebus cocok."
-    - text: "Pilih sayur hijau, protein tanpa lemak, dan buah segar."
-    - text: "Bekal nasi, ayam, telur, dan buah potong."
-    - text: "Tambahkan susu, sayur, buah, dan protein."
-    - text: "Susu, telur, buah, dan sayur sangat baik."
-    - text: "Tahu, tempe, sayur hijau, dan kacang-kacangan."
-    - text: "Buah, sayur, kacang, dan biji-bijian."
-    - text: "Bubur, ikan kukus, sayur rebus, dan buah lunak."
-    - text: "Pilih buah rendah gula seperti apel atau pir."
-    - text: "Sayuran segar, buah, dan ikan rebus."
-    - text: "Ikan kukus, ayam tanpa kulit, sayuran."
-    - text: "Telur, dada ayam, ikan, dan kacang-kacangan."
-    - text: "Sayur hijau, kacang, dan buah segar."
-    - text: "Nasi merah, sayur, ikan, dan buah rendah gula."
-    - text: "Sayuran hijau, buah, dan ikan rendah garam."
-    - text: "Ikan salmon, kacang, sayuran hijau."
-    - text: "Roti gandum, telur rebus, dan susu."
-    - text: "Nasi merah, ayam, sayur, dan buah segar."
-    - text: "Kurma, sup sayur, dan ikan."
-    - text: "Nasi merah, dada ayam, sayur rebus."
-    - text: "Roti gandum, telur, dan buah."
-    - text: "Telur rebus, sayur, buah potong."
-    - text: "Nasi merah, daging tanpa lemak, sayur hijau."
-    - text: "Alpukat, ikan, telur, dan minyak zaitun."
-    - text: "Telur, daging, ikan, dan sayur hijau."
-    - text: "Telur, ayam, ikan, dan susu rendah lemak."
-    - text: "Tahu, tempe, kacang merah, sayur."
-    - text: "Sup sayur, ikan kukus, buah segar."
-    - text: "Jeruk, kiwi, stroberi, dan paprika."
-    - text: "Susu, keju, yoghurt, dan sayuran hijau."
-    - text: "Bayam, hati ayam, kacang-kacangan."
-    - text: "Minyak zaitun, ikan, kacang, buah segar."
-    - text: "Pecel sayur, gado-gado, urap."
-    - text: "Yogurt rendah lemak, buah potong."
-    - text: "Tempe, tahu, ikan pindang, sayur hijau."
-    - text: "Buah kaya vitamin C, sayur, madu."
-    - text: "Buah, sayur, kacang, produk susu rendah lemak."
-    - text: "Sayuran hijau, ikan, nasi merah."
-    - text: "Susu, alpukat, kacang, daging tanpa lemak."
-    - text: "Pisang, oatmeal, telur rebus."
-    - text: "Dada ayam, telur, whey protein."
-    - text: "Tahu, tempe, brokoli, kentang."
-    - text: "Buah, sayur, kacang, biji-bijian."
-    - text: "Buah potong, biskuit gandum."
-    - text: "Yoghurt, granola bar, buah segar."
-    - text: "Kacang panggang, buah kering."
-
-  utter_tanya_kandungan_zat:
-    - text: "Coca Cola 250 ml mengandung ±26g gula."
-    - text: "Indomie Goreng: ±730 mg natrium."
-    - text: "Silverqueen 25g mengandung 8g lemak."
-    - text: "Ultra Milk 200 ml: ±6g protein."
-    - text: "Pop Mie 1 cup: ±50g karbohidrat."
-    - text: "Nutrisari 1 sachet: ±60 mg vitamin C."
-    - text: "Chitato 68g: ±400 mg natrium."
-    - text: "Teh Botol Sosro 350 ml: ±32g gula."
-    - text: "Margarin umumnya mengandung lemak trans, ±1–2g per sajian."
-    - text: "1 butir telur: ±6g protein."
-    - text: "Pisang ukuran sedang: ±3g serat."
-    - text: "Yakult 65 ml: ±10g gula."
-    - text: "Susu 200 ml: ±250 mg kalsium."
-    - text: "Wortel 100g: ±835 mcg vitamin A."
-    - text: "Bayam 100g: ±2.7 mg zat besi."
-    - text: "Nasi putih 100g: ±28g karbohidrat."
-    - text: "Ayam goreng 1 potong: ±12g lemak."
-    - text: "Tahu 100g: ±8g protein."
-    - text: "Tempe 100g: ±19g protein."
-    - text: "1 donat: ±10–15g gula."
-    - text: "Good Day Cappuccino 1 sachet: ±18g gula."
-    - text: "Kerupuk 20g: ±250 mg natrium."
-    - text: "Salmon 100g: ±20g protein."
-    - text: "Tuna 100g: ±1g omega-3."
-    - text: "1 apel sedang: ±4g serat."
-    - text: "Fanta 250 ml: ±26g gula."
-    - text: "Sprite 250 ml: ±24g gula."
-    - text: "Indomie Kari Ayam: ±720 mg natrium."
-    - text: "Kentang rebus 100g: ±17g karbohidrat."
-    - text: "1 gelas boba milk tea: ±30–40g gula."
-    - text: "1 pisang: ±422 mg kalium."
-    - text: "1 jeruk: ±70 mg vitamin C."
-    - text: "Susu UHT: ±2.5 mcg vitamin D."
-    - text: "Daging sapi 100g: ±26g protein."
-    - text: "1 gelas teh manis: ±25g gula."
-    - text: "Brokoli 100g: ±2.6g serat."
-    - text: "Hati ayam 100g: ±9 mg zat besi."
-    - text: "Susu kedelai 200 ml: ±7g protein."
-    - text: "Nutella 1 sdm: ±11g gula."
-    - text: "1 slice pizza: ±10g lemak."
-    - text: "Mie instan kuah: ±1500 mg natrium."
-    - text: "Kacang almond 28g: ±6g protein."
-    - text: "Alpukat 100g: ±15g lemak sehat."
-    - text: "Coklat batang 20g: ±12g gula."
-    - text: "Roti tawar 2 lembar: ±28g karbohidrat."
-    - text: "Oatmeal 40g: ±4g serat."
-    - text: "Daging sapi 100g: ±2.5 mcg vitamin B12."
-    - text: "Ikan lele 100g: ±18g protein."
-    - text: "Floridina 350 ml: ±30g gula."
-    - text: "Keripik singkong 30g: ±300 mg natrium."
-
-  utter_tanya_porsi_makan:
-  - text: "Porsi nasi sehat sekitar 100 gram atau 1 centong sedang."
-  - text: "1 potong ayam tanpa kulit cukup untuk sekali makan."
-  - text: "Dianjurkan 250 gram sayur per hari."
-  - text: "2–3 porsi buah atau setara 150–250 gram."
-  - text: "2 gelas susu sehari cukup untuk anak."
-  - text: "100 gram atau setara ½ gelas."
-  - text: "2–3 potong tempe ukuran sedang per makan."
-  - text: "2 potong sedang cukup untuk sekali makan."
-  - text: "75–100 gram ikan per porsi."
-  - text: "50–75 gram per porsi sudah cukup."
-  - text: "1–2 butir telur per hari."
-  - text: "2 lembar roti gandum cukup untuk sarapan."
-  - text: "100 gram kentang setara 1 porsi."
-  - text: "1 bungkus sudah lebih dari cukup."
-  - text: "Segenggam kacang atau buah potong kecil."
-  - text: "1 lembar tipis atau 20 gram."
-  - text: "1 cup kecil (±125 ml)."
-  - text: "1 gelas kecil (150 ml) tanpa gula tambahan."
-  - text: "Isi ½ bagian piring dengan sayur."
-  - text: "Isi ¼ bagian piring dengan karbohidrat."
-  - text: "Isi ¼ bagian piring dengan lauk berprotein."
-  - text: "1 buah apel atau 1 pisang."
-  - text: "Segenggam atau ±28 gram."
-  - text: "8 gelas (2 liter) per hari."
-  - text: "1–2 cangkir kopi tanpa gula sehari."
-  - text: "1–2 cangkir teh tanpa gula sehari."
-  - text: "Batasi 1 genggam kecil saja."
-  - text: "3–4 porsi buah rendah gula per hari."
-  - text: "½ centong kecil per makan."
-  - text: "300–400 gram sayur per hari."
-  - text: "100 gram dada ayam tanpa kulit."
-  - text: "100 gram ikan kukus/rebus."
-  - text: "2 porsi buah potong kecil."
-  - text: "1–2 gelas susu rendah lemak."
-  - text: "½ mangkok kecil sesuai usia bayi."
-  - text: "2 keping biskuit gandum."
-  - text: "½ porsi mie ditambah banyak sayur."
-  - text: "½ piring kecil saja."
-  - text: "5 tusuk sate ayam tanpa kulit."
-  - text: "1–2 potong kecil, jangan sering."
-  - text: "1–2 potong segitiga."
-  - text: "1–2 potong kecil."
-  - text: "½ buah alpukat per kali makan."
-  - text: "1 gelas kecil saja."
-  - text: "1 gelas (200 ml) cukup."
-  - text: "½ cup kecil, konsumsi sesekali."
-  - text: "1 potong kecil, jangan sering."
-  - text: "10–12 butir anggur."
-  - text: "6–7 buah sedang."
-  - text: "1 potong sedang."
-
-  utter_tanya_label_gizi:
-  - text: "Mulailah dari takaran saji, lalu lihat kalori dan zat gizi utama."
-  - text: "%AKG menunjukkan kontribusi zat gizi terhadap kebutuhan harian."
-  - text: "Takaran saji adalah porsi standar yang digunakan sebagai acuan gizi."
-  - text: "Kalori biasanya ditulis di bagian atas tabel informasi gizi."
-  - text: "Lemak trans adalah jenis lemak tidak sehat yang sebaiknya dihindari."
-  - text: "Lihat di baris karbohidrat total → gula."
-  - text: "Kalori kosong artinya kalori tinggi tapi miskin nutrisi."
-  - text: "Energi total adalah jumlah kalori dalam satu sajian."
-  - text: "Lihat di baris protein pada label gizi."
-  - text: "Natrium adalah garam, disarankan <2000 mg per hari."
-  - text: "Lemak jenuh adalah lemak padat yang harus dibatasi."
-  - text: "Vitamin biasanya tertera di bagian bawah tabel gizi."
-  - text: "Artinya produk mengandung ≤5g gula per 100g."
-  - text: "Produk mengandung <2mg kolesterol per sajian."
-  - text: "Produk mengandung ≥6g serat per 100g."
-  - text: "Lihat di bagian mineral, biasanya ditulis dalam mg."
-  - text: "Itu menunjukkan berapa persen dari kebutuhan harian."
-  - text: "Biasanya berarti rendah kalori atau rendah lemak."
-  - text: "Artinya gula <0.5g per porsi."
-  - text: "Artinya lemak <3g per 100g produk."
-  - text: "Artinya protein ≥20% dari energi total."
-  - text: "Lihat di bagian karbohidrat → serat pangan."
-  - text: "Produk diperkaya vitamin/mineral tertentu."
-  - text: "Produk ditambah zat gizi tertentu setelah diproses."
-  - text: "Acuan label berdasarkan kebutuhan 2000 kkal/hari."
-  - text: "Kalori dihitung sesuai porsi standar yang ditentukan."
-  - text: "Artinya semua nilai gizi berlaku untuk 200 ml produk."
-  - text: "Informasi gizi ditulis untuk setiap 100 gram produk."
-  - text: "Sama dengan per takaran saji."
-  - text: "Kalikan kalori per sajian dengan jumlah sajian/bungkus."
-  - text: "Artinya kalori <5 kkal per sajian."
-  - text: "Tidak ada gula tambahan, tapi bisa ada gula alami."
-  - text: "Produk bebas dari gluten (protein gandum)."
-  - text: "Produk bebas laktosa, cocok untuk intoleransi laktosa."
-  - text: "Lihat di bagian mineral, biasanya %AKG."
-  - text: "Produk mengandung <0.5g lemak trans per sajian."
-  - text: "Kalikan protein per sajian dengan jumlah sajian."
-  - text: "Produk sudah disertifikasi halal oleh MUI."
-  - text: "Produk berasal dari bahan tanpa pestisida/kimia sintetis."
-  - text: "Kolesterol <2 mg per sajian."
-  - text: "Produk berbahan dasar tumbuhan."
-  - text: "Tertera di bagian vitamin/mineral."
-  - text: "Itu ringkasan energi, lemak, gula, dan garam."
-  - text: "Batas konsumsi gula = 50g/hari (WHO)."
-  - text: "Maksimal 2000 mg natrium/hari."
-  - text: "Lemak total sebaiknya <67g/hari."
-  - text: "Natrium ≤120 mg per 100g."
-  - text: "Produk mengandung ≥200 mg kalsium per sajian."
-  - text: "Itu istilah untuk serat pangan."
-  - text: "Bandingkan kalori, gula, garam, dan lemak antar produk."
-
-  utter_tanya_makanan_diet:
-  - text: "Pilih sayur segar, buah, dan ikan rebus tanpa garam tambahan."
-  - text: "Buah rendah gula (apel, pir), sayuran hijau, dan nasi merah."
-  - text: "Konsumsi ikan kukus, ayam tanpa kulit, dan sayur rebus."
-  - text: "Telur rebus, dada ayam, ikan, dan kacang-kacangan."
-  - text: "Konsumsi alpukat, ikan, telur, minyak zaitun, dan kacang."
-  - text: "Tahu, tempe, sayur hijau, kacang, dan biji-bijian."
-  - text: "Buah, sayur, kacang, biji-bijian, tanpa produk hewani."
-  - text: "Ikan, minyak zaitun, kacang, sayur, buah segar."
-  - text: "Buah, sayur, susu rendah lemak, biji-bijian utuh."
-  - text: "Nasi merah, sayur, ikan, buah rendah gula."
-  - text: "Sayuran hijau, buah, ikan, dan kacang tanpa garam."
-  - text: "Oatmeal, ikan salmon, buah, kacang-kacangan."
-  - text: "Kurangi gula & gorengan, banyak sayur dan buah."
-  - text: "Susu, alpukat, kacang, daging tanpa lemak."
-  - text: "Dada ayam, telur, whey protein, sayuran."
-  - text: "Susu, telur, nasi merah, sayur hijau."
-  - text: "Susu, sayur, buah, ikan, dan biji-bijian."
-  - text: "Susu, ikan, sayuran, buah, dan kacang."
-  - text: "Bubur, ikan kukus, sayur rebus, buah lunak."
-  - text: "Sup sayur, ikan rebus, buah segar."
-  - text: "Sayur hijau, kacang, buah-buahan segar."
-  - text: "Telur, ikan, ayam, dan sayur hijau."
-  - text: "Susu, yoghurt, keju, dan sayur hijau."
-  - text: "Bayam, hati ayam, kacang merah."
-  - text: "Jeruk, kiwi, stroberi, paprika."
-  - text: "Nasi, kentang, jagung, buah, sayur."
-  - text: "Susu kedelai, susu almond, sayuran."
-  - text: "Daging tanpa lemak, ikan, sayur, buah."
-  - text: "Sayur, buah, kacang, dengan sedikit daging."
-  - text: "Buah dan sayuran segar tanpa dimasak."
-  - text: "Buah, sayur, kacang, ikan."
-  - text: "Nasi merah, sayur lodeh, tempe, ikan bakar."
-  - text: "Ikan, nasi, sayuran rebus, teh hijau."
-  - text: "Nasi, kimchi, ikan panggang, sayur."
-  - text: "Roti gandum, salad, ayam panggang."
-  - text: "Sayur segar, buah, ikan kukus."
-  - text: "Alpukat, susu, daging, kacang."
-  - text: "Bayam, hati ayam, kacang merah."
-  - text: "Bubur, pisang, sup sayur, telur rebus."
-  - text: "Sayur hijau, buah, nasi merah, ikan rendah purin."
-  - text: "Buah segar, nasi putih, sayur rendah kalium."
-  - text: "Ikan salmon, sayur hijau, kacang."
-  - text: "Buah, sayur, susu rendah lemak."
-  - text: "Buah, sayur, ikan, minyak zaitun."
-  - text: "Dada ayam, telur, ikan."
-  - text: "Sayur hijau, telur, ikan."
-  - text: "Buah rendah gula, sayuran hijau."
-  - text: "Pecel sayur, gado-gado, urap."
-  - text: "Smoothie buah, salad, oatmeal."
-  - text: "Pola makan 16:8, makan sehat saat jendela makan."
-
-  # ============================================================
-  # INTENT 9: tanya_efek_kesehatan (451–500)
-  # ============================================================
-  utter_tanya_efek_kesehatan:
-    - text: "Bisa menyebabkan gangguan tidur dan jantung berdebar."
-    - text: "Dapat meningkatkan risiko obesitas dan diabetes."
-    - text: "Bisa memicu hipertensi dan penyakit jantung."
-    - text: "Menyebabkan lemas, rambut rontok, dan massa otot berkurang."
-    - text: "Bisa sebabkan sariawan dan daya tahan tubuh menurun."
-    - text: "Tinggi natrium, berisiko tekanan darah tinggi."
-    - text: "Kandungan gula tinggi dapat memicu diabetes."
-    - text: "Dehidrasi, sakit kepala, dan gangguan konsentrasi."
-    - text: "Lemak jenuh tinggi → kolesterol naik."
-    - text: "Bisa menyebabkan obesitas dan diabetes."
-    - text: "Risikokan obesitas, kolesterol, dan tekanan darah tinggi."
-    - text: "Bisa menyebabkan cemas, tremor, insomnia."
-    - text: "Menurunkan imun dan konsentrasi."
-    - text: "Meningkatkan risiko hipertensi dan gangguan jantung."
-    - text: "Risikokan kanker paru, jantung, dan stroke."
-    - text: "Gangguan hati, lambung, dan saraf."
-    - text: "Risikokan hipertensi meningkat."
-    - text: "Risikokan diabetes dan obesitas."
-    - text: "Bisa memicu maag atau diare."
-    - text: "Bisa meningkatkan risiko kolesterol tinggi."
-    - text: "Risikokan kanker usus dan penyakit jantung."
-    - text: "Gula tinggi → risiko diabetes dan obesitas."
-    - text: "Bisa merusak gigi dan meningkatkan berat badan."
-    - text: "Bisa menyebabkan obesitas dan lemah otot."
-    - text: "Turunkan imun dan tingkatkan risiko penyakit."
-    - text: "Bisa meningkatkan kadar gula darah."
-    - text: "Risikokan kolesterol tinggi dan obesitas."
-    - text: "Bisa sebabkan hipertensi dan gangguan pencernaan."
-    - text: "Bisa menurunkan konsentrasi dan energi."
-    - text: "Bisa sebabkan kekurangan gizi dan lemas."
-    - text: "Bisa menyebabkan cepat lelah dan pusing."
-    - text: "Bisa sebabkan diare atau obesitas."
-    - text: "Risikokan keracunan vitamin/mineral."
-    - text: "Bisa sebabkan sembelit dan kekurangan vitamin."
-    - text: "Bisa menurunkan imun dan serat tubuh."
-    - text: "Bisa meningkatkan berat badan."
-    - text: "Tinggi gula dan lemak → obesitas."
-    - text: "Risikokan gula darah tinggi dan kolesterol."
-    - text: "Risikokan asam lambung naik."
-    - text: "Bisa sebabkan tulang rapuh (osteoporosis)."
-    - text: "Bisa meningkatkan risiko kolesterol."
-    - text: "Risikokan asam urat dan kolesterol tinggi."
-    - text: "Bisa tinggi natrium dan lemak jenuh."
-    - text: "Bisa meningkatkan risiko obesitas."
-    - text: "Bisa sebabkan jerawat dan gigi berlubang."
-    - text: "Tidak berbahaya, tapi hilang manfaat antioksidan."
-    - text: "Bisa sebabkan anemia karena gangguan zat besi."
-    - text: "Risikokan diabetes, obesitas, dan gigi rusak."
-    - text: "Risikokan hipertensi dan gangguan ginjal."
-    - text: "Risikokan kanker usus dan obesitas."
-
-  # ============================================================
-  # INTENT 10: tanya_alternatif_makanan (501–550)
-  # ============================================================
-  utter_tanya_alternatif_makanan:
-    - text: "Bisa diganti nasi merah, kentang, atau ubi."
-    - text: "Madu, stevia, atau gula aren bisa jadi pilihan."
-    - text: "Susu kedelai, susu almond, atau susu oat."
-    - text: "Bisa coba mie gandum utuh atau bihun jagung."
-    - text: "Buah potong, yoghurt, atau kacang panggang."
-    - text: "Nasi merah, quinoa, atau jagung rebus."
-    - text: "Air mineral, infused water, atau jus segar."
-    - text: "Kentang panggang, ubi rebus, atau jagung."
-    - text: "Popcorn tanpa gula, sayuran rebus, buah segar."
-    - text: "Susu almond, oat, atau kedelai."
-    - text: "Yoghurt beku dengan buah."
-    - text: "Mie sayur rebus dengan bumbu alami."
-    - text: "Edamame, kacang panggang, atau wortel stik."
-    - text: "Kurma, kismis, atau buah kering."
-    - text: "Jus buah segar atau air kelapa."
-    - text: "Roti gandum atau roti multigrain."
-    - text: "Salad, sandwich gandum, sup sayur."
-    - text: "Buah potong atau kacang rebus."
-    - text: "Nasi merah goreng dengan sayur dan minyak zaitun."
-    - text: "Sup sayur dengan telur rebus."
-    - text: "Air lemon hangat tanpa gula."
-    - text: "Jus segar atau mocktail tanpa gula."
-    - text: "Biskuit gandum atau buah potong."
-    - text: "Popcorn tanpa garam atau kacang panggang."
-    - text: "Stevia atau madu."
-    - text: "Teh tawar atau teh hijau."
-    - text: "Infused water atau jus segar."
-    - text: "Coklat hitam 70% kakao."
-    - text: "Sayuran panggang renyah."
-    - text: "Ubi kukus atau jagung rebus."
-    - text: "Susu rendah lemak atau skim."
-    - text: "Saus tomat homemade tanpa gula."
-    - text: "Minyak zaitun atau alpukat tumbuk."
-    - text: "Kayu manis atau stevia."
-    - text: "Air putih atau infused water."
-    - text: "Buah kering atau kacang almond."
-    - text: "Roti gandum isi buah."
-    - text: "Jelly rumput laut rendah gula."
-    - text: "Keripik sayur panggang."
-    - text: "Susu evaporasi tanpa gula."
-    - text: "Yoghurt rendah lemak dengan buah."
-    - text: "Air mineral dingin atau sparkling water tanpa gula."
-    - text: "Biskuit gandum tanpa gula."
-    - text: "Kopi hitam tanpa gula."
-    - text: "Teh hijau dingin tanpa gula."
-    - text: "Kakao bubuk + susu rendah lemak tanpa gula."
-    - text: "Buah segar atau kacang."
-    - text: "Sup sayur pedas dengan bihun jagung."
-    - text: "Smoothie buah tanpa gula tambahan."
-    - text: "Smoothie buah tanpa gula tambahan."
-
-  # ============================================================
-  # INTENT 11: tanya_waktu_makan (551–600)
-  # ============================================================
-  utter_tanya_waktu_makan:
-    - text: "Sarapan ideal antara jam 6–9 pagi."
-    - text: "Waktu makan siang ideal jam 12–2 siang."
-    - text: "Makan malam sebaiknya sebelum jam 8 malam."
-    - text: "Bisa pagi atau malam sebelum tidur."
-    - text: "Setelah sarapan, jangan saat perut kosong."
-    - text: "Setelah makan, bukan saat perut kosong."
-    - text: "Ngemil sehat di sela makan, misal pukul 10 pagi atau 4 sore."
-    - text: "3 kali makan utama + 2 camilan sehat."
-    - text: "Sebelum imsak, sekitar jam 3–4 pagi."
-    - text: "Segera setelah adzan Maghrib."
-    - text: "Sepanjang hari, 8 gelas dibagi rata."
-    - text: "Ideal 1–2 jam sebelum makan berat."
-    - text: "Tunggu 1–2 jam setelah makan."
-    - text: "Setelah makan agar mudah diserap tubuh."
-    - text: "3 kali makan utama + 2 camilan bergizi."
-    - text: "Sebelum berangkat sekolah, sekitar jam 6–7 pagi."
-    - text: "Paling lambat jam 7 malam."
-    - text: "Pagi dan malam sebelum tidur."
-    - text: "Bisa sebelum makan atau jadi camilan."
-    - text: "Pagi atau siang hari lebih baik."
-    - text: "Sarapan jam 7, makan siang jam 12, makan malam jam 7."
-    - text: "3 kali makan utama dan 2 kali camilan sehat."
-    - text: "Sesuai jam makan normal, hindari ngemil berlebihan."
-    - text: "Jendela makan 8 jam, misal jam 12–8 malam."
-    - text: "Pagi atau sore, bukan malam hari."
-    - text: "Sebelum jam 5 sore agar tidak ganggu tidur."
-    - text: "Lebih awal, makan malam sebelum jam 7 malam."
-    - text: "Teratur tiap 4–5 jam dengan porsi kecil."
-    - text: "Pukul 10 pagi dan 4 sore."
-    - text: "Malam hari sebelum tidur."
-    - text: "3 kali makan utama + 2–3 camilan sehat."
-    - text: "Bisa di setiap jam makan utama."
-    - text: "Saat bangun pagi dan sebelum tidur."
-    - text: "Pukul 7–8 pagi dengan porsi seimbang."
-    - text: "Pukul 12–1 siang dengan makanan sehat."
-    - text: "Paling lambat pukul 7 malam."
-    - text: "Pagi jam 10 atau sore jam 4."
-    - text: "Siang hari untuk segarkan tubuh."
-    - text: "Malam hari untuk bantu tidur nyenyak."
-    - text: "Setelah bangun tidur, meski siang hari."
-    - text: "Pagi atau siang, hindari malam hari."
-    - text: "Pagi atau siang bersama makanan."
-    - text: "Siang hari setelah makan siang."
-    - text: "Pagi hari dengan jus jeruk."
-    - text: "Sekitar pukul 4 sore."
-    - text: "Ideal sekitar pukul 6–7 malam."
-    - text: "Segera setelah selesai olahraga."
-    - text: "Malam sebelum tidur."
-    - text: "Pukul 6–7 pagi sebelum sekolah."
-    - text: "Malam sebelum tidur."
-
-  # ============================================================
-  # INTENT 12: tanya_tips_hidup_sehat (601–650)
-  # ============================================================
-  utter_tanya_tips_hidup_sehat:
-    - text: "Jaga pola makan, olahraga rutin, tidur cukup, dan kelola stres."
-    - text: "Konsumsi gizi seimbang, cukup tidur, dan rajin olahraga."
-    - text: "Batasi gula, garam, lemak, perbanyak sayur dan buah."
-    - text: "Kontrol kalori, olahraga, dan cukup istirahat."
-    - text: "Konsumsi vitamin, sayur, buah, olahraga, tidur cukup."
-    - text: "Ikuti pola 'Isi Piringku': ½ sayur & buah, ¼ karbo, ¼ protein."
-    - text: "Mulai dengan jalan kaki 30 menit per hari."
-    - text: "Tidur 7–8 jam setiap malam, hindari gadget sebelum tidur."
-    - text: "Lakukan relaksasi, olahraga, atau hobi."
-    - text: "Bawa bekal sehat, hindari gorengan dan minuman manis."
-    - text: "Konsumsi ikan, kurangi garam, rutin olahraga."
-    - text: "Konsumsi omega-3, cukup tidur, rajin membaca."
-    - text: "Istirahatkan mata tiap 20 menit saat menatap layar."
-    - text: "Konsumsi kalsium, vitamin D, dan olahraga beban."
-    - text: "Minum cukup air, makan buah, gunakan tabir surya."
-    - text: "Pola makan teratur, cukup tidur, hindari junk food."
-    - text: "Masak sederhana dengan sayur dan telur."
-    - text: "Jaga pola tidur teratur, konsumsi buah & sayur."
-    - text: "Tambah nutrisi, minum cukup air, kontrol rutin ke dokter."
-    - text: "Makan lunak bergizi, olahraga ringan, tidur cukup."
-    - text: "Sahur dengan protein, berbuka dengan kurma & air putih."
-    - text: "Istirahat sebentar, minum air, konsumsi buah segar."
-    - text: "Perbanyak vitamin C dan minum air hangat."
-    - text: "Minum air lebih banyak dan hindari dehidrasi."
-    - text: "Konsumsi kalori sesuai kebutuhan, olahraga rutin."
-    - text: "Ganti dengan buah segar atau stevia."
-    - text: "Gunakan rempah alami sebagai pengganti bumbu."
-    - text: "Pilih makanan panggang/rebus dibanding goreng."
-    - text: "Lakukan senam, yoga, atau skipping 20 menit."
-    - text: "Tetap olahraga, makan teratur, dan istirahat cukup."
-    - text: "Sarapan sehat, tidur cukup, bawa bekal."
-    - text: "Hindari junk food, banyak minum air putih."
-    - text: "Batasi kalori, perbanyak sayur dan olahraga."
-    - text: "Tambah kalori sehat dari kacang, alpukat, susu."
-    - text: "Cukup tidur, minum air, makan bergizi."
-    - text: "Konsumsi vitamin, olahraga, dan istirahat cukup."
-    - text: "Hindari kafein malam, buat kamar nyaman."
-    - text: "Atur jam tidur dan makan dengan teratur."
-    - text: "Perbanyak buah, sayur, olahraga, tidur cukup."
-    - text: "Konsumsi serat, minum air, hindari makanan pedas."
-    - text: "Minum cukup air, makan sayur & buah, tidur cukup."
-    - text: "Olahraga rutin, makan bergizi, dan tidur cukup."
-    - text: "Perbanyak air putih, konsumsi buah, olahraga teratur."
-    - text: "Tingkatkan imun dengan gizi seimbang dan istirahat cukup."
-    - text: "Bawa bekal sehat, banyak gerak, cukup minum air."
-    - text: "Ikuti konsep isi piring seimbang: sayur, buah, protein, karbo."
-    - text: "Rajin olahraga, tidur teratur, dan kurangi junk food."
-    - text: "Konsumsi gizi seimbang, olahraga rutin, dan hindari stres."
-    - text: "Minum air putih cukup, jalan kaki tiap hari, makan sayur."
-    - text: "Hindari gadget, minum air hangat, tidur cukup jam 10 malam."
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

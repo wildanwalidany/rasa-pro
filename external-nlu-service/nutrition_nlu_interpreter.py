@@ -226,6 +226,7 @@ if __name__ == "__main__":
         print(f"\n{'='*80}")
         print(f"Starting Nutrition NLU Service on http://{HOST}:{PORT}")
         print(f"Endpoint: http://{HOST}:{PORT}/model/parse")
+        print(f"Endpoint: http://{HOST}:{PORT}/interpret")  # Tambahkan ini
         print(f"{'='*80}\n")
     
-    app.run(host=HOST, port=PORT, debug=False)
+    app.run(host=HOST, port=PORT, debug=False)  # Port 3004

@@ -1,0 +1,600 @@
+-- =========================================================
+-- DATABASE: nutrisi_gizi
+-- =========================================================
+CREATE DATABASE IF NOT EXISTS nutrisi_gizi;
+USE nutrisi_gizi;
+
+-- =========================================================
+-- 🔹 TABEL: nama_produk
+-- =========================================================
+CREATE TABLE nama_produk (
+    id_produk INT AUTO_INCREMENT PRIMARY KEY,
+    nama_produk VARCHAR(100) NOT NULL,
+    kalori FLOAT,
+    protein FLOAT,
+    lemak FLOAT,
+    karbohidrat FLOAT,
+    gula FLOAT,
+    natrium FLOAT,
+    keterangan TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO nama_produk (nama_produk, kalori, protein, lemak, karbohidrat, gula, natrium, keterangan) VALUES
+('Teh Botol Sosro 350 ml', 90, 0, 0, 22, 22, 5, 'Minuman teh manis dalam botol'),
+('Ultra Milk Strawberry 200 ml', 130, 6, 4, 18, 16, 100, 'Susu rasa stroberi tinggi kalsium'),
+('Aqua 600 ml', 0, 0, 0, 0, 0, 0, 'Air mineral tanpa kalori'),
+('Pop Mie Rasa Ayam', 330, 7, 14, 42, 4, 900, 'Mi instan cup rasa ayam'),
+('Indomie Goreng', 350, 8, 16, 44, 5, 880, 'Mi instan goreng klasik'),
+('Coca Cola 250 ml', 105, 0, 0, 26, 26, 8, 'Minuman berkarbonasi manis'),
+('Silverqueen 25g', 130, 2, 8, 15, 12, 20, 'Cokelat susu padat'),
+('Oreo 3 keping', 160, 2, 7, 23, 12, 90, 'Biskuit sandwich rasa coklat'),
+('Nutrisari Jeruk 1 sachet', 80, 0, 0, 20, 20, 10, 'Minuman serbuk tinggi vitamin C'),
+('Yakult', 50, 1, 0, 12, 12, 15, 'Minuman probiotik baik untuk pencernaan'),
+('Chitato 68g', 370, 4, 22, 38, 2, 300, 'Keripik kentang rasa sapi panggang'),
+('Good Day Cappuccino', 150, 2, 4, 25, 18, 70, 'Minuman kopi susu kemasan'),
+('Fruit Tea Apel 350 ml', 90, 0, 0, 22, 22, 5, 'Minuman teh rasa apel'),
+('Frestea Green Tea 500 ml', 100, 0, 0, 25, 25, 10, 'Minuman teh hijau kemasan'),
+('KFC Chicken 1 potong', 280, 25, 18, 6, 0, 500, 'Ayam goreng tepung'),
+('Burger McD', 300, 16, 14, 30, 4, 800, 'Roti isi daging sapi'),
+('Pizza Hut ukuran kecil', 250, 10, 12, 26, 3, 600, 'Pizza kecil topping keju'),
+('Popcorn 50g', 200, 3, 9, 25, 2, 180, 'Camilan dari jagung meletup'),
+('Sari Roti Coklat', 250, 6, 5, 40, 18, 200, 'Roti isi coklat'),
+('Dancow Fortigro 200 ml', 120, 6, 3, 15, 12, 80, 'Susu cair bernutrisi'),
+('Es Teh Pucuk 350 ml', 90, 0, 0, 22, 22, 5, 'Minuman teh dalam botol'),
+('Fanta 250 ml', 110, 0, 0, 27, 27, 8, 'Minuman soda rasa buah'),
+('Sprite botol kecil', 105, 0, 0, 26, 26, 8, 'Minuman soda lemon-lime'),
+('Yakult Light', 45, 1, 0, 10, 10, 15, 'Varian rendah gula Yakult'),
+('Beng Beng 20g', 160, 2, 8, 18, 10, 50, 'Wafer coklat karamel'),
+('Energen 1 sachet', 140, 4, 3, 25, 12, 100, 'Minuman sereal instan'),
+('Biskuat mini', 120, 2, 4, 18, 8, 60, 'Biskuit energi anak-anak'),
+('Pringles 42g', 220, 2, 12, 25, 1, 180, 'Keripik kentang tipis'),
+('Pocari Sweat 350 ml', 70, 0, 0, 17, 17, 60, 'Minuman isotonik'),
+('Teh Gelas 350 ml', 85, 0, 0, 21, 21, 5, 'Minuman teh manis gelas plastik'),
+('Teh Kotak Jasmine', 90, 0, 0, 22, 22, 5, 'Teh melati kemasan kotak'),
+('Bear Brand 189 ml', 120, 6, 7, 9, 9, 90, 'Susu steril putih'),
+('Milo UHT 200 ml', 140, 5, 4, 20, 16, 100, 'Minuman coklat energi'),
+('Nutriboost Coklat', 160, 4, 5, 22, 18, 100, 'Susu rasa coklat siap minum'),
+('Cimory Yogurt Drink', 120, 4, 3, 18, 15, 80, 'Minuman yogurt botol'),
+('Fruit Tea Lemon 350 ml', 90, 0, 0, 22, 22, 5, 'Teh rasa lemon manis'),
+('Mizone 500 ml', 80, 0, 0, 20, 20, 10, 'Minuman ion dengan vitamin B'),
+('Floridina 350 ml', 90, 0, 0, 22, 22, 5, 'Minuman rasa jeruk dengan nata de coco'),
+('Indomilk Kids 115 ml', 90, 4, 3, 10, 9, 70, 'Susu cair anak'),
+('Cheetos 50g', 260, 3, 15, 28, 1, 300, 'Camilan jagung renyah'),
+('Tango Wafer 20g', 110, 1, 6, 12, 8, 50, 'Wafer krim rasa coklat'),
+('Sari Gandum 20g', 100, 2, 4, 14, 4, 60, 'Biskuit gandum manis'),
+('Koko Krunch 30g', 115, 2, 3, 20, 6, 70, 'Sereal coklat renyah'),
+('Milo Sachet 30g', 120, 3, 3, 18, 12, 60, 'Minuman energi coklat serbuk'),
+('Ultra Milk Full Cream 200 ml', 130, 6, 7, 9, 9, 100, 'Susu full cream tinggi kalsium'),
+('Good Time Cookies 30g', 160, 2, 8, 20, 10, 80, 'Kue kering coklat chip'),
+('Taro Net 30g', 150, 2, 8, 18, 3, 200, 'Camilan ringan rasa rumput laut'),
+('Twister 20g', 120, 1, 6, 14, 6, 70, 'Wafer stik isi krim'),
+('Prenagen Velvety Choco 185ml', 140, 6, 4, 20, 14, 90, 'Susu ibu hamil rasa coklat');
+
+-- =========================================================
+-- 🔹 TABEL: kategori_usia
+-- =========================================================
+CREATE TABLE kategori_usia (
+    id_kategori INT AUTO_INCREMENT PRIMARY KEY,
+    kategori_usia VARCHAR(100) NOT NULL,
+    kebutuhan_kalori INT,
+    keterangan TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO kategori_usia (kategori_usia, kebutuhan_kalori, keterangan) VALUES
+('Bayi 1 tahun', 900, 'Membutuhkan sekitar 900 kkal per hari'),
+('Anak Sekolah', 1600, 'Usia 7–12 tahun, butuh 1600 kkal/hari'),
+('Remaja', 2200, 'Remaja aktif 2000–2500 kkal/hari'),
+('Dewasa', 2500, 'Rata-rata 2000–2500 kkal/hari'),
+('Lansia', 1800, 'Usia lanjut butuh energi lebih sedikit'),
+('Ibu Hamil', 2500, 'Tambahan 300–400 kkal per hari'),
+('Ibu Menyusui', 2700, 'Tambahan 500 kkal/hari untuk ASI'),
+('Pekerja Kantoran', 2000, 'Aktivitas sedang'),
+('Pekerja Lapangan', 2800, 'Aktivitas berat'),
+('Atlet', 3000, 'Butuh energi tinggi untuk latihan');
+
+-- =========================================================
+-- 🔹 TABEL: nama_zat
+-- =========================================================
+CREATE TABLE nama_zat (
+    id_zat INT AUTO_INCREMENT PRIMARY KEY,
+    nama_zat VARCHAR(100) NOT NULL,
+    fungsi TEXT,
+    sumber TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO nama_zat (nama_zat, fungsi, sumber) VALUES
+('Protein', 'Membangun jaringan dan otot', 'Telur, ikan, ayam, tempe'),
+('Karbohidrat', 'Sumber energi utama tubuh', 'Nasi, kentang, roti'),
+('Lemak', 'Cadangan energi dan pelindung organ', 'Minyak, alpukat, kacang'),
+('Serat', 'Melancarkan pencernaan', 'Sayuran, buah, gandum'),
+('Vitamin C', 'Meningkatkan imun tubuh', 'Jeruk, jambu biji, paprika'),
+('Kalsium', 'Menjaga tulang dan gigi', 'Susu, keju, ikan teri'),
+('Zat Besi', 'Membentuk sel darah merah', 'Bayam, hati, kacang merah'),
+('Gula', 'Sumber energi cepat', 'Madu, buah manis'),
+('Natrium', 'Menjaga tekanan darah dan cairan', 'Garam, makanan olahan'),
+('Vitamin D', 'Membantu penyerapan kalsium', 'Telur, ikan, sinar matahari');
+
+-- =========================================================
+-- 🔹 TABEL: tanya_info_gizi_produk
+-- =========================================================
+CREATE TABLE tanya_info_gizi_produk (
+    id_info INT AUTO_INCREMENT PRIMARY KEY,
+    id_produk INT,
+    FOREIGN KEY (id_produk) REFERENCES nama_produk(id_produk)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_info_gizi_produk (id_produk)
+SELECT id_produk FROM nama_produk;
+
+-- =========================================================
+-- 🔹 TABEL: tanya_kalori_harian
+-- =========================================================
+CREATE TABLE tanya_kalori_harian (
+    id_kalori INT AUTO_INCREMENT PRIMARY KEY,
+    id_kategori INT,
+    FOREIGN KEY (id_kategori) REFERENCES kategori_usia(id_kategori)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_kalori_harian (id_kategori)
+SELECT id_kategori FROM kategori_usia;
+
+-- =========================================================
+-- 🔹 TABEL: tanya_rekomendasi_makanan
+-- =========================================================
+CREATE TABLE tanya_rekomendasi_makanan (
+    id_rekomendasi INT AUTO_INCREMENT PRIMARY KEY,
+    id_kategori INT,
+    id_zat INT,
+    rekomendasi TEXT,
+    FOREIGN KEY (id_kategori) REFERENCES kategori_usia(id_kategori),
+    FOREIGN KEY (id_zat) REFERENCES nama_zat(id_zat)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_rekomendasi_makanan (id_kategori, id_zat, rekomendasi) VALUES
+(4, 1, 'Ayam, tempe, tahu kukus'),
+(3, 5, 'Jeruk, jambu, kiwi'),
+(6, 7, 'Bayam, hati ayam, kacang merah'),
+(10, 2, 'Nasi merah, roti gandum'),
+(5, 6, 'Susu, yogurt, keju rendah lemak'),
+(2, 4, 'Buah apel, pepaya, sayur hijau'),
+(4, 3, 'Alpukat, ikan salmon, olive oil'),
+(8, 7, 'Salad sayur dan telur rebus'),
+(9, 1, 'Ikan, telur, daging tanpa lemak'),
+(7, 5, 'Buah segar tinggi vitamin C');
+
+-- =========================================================
+-- LANJUTAN DATABASE: nutrisi_gizi
+-- Tambahan untuk intent:
+--   - tanya_kandungan_zat
+--   - tanya_porsi_makan
+--   - tanya_label_gizi
+-- =========================================================
+USE nutrisi_gizi;
+
+-- =========================================================
+-- 🔹 TABEL: tanya_kandungan_zat
+-- =========================================================
+CREATE TABLE tanya_kandungan_zat (
+    id_kandungan INT AUTO_INCREMENT PRIMARY KEY,
+    id_produk INT,
+    id_zat INT,
+    jumlah FLOAT,
+    satuan VARCHAR(20),
+    FOREIGN KEY (id_produk) REFERENCES nama_produk(id_produk),
+    FOREIGN KEY (id_zat) REFERENCES nama_zat(id_zat)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_kandungan_zat (id_produk, id_zat, jumlah, satuan) VALUES
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Coca Cola%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Gula'), 26, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Indomie Goreng%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Natrium'), 880, 'mg'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Silverqueen%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Lemak'), 8, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Ultra Milk%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Protein'), 6, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Pop Mie%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Karbohidrat'), 42, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Nutrisari%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Vitamin C'), 50, 'mg'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Chitato%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Natrium'), 300, 'mg'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Teh Botol Sosro%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Gula'), 22, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Yakult%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Gula'), 12, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Fanta%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Gula'), 27, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Sprite%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Gula'), 26, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Floridina%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Gula'), 22, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Milo%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Karbohidrat'), 20, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Beng Beng%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Lemak'), 8, 'gram'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Bear Brand%'), (SELECT id_zat FROM nama_zat WHERE nama_zat='Protein'), 6, 'gram');
+
+-- =========================================================
+-- 🔹 TABEL: tanya_porsi_makan
+-- =========================================================
+CREATE TABLE tanya_porsi_makan (
+    id_porsi INT AUTO_INCREMENT PRIMARY KEY,
+    id_produk INT,
+    id_kategori INT,
+    porsi_anjuran VARCHAR(50),
+    frekuensi VARCHAR(50),
+    FOREIGN KEY (id_produk) REFERENCES nama_produk(id_produk),
+    FOREIGN KEY (id_kategori) REFERENCES kategori_usia(id_kategori)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_porsi_makan (id_produk, id_kategori, porsi_anjuran, frekuensi) VALUES
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Nasi%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Dewasa'), '150 gram', '3x sehari'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Ayam%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Dewasa'), '1 potong', '2x sehari'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Tempe%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Dewasa'), '2 potong', '1–2x sehari'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Tahu%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Dewasa'), '2 potong', '1–2x sehari'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Susu%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Anak Sekolah'), '200 ml', '2x sehari'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Susu%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Lansia'), '200 ml', '1x sehari'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Buah%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Dewasa'), '1–2 porsi', '3x sehari'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Sayur%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Dewasa'), '100 gram', '3x sehari'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Ikan%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Dewasa'), '100 gram', '1x sehari'),
+((SELECT id_produk FROM nama_produk WHERE nama_produk LIKE '%Air%'), (SELECT id_kategori FROM kategori_usia WHERE kategori_usia='Dewasa'), '200 ml', '8x sehari');
+
+-- =========================================================
+-- 🔹 TABEL: tanya_label_gizi
+-- =========================================================
+CREATE TABLE tanya_label_gizi (
+    id_label INT AUTO_INCREMENT PRIMARY KEY,
+    nama_label VARCHAR(100),
+    deskripsi TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_label_gizi (nama_label, deskripsi) VALUES
+('%AKG', 'Persentase Angka Kecukupan Gizi yang menunjukkan kontribusi zat gizi per sajian terhadap kebutuhan harian.'),
+('Takaran Saji', 'Ukuran standar banyaknya makanan/minuman per konsumsi.'),
+('Kalori', 'Energi total yang diperoleh dari setiap sajian.'),
+('Lemak Trans', 'Jenis lemak tidak sehat yang meningkatkan risiko kolesterol tinggi.'),
+('Gula', 'Menunjukkan jumlah gula per sajian produk.'),
+('Energi Total', 'Jumlah energi yang dihasilkan oleh semua makronutrien dalam produk.'),
+('Protein', 'Kandungan zat pembangun tubuh yang tertera per sajian.'),
+('Natrium', 'Jumlah garam atau sodium per sajian.'),
+('Lemak Jenuh', 'Lemak yang dapat meningkatkan kadar kolesterol jahat.'),
+('Vitamin', 'Daftar vitamin yang terkandung dalam produk.'),
+('Kalsium', 'Mineral penting untuk tulang dan gigi.'),
+('Zat Besi', 'Mineral penting untuk pembentukan darah.'),
+('Low Fat', 'Klaim produk rendah lemak.'),
+('Sugar Free', 'Klaim produk tanpa tambahan gula.'),
+('High Protein', 'Klaim produk tinggi protein.'),
+('Gluten Free', 'Tidak mengandung gluten, aman untuk penderita celiac.'),
+('Lactose Free', 'Tidak mengandung laktosa, aman untuk intoleransi laktosa.'),
+('Trans Fat Free', 'Tidak mengandung lemak trans.'),
+('Plant Based', 'Produk berbahan dasar nabati.'),
+('No Added Sugar', 'Tanpa tambahan gula rafinasi.');
+
+USE nutrisi_gizi;
+
+-- =========================================================
+-- 🔹 TABEL BARU: nama_diet
+-- =========================================================
+CREATE TABLE nama_diet (
+    id_diet INT AUTO_INCREMENT PRIMARY KEY,
+    nama_diet VARCHAR(100) NOT NULL,
+    deskripsi TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO nama_diet (nama_diet, deskripsi) VALUES
+('Diet Rendah Garam', 'Membatasi konsumsi natrium untuk menjaga tekanan darah.'),
+('Diet Rendah Gula', 'Mengurangi asupan gula untuk mengontrol kadar glukosa darah.'),
+('Diet Rendah Lemak', 'Membatasi lemak jenuh dan trans untuk kesehatan jantung.'),
+('Diet Tinggi Protein', 'Meningkatkan asupan protein untuk membangun massa otot.'),
+('Diet Keto', 'Rendah karbohidrat, tinggi lemak, untuk pembakaran lemak optimal.'),
+('Diet Vegetarian', 'Tanpa konsumsi daging, fokus pada protein nabati.'),
+('Diet Vegan', 'Tanpa produk hewani sama sekali.'),
+('Diet Mediterania', 'Berbasis sayur, buah, ikan, dan minyak zaitun.'),
+('Diet DASH', 'Diet untuk menurunkan tekanan darah tinggi.'),
+('Diet Kolesterol', 'Mengurangi lemak jenuh dan kolesterol makanan.'),
+('Diet Menurunkan Berat Badan', 'Mengurangi kalori harian secara seimbang.'),
+('Diet Menambah Berat Badan', 'Meningkatkan asupan kalori dengan gizi seimbang.'),
+('Diet Tinggi Serat', 'Memperbanyak konsumsi serat dari buah dan sayur.'),
+('Diet Rendah Karbohidrat', 'Mengurangi sumber karbohidrat sederhana.'),
+('Diet Gluten Free', 'Bebas gluten untuk penderita celiac.'),
+('Diet Lactose Free', 'Bebas laktosa untuk penderita intoleransi laktosa.'),
+('Diet Paleo', 'Makanan alami tanpa olahan modern.'),
+('Diet Flexitarian', 'Sebagian besar nabati tapi tetap konsumsi daging sesekali.'),
+('Diet Raw Food', 'Makanan mentah tanpa dimasak.'),
+('Diet Tinggi Energi', 'Untuk meningkatkan energi harian, cocok bagi atlet.');
+
+-- =========================================================
+-- 🔹 TABEL: tanya_makanan_diet
+-- =========================================================
+CREATE TABLE tanya_makanan_diet (
+    id_makanan_diet INT AUTO_INCREMENT PRIMARY KEY,
+    id_diet INT,
+    rekomendasi_makanan TEXT,
+    pantangan TEXT,
+    FOREIGN KEY (id_diet) REFERENCES nama_diet(id_diet)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_makanan_diet (id_diet, rekomendasi_makanan, pantangan) VALUES
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet Rendah Garam'), 'Sayur kukus, buah segar, ikan tanpa garam', 'Makanan olahan dan keripik asin'),
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet Rendah Gula'), 'Sayur, alpukat, ayam panggang', 'Minuman manis, kue, sirup'),
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet Tinggi Protein'), 'Telur, dada ayam, tahu, tempe', 'Makanan tinggi gula dan tepung'),
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet Keto'), 'Telur, alpukat, keju, daging sapi', 'Nasi, roti, mie, kentang'),
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet Mediterania'), 'Ikan, minyak zaitun, sayur, buah', 'Makanan cepat saji'),
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet Vegan'), 'Kacang, tahu, tempe, sayur', 'Produk hewani'),
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet DASH'), 'Buah, susu rendah lemak, biji-bijian', 'Makanan tinggi garam'),
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet Rendah Lemak'), 'Ikan kukus, sayur rebus, buah segar', 'Gorengan, daging berlemak tinggi'),
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet Tinggi Serat'), 'Oatmeal, apel, sayur hijau', 'Daging olahan, nasi putih'),
+((SELECT id_diet FROM nama_diet WHERE nama_diet='Diet Tinggi Energi'), 'Nasi merah, telur, ikan, kacang', 'Makanan rendah kalori');
+
+-- =========================================================
+-- 🔹 TABEL BARU: nama_makanan
+-- =========================================================
+CREATE TABLE nama_makanan (
+    id_makanan INT AUTO_INCREMENT PRIMARY KEY,
+    nama_makanan VARCHAR(100) NOT NULL,
+    kategori VARCHAR(50),
+    kalori FLOAT,
+    deskripsi TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO nama_makanan (nama_makanan, kategori, kalori, deskripsi) VALUES
+('Kopi', 'Minuman', 2, 'Mengandung kafein, bisa meningkatkan fokus.'),
+('Gula Pasir', 'Pemanis', 387, 'Sumber kalori tinggi tanpa gizi.'),
+('Mie Instan', 'Makanan Cepat Saji', 350, 'Tinggi natrium dan lemak.'),
+('Nasi Putih', 'Karbohidrat', 175, 'Sumber energi utama.'),
+('Susu Sapi', 'Minuman', 150, 'Sumber protein dan kalsium.'),
+('Gorengan', 'Camilan', 250, 'Tinggi lemak jenuh.'),
+('Es Krim', 'Dessert', 210, 'Mengandung gula dan lemak.'),
+('Coklat', 'Camilan', 220, 'Mengandung antioksidan, tetapi tinggi gula.'),
+('Keripik', 'Camilan', 180, 'Tinggi garam dan kalori.'),
+('Teh Manis', 'Minuman', 120, 'Minuman manis dengan tambahan gula.');
+
+-- =========================================================
+-- 🔹 TABEL: tanya_efek_kesehatan
+-- =========================================================
+CREATE TABLE tanya_efek_kesehatan (
+    id_efek INT AUTO_INCREMENT PRIMARY KEY,
+    id_makanan INT,
+    efek_positif TEXT,
+    efek_negatif TEXT,
+    FOREIGN KEY (id_makanan) REFERENCES nama_makanan(id_makanan)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_efek_kesehatan (id_makanan, efek_positif, efek_negatif) VALUES
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Kopi'), 'Meningkatkan konsentrasi', 'Insomnia, jantung berdebar'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Gula Pasir'), 'Memberi energi cepat', 'Menyebabkan obesitas dan diabetes'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Gorengan'), 'Mengenyangkan cepat', 'Meningkatkan kolesterol'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Es Krim'), 'Memberi rasa senang', 'Tinggi gula dan lemak'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Mie Instan'), 'Praktis dan cepat disiapkan', 'Tinggi natrium, tidak bergizi seimbang'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Susu Sapi'), 'Sumber protein dan kalsium', 'Alergi laktosa pada beberapa orang'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Coklat'), 'Mengandung antioksidan', 'Berpotensi meningkatkan berat badan'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Keripik'), 'Camilan ringan', 'Tinggi lemak dan garam'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Teh Manis'), 'Memberi energi cepat', 'Tinggi gula, meningkatkan risiko diabetes');
+
+-- =========================================================
+-- 🔹 TABEL: tanya_alternatif_makanan
+-- =========================================================
+CREATE TABLE tanya_alternatif_makanan (
+    id_alternatif INT AUTO_INCREMENT PRIMARY KEY,
+    id_makanan INT,
+    alternatif TEXT,
+    alasan TEXT,
+    FOREIGN KEY (id_makanan) REFERENCES nama_makanan(id_makanan)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_alternatif_makanan (id_makanan, alternatif, alasan) VALUES
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Nasi Putih'), 'Nasi merah atau quinoa', 'Lebih tinggi serat dan indeks glikemik rendah'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Gula Pasir'), 'Stevia atau madu alami', 'Rendah kalori dan alami'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Susu Sapi'), 'Susu almond atau oat milk', 'Cocok untuk vegan dan bebas laktosa'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Mie Instan'), 'Mie shirataki atau bihun jagung', 'Lebih rendah kalori dan karbohidrat'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Gorengan'), 'Panggang atau kukus', 'Mengurangi kandungan minyak jenuh'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Es Krim'), 'Yoghurt beku rendah lemak', 'Lebih rendah gula dan tinggi probiotik'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Coklat'), 'Dark chocolate 70%', 'Kaya antioksidan dan rendah gula'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Keripik'), 'Keripik buah tanpa minyak', 'Lebih rendah lemak'),
+((SELECT id_makanan FROM nama_makanan WHERE nama_makanan='Teh Manis'), 'Teh tawar atau infused water', 'Tanpa gula tambahan');
+
+USE nutrisi_gizi;
+
+-- =========================================================
+-- 🔹 TABEL BARU: waktu_makan
+-- =========================================================
+CREATE TABLE waktu_makan (
+    id_waktu INT AUTO_INCREMENT PRIMARY KEY,
+    nama_waktu VARCHAR(50) NOT NULL,
+    jam_ideal VARCHAR(20),
+    keterangan TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO waktu_makan (nama_waktu, jam_ideal, keterangan) VALUES
+('Sarapan', '06:00-08:00', 'Waktu ideal untuk mengisi energi pagi.'),
+('Makan Siang', '12:00-13:30', 'Waktu untuk makan utama kedua.'),
+('Makan Malam', '18:00-20:00', 'Sebaiknya tidak terlalu malam.'),
+('Ngemil', '10:00 / 16:00', 'Camilan sehat di sela waktu makan utama.'),
+('Sahur', '03:30-04:30', 'Waktu makan sebelum berpuasa.'),
+('Berbuka Puasa', '18:00', 'Disarankan konsumsi air dan buah dahulu.'),
+('Camilan Sore', '15:00-16:30', 'Camilan ringan menjelang sore.'),
+('Makan Pagi', '07:00', 'Waktu umum untuk sarapan.'),
+('Makan Malam Keluarga', '19:00', 'Waktu ideal makan bersama keluarga.');
+
+-- =========================================================
+-- 🔹 TABEL BARU: minuman
+-- =========================================================
+CREATE TABLE minuman (
+    id_minuman INT AUTO_INCREMENT PRIMARY KEY,
+    nama_minuman VARCHAR(100) NOT NULL,
+    kategori VARCHAR(50),
+    keterangan TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO minuman (nama_minuman, kategori, keterangan) VALUES
+('Susu', 'Minuman Sehat', 'Mengandung kalsium dan protein tinggi.'),
+('Kopi', 'Minuman Kafein', 'Dapat meningkatkan fokus, jangan berlebihan.'),
+('Teh', 'Minuman Herbal', 'Mengandung antioksidan.'),
+('Air Putih', 'Minuman Utama', 'Menjaga hidrasi tubuh.'),
+('Air Hangat', 'Minuman Sehat', 'Baik dikonsumsi pagi hari.'),
+('Air Kelapa', 'Minuman Elektrolit', 'Mengandung kalium alami.'),
+('Teh Hijau', 'Minuman Herbal', 'Meningkatkan metabolisme.'),
+('Teh Chamomile', 'Minuman Herbal', 'Menenangkan sebelum tidur.'),
+('Susu Rendah Lemak', 'Minuman Sehat', 'Rendah lemak dan kalori.'),
+('Vitamin C', 'Suplemen', 'Meningkatkan daya tahan tubuh.'),
+('Vitamin D', 'Suplemen', 'Baik untuk tulang dan imun.'),
+('Suplemen Zat Besi', 'Suplemen', 'Menambah kadar hemoglobin.');
+
+-- =========================================================
+-- 🔹 TABEL BARU: aktivitas
+-- =========================================================
+CREATE TABLE aktivitas (
+    id_aktivitas INT AUTO_INCREMENT PRIMARY KEY,
+    nama_aktivitas VARCHAR(100) NOT NULL,
+    keterangan TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO aktivitas (nama_aktivitas, keterangan) VALUES
+('Olahraga', 'Aktivitas fisik yang dilakukan rutin.'),
+('Tidur', 'Istirahat tubuh yang cukup 6–8 jam per hari.'),
+('Kerja Malam', 'Aktivitas malam yang butuh pola makan khusus.'),
+('Begadang', 'Kebiasaan tidur larut yang tidak disarankan.'),
+('Jaga Imun', 'Kegiatan menjaga daya tahan tubuh.'),
+('Tidur Nyenyak', 'Tidur berkualitas untuk pemulihan tubuh.');
+
+-- =========================================================
+-- 🔹 TABEL BARU: tujuan
+-- =========================================================
+CREATE TABLE tujuan (
+    id_tujuan INT AUTO_INCREMENT PRIMARY KEY,
+    nama_tujuan VARCHAR(100) NOT NULL,
+    deskripsi TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO tujuan (nama_tujuan, deskripsi) VALUES
+('Diet', 'Tujuan menjaga berat badan dan kesehatan.'),
+('Diet Keto', 'Pola makan rendah karbohidrat tinggi lemak.'),
+('Diet Intermittent Fasting', 'Pola makan dengan jeda waktu tertentu.'),
+('Diet Sehat', 'Menjaga gizi seimbang dan berat badan ideal.'),
+('Menurunkan Berat Badan', 'Fokus mengurangi asupan kalori.'),
+('Menambah Berat Badan', 'Fokus meningkatkan kalori dan protein.'),
+('Jaga Imun', 'Menjaga daya tahan tubuh.'),
+('Kulit Glowing', 'Menjaga kesehatan kulit dari makanan bergizi.'),
+('Berat Badan Ideal', 'Menyeimbangkan massa tubuh dan energi.');
+
+-- =========================================================
+-- 🔹 TABEL BARU: kategori_pengguna
+-- =========================================================
+CREATE TABLE kategori_pengguna (
+    id_pengguna INT AUTO_INCREMENT PRIMARY KEY,
+    nama_pengguna VARCHAR(100),
+    deskripsi TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO kategori_pengguna (nama_pengguna, deskripsi) VALUES
+('Pekerja Kantoran', 'Bekerja di lingkungan kantor, sering duduk lama.'),
+('Mahasiswa', 'Aktif belajar dan beraktivitas.'),
+('Anak Sekolah', 'Masih dalam masa pertumbuhan.'),
+('Anak Kos', 'Cenderung makan tidak teratur.'),
+('Pekerja Malam', 'Aktif di malam hari, perlu manajemen pola makan.'),
+('Keluarga', 'Pola makan bersama di rumah.'),
+('Siswa', 'Anak usia sekolah dasar atau menengah.');
+
+-- =========================================================
+-- 🔹 TABEL BARU: kategori_tempat
+-- =========================================================
+CREATE TABLE kategori_tempat (
+    id_tempat INT AUTO_INCREMENT PRIMARY KEY,
+    nama_tempat VARCHAR(100),
+    deskripsi TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO kategori_tempat (nama_tempat, deskripsi) VALUES
+('Kantor', 'Tempat kerja dengan aktivitas duduk lama.'),
+('Rumah', 'Lingkungan pribadi untuk beristirahat dan makan.'),
+('Sekolah', 'Tempat belajar anak-anak.'),
+('Kampus', 'Tempat aktivitas mahasiswa.');
+
+-- =========================================================
+-- 🔹 TABEL BARU: kondisi
+-- =========================================================
+CREATE TABLE kondisi (
+    id_kondisi INT AUTO_INCREMENT PRIMARY KEY,
+    nama_kondisi VARCHAR(100),
+    deskripsi TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO kondisi (nama_kondisi, deskripsi) VALUES
+('Puasa', 'Tidak makan dan minum di waktu tertentu.'),
+('Lelah Kerja', 'Kondisi tubuh lelah setelah bekerja.'),
+('Musim Hujan', 'Kondisi cuaca dingin dan lembab.'),
+('Panas Terik', 'Cuaca panas yang menguras energi.'),
+('Pasien Diabetes', 'Perlu kontrol gula darah.'),
+('Pencernaan', 'Terkait sistem pencernaan tubuh.'),
+('Tidur Nyenyak', 'Kebutuhan tidur berkualitas.'),
+('Maag', 'Kondisi lambung sensitif terhadap asam.'),
+('Anemia', 'Kekurangan zat besi dalam darah.'),
+('Hipertensi', 'Tekanan darah tinggi.');
+
+-- =========================================================
+-- 🔹 TABEL BARU: zat
+-- =========================================================
+CREATE TABLE zat (
+    id_zat INT AUTO_INCREMENT PRIMARY KEY,
+    nama_zat VARCHAR(100),
+    kategori VARCHAR(50),
+    fungsi TEXT
+) ENGINE=InnoDB;
+
+INSERT INTO zat (nama_zat, kategori, fungsi) VALUES
+('Gula', 'Karbohidrat', 'Sumber energi cepat untuk tubuh.'),
+('Garam', 'Mineral', 'Menjaga keseimbangan cairan tubuh.'),
+('Lemak', 'Makronutrien', 'Sumber energi jangka panjang.'),
+('Protein', 'Makronutrien', 'Membangun jaringan otot dan sel.'),
+('Vitamin C', 'Vitamin', 'Meningkatkan daya tahan tubuh.'),
+('Vitamin D', 'Vitamin', 'Mendukung kesehatan tulang.'),
+('Zat Besi', 'Mineral', 'Membentuk hemoglobin darah.'),
+('Kalsium', 'Mineral', 'Membentuk tulang dan gigi.'),
+('Serat', 'Karbohidrat Kompleks', 'Melancarkan pencernaan.'),
+('Kolesterol', 'Lipid', 'Perlu dijaga agar tidak berlebih.');
+
+-- =========================================================
+-- 🔹 TABEL: tanya_waktu_makan
+-- =========================================================
+CREATE TABLE tanya_waktu_makan (
+    id_waktu_makan INT AUTO_INCREMENT PRIMARY KEY,
+    id_waktu INT,
+    id_minuman INT,
+    id_tujuan INT,
+    id_pengguna INT,
+    id_kondisi INT,
+    id_aktivitas INT,
+    saran TEXT,
+    FOREIGN KEY (id_waktu) REFERENCES waktu_makan(id_waktu),
+    FOREIGN KEY (id_minuman) REFERENCES minuman(id_minuman),
+    FOREIGN KEY (id_tujuan) REFERENCES tujuan(id_tujuan),
+    FOREIGN KEY (id_pengguna) REFERENCES kategori_pengguna(id_pengguna),
+    FOREIGN KEY (id_kondisi) REFERENCES kondisi(id_kondisi),
+    FOREIGN KEY (id_aktivitas) REFERENCES aktivitas(id_aktivitas)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_waktu_makan (id_waktu, id_minuman, id_tujuan, saran) VALUES
+((SELECT id_waktu FROM waktu_makan WHERE nama_waktu='Sarapan'), NULL, NULL, 'Sarapan ideal antara pukul 06:00–08:00.'),
+((SELECT id_waktu FROM waktu_makan WHERE nama_waktu='Makan Siang'), NULL, NULL, 'Makan siang terbaik pukul 12:00–13:00.'),
+((SELECT id_waktu FROM waktu_makan WHERE nama_waktu='Makan Malam'), NULL, (SELECT id_tujuan FROM tujuan WHERE nama_tujuan='Diet'), 'Makan malam sebaiknya sebelum jam 20:00 untuk menjaga metabolisme.'),
+(NULL, (SELECT id_minuman FROM minuman WHERE nama_minuman='Kopi'), NULL, 'Minum kopi sebaiknya antara pukul 09:00–11:00 pagi.'),
+(NULL, (SELECT id_minuman FROM minuman WHERE nama_minuman='Teh'), NULL, 'Teh dapat diminum pagi atau sore untuk relaksasi.'),
+(NULL, (SELECT id_minuman FROM minuman WHERE nama_minuman='Air Putih'), NULL, 'Minum air putih minimal 8 gelas sehari, terutama pagi dan sebelum tidur.'),
+(NULL, (SELECT id_minuman FROM minuman WHERE nama_minuman='Susu'), (SELECT id_tujuan FROM tujuan WHERE nama_tujuan='Diet Sehat'), 'Minum susu pagi atau malam untuk membantu pemulihan.');
+
+-- =========================================================
+-- 🔹 TABEL: tanya_tips_hidup_sehat
+-- =========================================================
+CREATE TABLE tanya_tips_hidup_sehat (
+    id_tips INT AUTO_INCREMENT PRIMARY KEY,
+    id_tujuan INT,
+    id_pengguna INT,
+    id_tempat INT,
+    id_kondisi INT,
+    id_zat INT,
+    id_aktivitas INT,
+    tips TEXT,
+    FOREIGN KEY (id_tujuan) REFERENCES tujuan(id_tujuan),
+    FOREIGN KEY (id_pengguna) REFERENCES kategori_pengguna(id_pengguna),
+    FOREIGN KEY (id_tempat) REFERENCES kategori_tempat(id_tempat),
+    FOREIGN KEY (id_kondisi) REFERENCES kondisi(id_kondisi),
+    FOREIGN KEY (id_zat) REFERENCES zat(id_zat),
+    FOREIGN KEY (id_aktivitas) REFERENCES aktivitas(id_aktivitas)
+) ENGINE=InnoDB;
+
+INSERT INTO tanya_tips_hidup_sehat (id_tujuan, id_pengguna, id_zat, tips) VALUES
+((SELECT id_tujuan FROM tujuan WHERE nama_tujuan='Diet Sehat'), NULL, NULL, 'Konsumsi makanan seimbang, hindari makanan olahan.'),
+(NULL, (SELECT id_pengguna FROM kategori_pengguna WHERE nama_pengguna='Mahasiswa'), NULL, 'Atur pola tidur dan perbanyak air putih.'),
+(NULL, (SELECT id_pengguna FROM kategori_pengguna WHERE nama_pengguna='Pekerja Kantoran'), NULL, 'Istirahat sejenak tiap 2 jam dan olahraga ringan.'),
+(NULL, (SELECT id_pengguna FROM kategori_pengguna WHERE nama_pengguna='Anak Kos'), NULL, 'Masak sederhana dan hindari makan instan terlalu sering.'),
+(NULL, NULL, (SELECT id_zat FROM zat WHERE nama_zat='Gula'), 'Kurangi konsumsi gula agar tidak cepat lelah.'),
+(NULL, NULL, (SELECT id_zat FROM zat WHERE nama_zat='Lemak'), 'Hindari gorengan dan pilih lemak sehat dari ikan atau alpukat.'),
+(NULL, NULL, NULL, 'Tidur cukup minimal 7 jam per malam untuk menjaga imun.');
+
